@@ -1,0 +1,952 @@
+@charset "UTF-8";
+
+.article {
+	margin-top: 150px;
+}
+
+/* header.jsp */
+* {
+	margin: 0;
+	padding: 0;
+}
+
+ul li, ol li {
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+	color: black;
+}
+
+body {
+	background: #E2E2E2;
+	min-height: 500px;
+}
+
+#wrap {
+	min-width: 1300px;
+	min-height: 500px;
+	overflow: auto;
+}
+
+/* 헤더 */
+header {
+	width: 100%;
+	height: 150px;
+	background: white;
+	position: fixed;
+	z-index: 10;
+}
+
+#top {
+	width: 1200px;
+	margin: 0 auto;
+	height: 150px;
+	left: 10%;
+}
+
+#top #login {
+	width: 1200px;
+	height: 50px;
+}
+
+#top #logo {
+	width: 1200px;
+	height: 100px;
+}
+
+#top #login nav#user_menu {
+	width: 630px;
+	height: 40px;
+	float: right;
+	margin-top: 3px;
+	margin-right: 15px;
+	text-align: center;
+	align-items: center;
+}
+
+#top #login nav#user_menu ul {
+	display: inline-block;
+	padding-top: 8px;
+}
+
+#top #login nav#user_menu ul li {
+	float: left;
+	margin-left: 15px;
+}
+
+#logo {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+#logo #logobox {
+	width: 200px;
+	height: 100px;
+	margin-left: 20px;
+}
+
+#logo #logobox img {
+	width: 200px;
+	height: 100px;
+	object-fit: cover;
+}
+
+#logo #menubox {
+	width: 60px;
+	height: 50px;
+	margin-right: 20px;
+}
+
+input[id="menuicon"] {
+	display: none;
+}
+
+input[id="menuicon"]+label {
+	display: block;
+	width: 60px;
+	height: 50px;
+	position: relative;
+	cursor: pointer;
+	color: white;
+}
+
+input[id="menuicon"]+label span {
+	display: block;
+	position: absolute;
+	width: 100%;
+	height: 5px;
+	border-radius: 30px;
+	background: #000;
+	transition: all .35s;
+}
+
+input[id="menuicon"]+label span:nth-child(1) {
+	top: 0;
+}
+
+input[id="menuicon"]+label span:nth-child(2) {
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+input[id="menuicon"]+label span:nth-child(3) {
+	bottom: 0;
+}
+
+input[id="menuicon"]:checked+label {
+	z-index: 2;
+}
+
+input[id="menuicon"]:checked+label span {
+	background: #fff;
+}
+
+input[id="menuicon"]:checked+label span:nth-child(1) {
+	top: 50%;
+	transform: translateY(-50%) rotate(45deg);
+}
+
+input[id="menuicon"]:checked+label span:nth-child(2) {
+	opacity: 0;
+}
+
+input[id="menuicon"]:checked+label span:nth-child(3) {
+	bottom: 50%;
+	transform: translateY(50%) rotate(-45deg);
+}
+
+div[class="sidebar"] {
+	width: 450px;
+	height: 100%;
+	background: #222;
+	position: fixed;
+	top: 0;
+	right: -450px;
+	z-index: 1;
+	transition: all .35s;
+	text-align: center;
+}
+
+input[id="menuicon"]:checked+label+div {
+	right: 0;
+}
+
+.accordion {
+	max-width: 400px;
+	margin-top: 160px;
+}
+
+.accordion .contentBx {
+	position: relative;
+	margin: 10px 20px;
+}
+
+.accordion .contentBx .label {
+	position: relative;
+	padding: 10px;
+	border-bottom: 1px dotted silver;
+	color: white;
+	cursor: pointer;
+}
+
+.accordion .contentBx .label a {
+	color: white;
+}
+
+.accordion .contentBx .label::before {
+	content: '+';
+	position: absolute;
+	top: 50%;
+	right: 20px;
+	transform: translateY(-50%);
+	font-size: 1.5em;
+}
+
+.accotrion .contentBx.active .label::before {
+	content: '-';
+}
+
+.accordion .contentBx .content {
+	position: relative;
+	background: #fff;
+	height: 0;
+	overflow: hidden;
+	transition: 0.5s;
+}
+
+.accordion .contentBx .content p {
+	height: 50px;
+	border: 1px dotted silver;
+	line-height: 50px;
+	cursor: pointer;
+	transition: all 0.5s;
+}
+
+.accordion .contentBx .content p:hover {
+	background: silver;
+}
+
+.accordion .contentBx .content p:hover a {
+	color: black;
+}
+
+.accordion .contentBx.active .content {
+	height: 150px;
+	padding: 10px;
+}
+
+.accordion .contentBx.active #content02{
+	height:50px;
+}
+
+.accordion .contentBx.active #content03 {
+	height: 250px;
+}
+
+.accordion .contentBx.active #content04 {
+	height: 120px;
+}
+
+.clear {
+	clear: both;
+}
+
+/* main.jsp */
+.page {
+	width: 100%;
+	height: 450px;
+}
+
+#page01 {
+	margin-top: 150px;
+	position: relative;
+}
+
+#page01 #ticketbox {
+	width: 1200px;
+	height: 450px;
+	margin: 0 auto;
+	display: flex;
+	position: relative;
+}
+
+#page01 #ticketbox #tickettitle {
+	width: 450px;
+	height: 450px;
+}
+
+#page01 #ticketbox #tickettitle #ticketname {
+	width: 450px;
+	height: 270px;
+	margin-top: 20px;
+	padding-top: 70px;
+}
+
+#page01 #ticketbox #tickettitle #ticketname strong {
+	font-size: 22px;
+	display: block;
+	width: 200px;
+	height: 50px;
+	border-bottom: 1px solid black;
+	text-align: center;
+}
+
+#page01 #ticketbox #tickettitle #ticketname p {
+	width: 450px;
+	height: 100px;
+	padding-top: 30px;
+	font-size: 18px;
+}
+
+#page01 #ticketbox #tickettitle #ticketname a {
+	width: 215px;
+	height: 60px;
+	border: 1px solid black;
+	display: block;
+	text-align: center;
+	font-size: 20px;
+	line-height: 60px;
+	transition: all 0.8s;
+}
+
+#page01 #ticketbox #tickettitle #ticketname a:hover {
+	background: silver;
+	color: black;
+}
+
+#page01 #ticketbox #ticketimage {
+	width: 750px;
+	height: 450px;
+	position: relative;
+	overflow: hidden;
+}
+
+#page01 #ticketbox #ticketimage #imgbox {
+	position: absolute;
+	width: 3800px;
+	height: 450px;
+	left: 0;
+	top: 0;
+}
+
+#page01 #ticketbox #ticketimage #imgbox img {
+	width: 750px;
+	height: 450px;
+	object-fit: contain;
+}
+
+#page01 #ticketbox #ticketimage #remot {
+	width: 30px;
+	height: 30px;
+	background: white;
+	position: absolute;
+	top: 0;
+	right: 0;
+	border-radius: 50%;
+	font-size: 22px;
+	text-align: center;
+	line-height: 30px;
+	z-index: 3;
+	cursor: pointer;
+}
+
+#page01 #ticketbox #ticketimage #lbutton {
+	position: absolute;
+	width: 30px;
+	height: 30px;
+	background: white;
+	bottom: 0;
+	left: 0;
+	border-radius: 50%;
+	font-size: 22px;
+	text-align: center;
+	line-height: 30px;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+#page01 #ticketbox #ticketimage #rbutton {
+	position: absolute;
+	width: 30px;
+	height: 30px;
+	background: white;
+	bottom: 0;
+	left: 5%;
+	border-radius: 50%;
+	font-size: 22px;
+	text-align: center;
+	line-height: 30px;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+#page01 #ticketbox #ticketimage #currentNum {
+	width: 90px;
+	height: 30px;
+	background: white;
+	position: absolute;
+	top: 0;
+	right: 0;
+	z-index: 2;
+	font-size: 18px;
+	line-height: 30px;
+	font-weight: bold;
+}
+
+/* 굿즈 슬라이드 이미지 */
+#page02 {
+	background: white;
+}
+
+#page02 #goodsbox {
+	width: 1200px;
+	height: 450px;
+	margin: 0 auto;
+}
+
+/* 문의 게시판 이동 */
+#page03 {
+	height: 300px;
+	position: relative;
+}
+
+#page03 #qnabox {
+	width: 1200px;
+	height: 300px;
+	margin: 0 auto;
+	position: relative;
+}
+
+#page03 #qnabox #topqna {
+	width: 1200px;
+	height: 80px;
+	padding-top: 50px;
+}
+
+#page03 #qnabox #topqna #qnaname {
+	width: 200px;
+	height: 50px;
+	border-bottom: 1px solid black;
+	margin-left: 120px;
+	text-align: center;
+	line-height: 50px;
+	font-size: 18px;
+}
+
+#page03 #qnabox #botqna {
+	width: 1200px;
+	height: 220px;
+	position: relative;
+	z-index: 2;
+}
+
+#page03 #qnabox #botqna #qnatext {
+	width: 1050px;
+	height: 120px;
+	margin-left: 120px;
+	font-size: 22px;
+}
+
+#page03 #qnabox #botqna a {
+	width: 120px;
+	height: 120px;
+	border-radius: 50%;
+	border: 1px solid black;
+	position: absolute;
+	left: 80%;
+	top: 0;
+	text-align: center;
+	line-height: 120px;
+	transition: all 0.8s;
+}
+
+#page03 #qnabox #botqna a:hover {
+	background: silver;
+	color: black;
+}
+
+/* footer */
+footer {
+	width: 100%;
+	height: 160px;
+	background: black;
+}
+
+footer #fotbox {
+	width: 650px;
+	height: 160px;
+	margin: 0 auto;
+}
+
+footer #fotbox #ftext {
+	width: 650px;
+	height: 100px;
+}
+
+footer #fotbox #ftext p {
+	color: white;
+	letter-spacing: 1px;
+	width: 520px;
+	height: 75px;
+	display: block;
+	margin: 0 auto;
+	padding-top: 5px;
+}
+
+footer #fotbox #fimg {
+	width: 450px;
+	height: 60px;
+	margin: 0 auto;
+}
+
+footer #fotbox #fimg ul {
+	display: inline-block;
+}
+
+footer #fotbox #fimg ul li {
+	width: 45px;
+	height: 45px;
+	float: left;
+	margin-left: 50px;
+}
+
+/* ticketingList */
+div#t_listBox {
+	width: 1330px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+div#t_listBox h2, div#t_listBox hr{
+	width: 1270px;
+	margin:0 auto;
+}
+
+table#t_list {
+	position: relative;
+	float: left;
+	margin-left: 30px;
+	margin-top: 30px;
+	width: 620px;
+	height: 400px;
+	border-collapse: collapse;
+	line-height: 2;
+	box-shadow: 3px 3px 5px 0px gray;
+}
+
+table#t_list th {
+	position: relative;
+	padding: 0px;
+	vertical-align: top;
+	width: 250px;
+	top: 30px;
+	font-weight: bold;
+}
+
+table#t_list td {
+	position: relative;
+	vertical-align: top;
+	padding: 0px;
+	top: 12px;
+	font-size: 15px;
+}
+
+table#list td#t_line {
+	border-left: 1px solid #464646;
+	padding: 10px;
+	vertical-align: top;
+	top: 12px;
+	position: relative;
+	font-size: 15px;
+}
+
+/* ticketShow */
+div#t_showBox {
+	width: 1600px;
+	margin: 0 auto;
+	overflow: heddin;
+	float: top;
+}
+
+div#t_showBox1{
+	margin-top: -385px;
+}
+
+table#t_showBox {
+	position: relative;
+	margin: 0;
+	padding: 0;
+	top: -145px;
+	/* top: -530px; */
+	width: 1000px;
+	margin: 0 auto;
+	color: white;
+	font-size: 15px;
+}
+
+table#t_showBox th {
+	width: 7%;
+	padding: 10px;
+	vertical-align: top;
+	top: 12px;
+	font-size: 12px;
+	text-align: left;
+	color: gray;
+}
+
+table#t_showBox th#t-boxline {
+	border-top: 1px solid gray;
+	border-bottom: 1px solid gray;
+}
+
+table#t_showBox td#img {
+	text-align: right;
+}
+
+table#t_showBox th#title {
+	font-size: 170%;
+	font-weight: bold;
+	color: white;
+}
+
+div#title1 {
+	width: 90%;
+	margin: 0 auto;
+}
+
+/*ticketingForm*/
+div#t_body {
+	width: 1600px;
+	height: 100%;
+	margin: 0 auto;
+	background-color: white;
+}
+
+div#t_mainbox {
+	width: 1300px;
+	height: 900px;
+	margin: 0 auto;
+}
+
+div#t_title {
+	width: 100%;
+	height: 130px;
+	top: 0px;
+}
+
+div#t_title1 {
+	width: 100%;
+	height: 100px;
+	top: 0px;
+	text-align: left;
+	font-size: 45px;
+	padding: 0px 50px;
+	line-height: 120px;
+	font-weight: bold;
+}
+
+div#t_title2 {
+	width: 100%;
+	height: 30px;
+	top: 0px;
+	text-align: left;
+	line-height: 30px;
+	padding: 0px 50px;
+	border-bottom: 2px solid black;
+}
+
+div#t_bodyleft {
+	position: relative;
+	width: 500px;
+	height: 600px;
+	margin-top: 0px;
+	float: left;
+	margin-right: 0px;
+}
+
+div#t_bodycenter {
+	position: relative;
+	width: 400px;
+	height: 600px;
+	margin-top: 0px;
+	margin-right: 0px;
+	left: 500px;
+}
+
+div#t_bodyright {
+	position: relative;
+	width: 400px;
+	height: 600px;
+	margin-top: -600px;
+	margin-right: 0px;
+	left: 900px;
+}
+
+div#t_bottom {
+	width: 1300px;
+	height: 200px;
+	margin-top: 50px;
+	margin-left: 500px;
+}
+
+div#t_bodyleft_i {
+	width: 400px;
+	height: 540px;
+	margin: 0 auto;
+	margin-top: 30px;
+}
+
+div#t_bodycenter_m {
+	width: 400px;
+	height: 250px;
+	margin-top: -570px;
+	float: left;
+}
+
+div#t_bodycenter_m1 {
+	width: 400px;
+	height: 340px;
+	margin-top: -350px;
+	float: left;
+}
+
+div#t_bodyright_c {
+	position: relative;
+	width: 400px;
+	height: 550px;
+	margin: 0 auto;
+	top: 50px;
+}
+
+table#reservation_time {
+	position: relative;
+	top: -630px;
+	left: 50px;
+}
+
+div#reservation_cho {
+	position: relative;
+	top: -106px;
+	left: 50px;
+}
+
+div#map {
+	position: relative;
+	top: -30px;
+	left: 0px
+}
+
+table#centerbax {
+	width: 400px;
+	font-size: 105%;
+}
+
+table#centerbax th {
+	vertical-align: top;
+	width: 80px;
+	text-align: left;
+}
+
+table#centerbax th#t_line {
+	border-bottom: 1px solid black;
+	border-top: 1px solid black;
+}
+
+table#centerbax td {
+	vertical-align: top;
+	text-align: left;
+	padding: 0px 20px;
+}
+
+/* ticketingCart */
+div#ticketingCart {
+	width: 900px;
+	height: 590px;
+	margin: 0 auto;
+}
+
+div#ticketingCartheader {
+	width: 650px;
+	height: 83px;
+	float: left;
+	background-color: #3b3b3b;
+	top: 3px;
+}
+
+div#ticketingCartheader div#t_top {
+	position: relative;
+	width: 150px;
+	height: 70px;
+	left: 200px;
+	float: left;
+	margin-right: 0px;
+	top: 13px;
+}
+
+div#ticketingCartbody {
+	width: 650px;
+	height: 510px;
+	margin-left: 0px;
+	float: left;
+	margin-right: 0px;
+	background-color: white;
+}
+
+div#ticketingCartbody div#t_title {
+	width: 100%;
+	height: 80px;
+	margin-left: 20px;
+	float: left;
+	margin-right: 0px;
+	line-height: 80px;
+	font-size: 25px;
+	font-weight: bold;
+}
+
+div#ticketingCartbody div#t_menu {
+	width: 300px;
+	height: 140px;
+	margin-left: 343px;
+	float: left;
+	margin-right: 0px;
+}
+
+div#ticketingCartbody div#t_menu1 {
+	width: 300px;
+	left: 343px;
+	margin-left: 90px;
+	margin-top: 5px;
+	font-size: 16px;
+	padding: 5px 0px 5px 0px;
+	font-weight: bold;
+}
+
+div#ticketingCartbody div#t_bottom {
+	width: 100%;
+	height: 250px;
+	margin-left: 0px;
+	float: left;
+	margin-right: 0px;
+	top: -20px;
+	margin-top: 30px;
+	font-size: 14px;
+}
+
+div#t_menubox {
+	width: 250px;
+	height: 590px;
+	margin-left: 650px;
+	background-color: #3b3b3b;
+	margin-top: -98px;
+}
+
+div#t_menubox div#t_img {
+	width: 200px;
+	height: 225px;
+	margin-left: 40px;
+	margin-top: 15px;
+}
+
+div#t_menubox div#t_menuboxx {
+	width: 250px;
+	height: 150px;
+	margin-top: 0px;
+}
+
+div#t_menubox div#t_button {
+	width: 250px;
+	height: 80px;
+	margin-top: 65px;
+}
+
+div#t_menu table {
+	position: relative;
+	left: 90px;
+	width: 200px;
+	height: 150px;
+	background-color: #E2E2E2
+}
+
+div#t_menu table th {
+	text-align: left;
+	vertical-align: top;
+	padding: 0px 5px 0px 5px;
+}
+
+div#t_menu table td {
+	text-align: right;
+	vertical-align: top;
+	padding: 0px 5px 0px 5px;
+}
+
+div#t_menubox div#t_menuboxx table {
+	top: 55px;
+	left: 10px;
+}
+
+div#t_menubox div#t_menuboxx1 table {
+	left: 10px;
+	top: 30px;
+}
+
+div#t_menubox div#t_menuboxx2 table {
+	left: 10px;
+	top: 50px;
+}
+
+table.t_tablemenubox {
+	position: relative;
+	width: 230px;
+	border-collapse: collapse;
+}
+
+table.t_tablemenubox th {
+	text-align: left;
+	padding: 0px 5px 0px 5px;
+	vertical-align: top;
+	color: white;
+	font-size: 12px;
+	padding: 1px 0 1px 0 1px;
+}
+
+table.t_tablemenubox td {
+	text-align: right;
+	padding: 0px 5px 0px 5px;
+	vertical-align: top;
+	color: white;
+	font-size: 12px;
+	padding: 1px 0 1px 0 1px;
+}
+
+div#t_bottom table {
+	position: relative;
+	border: 2px solid #4d6375;
+	border-collapse: collapse;
+	top: 55px;
+	width: 610px;
+	left: 23px;
+}
+
+div#t_bottom table th {
+	text-align: left;
+	padding: 0px 10px;
+	font-size: 15px;
+	border: 1px solid black;
+	background-color: #4d6375
+}
+
+div#t_bottom table td {
+	padding: 0px 5px;
+	font-size: 12px;
+}
+
+div#t_step3font {
+	font-size: 12px;
+	font-weight: bold;
+	color: red;
+	margin-top: -150px;
+	margin-left: 30px;
+}

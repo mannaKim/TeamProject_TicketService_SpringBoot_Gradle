@@ -1,0 +1,119 @@
+@charset "UTF-8";
+
+/* ------------sub_image_menu.jsp------------ */
+.mp_art {
+	margin: 160px 0 0px;
+}
+
+.mp_sub_box {
+	height: 100px;
+	width: 1200px;
+	margin: 0 auto;
+}
+
+.mp_sub_head {
+	font-size: 27pt;
+	font-weight: bold;
+	color: #2F4F4F;
+	width: 180px;
+	height: 50px;
+	margin: 0 auto;
+}
+
+.mp_ul {
+	margin-top: 30px;
+	font-size: 18px;
+	font-weight: bold;
+}
+
+.mp_ul li {
+	float: left;
+	width: 16.5%;
+	text-align: center;
+}
+
+.mp_ul li a:hover {
+	color: #2F4F4F
+}
+
+.mp_hr {
+	width: 1170px;
+	margin: 0 auto;
+	border: 0;
+	height: 2px;
+	background-color: #2F4F4F;
+}
+
+/* ------------checkPwd.jsp------------ */
+.chkPwdBox {
+	width: 600px;
+	text-align: center;
+	margin: 0 auto;
+	background-color: white;
+	border-radius: 5px;
+}
+
+.chkPwd table {
+	width: 300px;
+	margin: 0 auto;
+}
+
+/* ------------withdrawalForm.jsp------------ */
+.wdBox {
+	width: 1200px;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.wdBox h3 {
+	margin-bottom: 20px;
+	color: #2F4F4F
+}
+
+.wdBox p {
+	margin: 0 10px 10px;
+}
+
+.wdBox li {
+	margin: 5px;
+}
+
+.wdBox1 {
+	width: 600px;
+	margin: 0 auto;
+	background-color: white;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	border-radius: 5px;
+}
+
+.wdBox1 a:hover {
+	text-decoration: underline;
+	color: #2F4F4F
+}
+
+.wdBox2 {
+	width: 600px;
+	height: 170px;
+	margin: 0 auto;
+	background-color: white;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	border-radius: 5px;
+}
+
+.wdBox2 div {
+	width: 580px;
+	height: 100px;
+	background-color: #2F4F4F;
+	margin: 0 auto;
+	border-radius: 5px;
+}
+
+.wdBox2 li {
+	color: white;
+	float: left;
+	width: 280px;
+}
+
+/* ------------modifyMemberForm.jsp------------ */

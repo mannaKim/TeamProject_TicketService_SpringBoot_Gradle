@@ -1,0 +1,81 @@
+@charset "UTF-8";
+
+/* .mainBox { 
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+.contentBox{
+   text-align: center;
+   display: inline-block;
+   width: 978px; 
+   background-color: #fff;
+   margin-top: 50px;
+   margin-bottom: 10px;
+} */
+
+
+#calendar {
+   margin-bottom:50px; 
+   padding: 10px; 
+   width:250px; 
+   color: black; 
+   border: 1px solid #dcdcdc;
+   cursor:pointer   
+}
+#calendar td {
+   padding:10px;   
+}
+
+#selectedDate{
+   width: 300px;
+   height: 25px;
+   padding: 10px;
+   color: black;
+   font-size:18px;
+   background-color: #fff;
+   cursor:pointer;
+}
+
+#reservation_time td.top{
+   padding-bottom: 10px;
+   font-weight:700; font-size:25px;
+}
+
+
+#btn_submit{
+   margin: 0;
+   padding: 20px;
+   text-align: center;
+   text-decoration: none;
+   font-size: 25px; color:white;
+   background-color: black;
+   font-weight:700;
+   border: 1px solid black;
+   display: inline-block;
+   width: 300px;
+}
+#btn_submit:active{
+   margin: 0;
+   padding: 20px;
+   text-align: center;
+   text-decoration: none;
+   font-size: 25px; color:black;
+   background-color: white;
+   font-weight:700;
+   border: 1px solid black;
+   display: inline-block;
+   width: 300px;
+}
+/* #btn_submit:hover{
+   margin: 0;
+   padding: 20px;
+   text-align: center;
+   text-decoration: none;
+   font-size: 25px; color:black;
+   background-color: white;
+   font-weight:700;
+   border: 1px solid black;
+   display: inline-block;
+   width: 300px;
+} */

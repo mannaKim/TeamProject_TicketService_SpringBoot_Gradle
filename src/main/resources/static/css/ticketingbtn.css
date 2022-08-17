@@ -1,0 +1,120 @@
+@charset "UTF-8";
+
+.btn {cursor:pointer;}
+
+
+input[type=text]:focus {
+   background-color: #ace2f9;
+}
+
+.btnCancel {
+   text-decoration: none; text-align: center;
+   margin: 6px;
+   padding: 2px 2px; font-size: 13px; font-weight:bold; background-color: white; 
+   width: 70px; height: 10 px;
+   color: black;   padding: 5px 15px; display: inline-block; border: 1px solid black;
+}
+.btnCancel:active {
+   top: 1px; background-color: black; color:white; border-color: white; position: relative;
+}
+
+
+
+.btnCancel1 {
+   text-decoration: none; text-align: center;
+   margin: 0px;
+   font-size: 15px;
+   font-weight:bold; background-color: red;  width:80px; height: 30 px;
+   color: white; padding: 15px 16px; display: inline-block; border: 1px solid red;
+}
+.btnCancel1:active {
+   top: 0px; background-color: white; color:black; border-color: red; position: relative;
+}
+
+.btnCancel2 {
+   text-decoration: none; text-align: center;
+   margin-top: -2px;
+   font-size: 15px;
+   font-weight:bold; background-color: red;  width:195px; height: 50 px;
+   color: white; padding: 15px 16px; display: inline-block; border: 1px solid red;
+}
+.btnCancel2:active {
+   top: 0px; background-color: white; color:black; border-color: red; position: relative;
+}
+
+.endbtnCancel {
+   text-decoration: none; text-align: center;
+   margin: 6px; padding: 2px 2px; font-size: 13px; font-weight:bold; background-color: #ee3e15; 
+   width: 70px; height: 10 px; color: black; padding: 5px 15px; display: inline-block; border: 1px solid black;
+}   
+.startbtnCancel {
+   text-decoration: none; text-align: center;
+   margin: 6px; padding: 2px 2px; font-size: 13px; font-weight:bold; background-color: skyblue; 
+   width: 70px; height: 10 px; color: black; padding: 5px 15px; display: inline-block; border: 1px solid black;
+}   
+
+
+#btn_ticket{
+   margin: 0;
+   text-align: center;
+   text-decoration: none;
+   font-size: 15px; color:#ffffff;
+   background-color: #3484c9;
+   font-weight:bold;
+   border: none;
+   display: inline-block;
+   width: 100%;
+   height: 50px;
+}
+
+#btn_ticket:hover{
+   margin: 0;
+   text-align: center;
+   text-decoration: none;
+   font-size: 15px; color:#000000;
+   background-color: #ffffff;
+   font-weight:bold;
+   border: 1px solid #000000;
+   display: inline-block;
+   width: 100%;
+   height: 50px;
+}
+
+#btn_ticket1{
+   margin-left:0;
+   margin: 0;
+   text-align: center;
+   text-decoration: none;
+   font-size: 15px; color:#ffffff;
+   background-color: #3484c9;
+   font-weight:bold;
+   border: none;
+   display: inline-block;
+   width: 48%;
+   height: 50px;
+}
+
+#btn_ticket1:hover{
+   margin-left:0;
+   margin: 0;
+   text-align: center;
+   text-decoration: none;
+   font-size: 15px; color:#000000;
+   background-color: #ffffff;
+   font-weight:bold;
+   border: 1px solid #000000;
+   display: inline-block;
+   width: 48%;
+   height: 50px;
+}
+
+.btnCancel2 {
+	text-decoration: none; text-align: center;
+	margin-top: -2px;
+	font-size: 15px;
+	font-weight:bold; background-color: red;  width:195px; height: 50 px;
+	color: white; padding: 15px 16px; display: inline-block; border: 1px solid red;
+}
+.btnCancel2:active {
+	top: 0px; background-color: white; color:black; border-color: red; position: relative;
+}
