@@ -77,3 +77,13 @@ BEGIN
             ) WHERE rn>=p_startNum
         ) WHERE rn<=p_endNum;
 END;
+
+
+create or replace PROCEDURE getGoods(
+    p_gseq IN tp_goods.gseq%TYPE,
+    p_curvar OUT SYS_REFCURSOR
+)
+IS
+BEGIN
+    OPEN p_curvar FOR SELECT * FROM tp_goods WHERE gseq=p_gseq;
+END;

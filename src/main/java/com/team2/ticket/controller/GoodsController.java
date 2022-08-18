@@ -111,4 +111,22 @@ public class GoodsController {
 		return mav;
 	}
 	
+	@RequestMapping("/goodsDetail")
+	public ModelAndView goods_detail(@RequestParam("gseq") int gseq) {
+		ModelAndView mav = new ModelAndView();
+		
+		HashMap<String, Object> paramMap = new HashMap<String, Object>();
+		paramMap.put("gseq", gseq);
+		paramMap.put("ref_cursor", null);
+		
+		gs.getGoods(paramMap);
+		
+		ArrayList<HashMap<String, Object>> list
+			= (ArrayList<HashMap<String, Object>>)paramMap.get("ref_cursor");
+		HashMap<String, Object> resultMap = list.get(0);
+		
+		mav.addObject("goodsVO", resultMap);
+		mav.setViewName("goods/goodsDetail");
+		return mav;
+	}
 }

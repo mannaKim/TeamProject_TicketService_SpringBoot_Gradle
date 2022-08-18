@@ -1,7 +1,13 @@
-function count(num){
+function count(num, numOfInven){
 	let q = document.goodsFrm.quantity.value;
 	if(num==-1 && q>1) q--;
-	else if (num==1) q++;
+	else if (num==1) {
+		if(q >= numOfInven){
+			alert("구매 가능 수량을 초과했습니다.");
+			return;
+		}
+		q++;
+	}
 	document.goodsFrm.quantity.value = q;
 }
 

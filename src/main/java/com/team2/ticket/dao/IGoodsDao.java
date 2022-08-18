@@ -16,4 +16,6 @@ public interface IGoodsDao {
 	void getGoodsSearchCount(HashMap<String, Object> cntMap);
 
 	void getGoodsSearchList(HashMap<String, Object> paramMap);
+
+	void getGoods(HashMap<String, Object> paramMap);
 }

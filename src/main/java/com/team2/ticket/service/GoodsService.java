@@ -46,4 +46,8 @@ public class GoodsService {
 		gdao.getGoodsSearchList(paramMap);
 		paramMap.put("paging", paging);
 	}
+
+	public void getGoods(HashMap<String, Object> paramMap) {
+		gdao.getGoods(paramMap);
+	}
 }
