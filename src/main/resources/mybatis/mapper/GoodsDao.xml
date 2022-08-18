@@ -17,4 +17,22 @@
 		}
 	</select>
 	
+	<select id="getGoodsKindCount" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			CALL getGoodsKindCount(
+				#{kind},
+				#{cnt, mode=OUT, jdbcType=INTEGER}
+			)
+		}
+	</select>
+	
+	<select id="getGoodsKindList" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			CALL getGoodsKindList(
+				#{kind}, #{startNum}, #{endNum},
+				#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=goodsMap}
+			)
+		}
+	</select>
+	
 </mapper>

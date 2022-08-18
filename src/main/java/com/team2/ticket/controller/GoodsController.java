@@ -37,4 +37,37 @@ public class GoodsController {
 		
 		return "goods/goodsMain";
 	}
+	
+	@RequestMapping("/goodsCategory")
+	public ModelAndView category(HttpServletRequest request, @RequestParam("kind") String kind) {
+		ModelAndView mav = new ModelAndView();
+		
+		int page = 1;
+		HttpSession session = request.getSession();
+		if(request.getParameter("page")!=null) {
+			page = Integer.parseInt(request.getParameter("page"));
+			session.setAttribute("page", page);
+		}else if(session.getAttribute("page")!=null) {
+			page = (Integer)session.getAttribute("page");
+		}else {
+			session.removeAttribute("page");
+		}
+		
+		HashMap<String, Object> paramMap = new HashMap<String, Object>();
+		paramMap.put("ref_cursor", null);
+		paramMap.put("kind", kind);
+		
+		gs.getGoodsKindList(paramMap, page);		
+		ArrayList<HashMap<String, Object>> list
+			= (ArrayList<HashMap<String, Object>>)paramMap.get("ref_cursor");
+		
+		String [] goodsKindList = {"","문구","디지털","가방 · 파우치","취미용품","패션 · 잡화"};
+		
+		mav.addObject("goodsKind", goodsKindList[Integer.parseInt(kind)]);
+		mav.addObject("goodsCategoryList", list);
+		mav.addObject("kind", kind);
+		mav.addObject("paging", (Paging)paramMap.get("paging"));
+		mav.setViewName("goods/goodsCategory");
+		return mav;
+	}
 }

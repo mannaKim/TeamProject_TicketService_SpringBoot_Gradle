@@ -8,5 +8,8 @@ import org.apache.ibatis.annotations.Mapper;
 public interface IGoodsDao {
 
 	void getBestNewGoods(HashMap<String, Object> paramMap);
+	
+	void getGoodsKindCount(HashMap<String, Object> cntMap);
 
+	void getGoodsKindList(HashMap<String, Object> paramMap);
 }
