@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.team2.ticket.dao.IGoodsDao">
+	
+	<resultMap type="java.util.HashMap" id="goodsMap"></resultMap>
+	<resultMap type="java.util.HashMap" id="goodsMap2"></resultMap>
+	
+	<select id="getBestNewGoods" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			CALL getBestNewGoods(
+				#{ref_cursor1, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=goodsMap},
+				#{ref_cursor2, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=goodsMap2}
+			)
+		}
+	</select>
+	
+</mapper>

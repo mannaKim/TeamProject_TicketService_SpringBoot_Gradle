@@ -97,7 +97,7 @@ values(goods_seq.nextVal,'본투리드 카드지갑','5',1,7000,11800,4800,
 create or replace view new_goods_view
 as
 select * from
-(select rownum,gseq,name,price2,image from goods where useyn='y' order by indate desc)
+(select rownum,gseq,name,price2,image from tp_goods where useyn='y' order by indate desc)
 where rownum<=4;
 
 select * from new_goods_view;
@@ -106,7 +106,7 @@ select * from new_goods_view;
 create or replace view best_goods_view
 as
 select * from
-(select rownum,gseq,name,price2,image from goods where bestyn='y' order by indate desc)
+(select rownum,gseq,name,price2,image from tp_goods where bestyn='y' order by indate desc)
 where rownum<=4;
 
 select * from best_goods_view;

@@ -70,7 +70,7 @@ div#goods_remot ul li {
 	left: 10px;
 	cursor: pointer;
 	overflow: hidden;
-	background-image: url(../goods/goods_images/sub_images/left.png);
+	background-image: url(/goods_images/sub_images/left.png);
 	background-size: 60px 60px;
 	background-position: center center;
 	background-color: rgba(0, 0, 0, 0.2);
@@ -86,7 +86,7 @@ div#goods_remot ul li {
 	left: 1070px;
 	cursor: pointer;
 	overflow: hidden;
-	background-image: url(../goods/goods_images/sub_images/right.png);
+	background-image: url(/goods_images/sub_images/right.png);
 	background-size: 60px 60px;
 	background-position: center center;
 	background-color: rgba(0, 0, 0, 0.2);
@@ -136,7 +136,7 @@ div#goods_remot ul li {
 }
 
 .goods_searchBtn input[type=submit] {
-	background-image: url('../goods/goods_images/sub_images/search.png');
+	background-image: url('/goods_images/sub_images/search.png');
 	background-repeat: no-repeat;
 	background-color: white;
 	width: 40px;
