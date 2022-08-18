@@ -12,4 +12,8 @@ public interface IGoodsDao {
 	void getGoodsKindCount(HashMap<String, Object> cntMap);
 
 	void getGoodsKindList(HashMap<String, Object> paramMap);
+
+	void getGoodsSearchCount(HashMap<String, Object> cntMap);
+
+	void getGoodsSearchList(HashMap<String, Object> paramMap);
 }

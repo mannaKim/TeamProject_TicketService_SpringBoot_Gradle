@@ -43,3 +43,37 @@ BEGIN
             ) WHERE rn>=p_startNum
         ) WHERE rn<=p_endNum;
 END;
+
+
+create or replace PROCEDURE getGoodsSearchCount(
+    p_key IN tp_goods.name%TYPE,
+    P_cnt OUT NUMBER
+)
+IS
+    v_cnt NUMBER;
+BEGIN
+    SELECT COUNT(*) INTO v_cnt 
+     FROM tp_goods
+    WHERE name LIKE '%'||p_key||'%' AND useyn='y';
+    p_cnt := v_cnt;
+END;
+
+
+create or replace PROCEDURE getGoodsSearchList(
+    p_key IN tp_goods.name%TYPE,
+    p_startNum IN NUMBER,
+    p_endNum IN NUMBER,
+    p_curvar OUT SYS_REFCURSOR
+)
+IS
+BEGIN
+    OPEN p_curvar FOR
+        SELECT * FROM (
+            SELECT * FROM (
+                SELECT rownum AS rn, g.* FROM (
+                    (SELECT * FROM tp_goods 
+                    WHERE name LIKE '%'||p_key||'%' AND useyn='y'
+                    ORDER BY indate DESC) g)
+            ) WHERE rn>=p_startNum
+        ) WHERE rn<=p_endNum;
+END;

@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -70,4 +71,44 @@ public class GoodsController {
 		mav.setViewName("goods/goodsCategory");
 		return mav;
 	}
+	
+	@RequestMapping(value="/goodsSearch", method=RequestMethod.POST)
+	public ModelAndView goods_search(HttpServletRequest request) {
+		ModelAndView mav = new ModelAndView();
+		HttpSession session = request.getSession();
+		
+		int page = 1;
+		if(request.getParameter("page")!=null) {
+			page = Integer.parseInt(request.getParameter("page"));
+			session.setAttribute("page", page);
+		}else if(session.getAttribute("page")!=null) {
+			page = (Integer)session.getAttribute("page");
+		}else {
+			session.removeAttribute("page");
+		}
+		
+		String key = "";
+		if(request.getParameter("key")!=null) {
+			key = request.getParameter("key");
+			session.setAttribute("key", key);
+		}else if(session.getAttribute("key")!=null) {
+			key = (String)session.getAttribute("key");
+		}else {
+			session.removeAttribute("key");
+		}
+		
+		HashMap<String,Object> paramMap = new HashMap<String,Object>();
+		paramMap.put("ref_cursor", null);
+		paramMap.put("key", key);
+		gs.getGoodsSearchList(paramMap, page);
+		ArrayList<HashMap<String,Object>> list
+			= (ArrayList<HashMap<String,Object>>)paramMap.get("ref_cursor");
+		
+		mav.addObject("goodsSearchList", list);
+		mav.addObject("paging", (Paging)paramMap.get("paging"));
+		mav.addObject("key", key);
+		mav.setViewName("goods/goodsSearch");
+		return mav;
+	}
+	
 }

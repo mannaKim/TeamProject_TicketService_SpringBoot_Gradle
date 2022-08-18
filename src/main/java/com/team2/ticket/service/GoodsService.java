@@ -31,4 +31,19 @@ public class GoodsService {
 		gdao.getGoodsKindList(paramMap);
 		paramMap.put("paging", paging);
 	}
+
+	public void getGoodsSearchList(HashMap<String, Object> paramMap, int page) {
+		Paging paging = new Paging();
+		paging.setPage(page);
+		paramMap.put("cnt", 0);
+		gdao.getGoodsSearchCount(paramMap);
+		paging.setTotalCount(Integer.parseInt(paramMap.get("cnt").toString()));
+		
+		paging.paging();
+		paramMap.put("startNum", paging.getStartNum());
+		paramMap.put("endNum", paging.getEndNum());
+		
+		gdao.getGoodsSearchList(paramMap);
+		paramMap.put("paging", paging);
+	}
 }
