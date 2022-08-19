@@ -1,3 +1,5 @@
+DROP TABLE tp_goods CASCADE CONSTRAINTS;
+
 CREATE TABLE tp_goods
 (
 	gseq number(5) NOT NULL,
@@ -17,8 +19,8 @@ CREATE TABLE tp_goods
 );
 
 
-drop sequence tp_goods_seq;
-create sequence tp_goods_seq start with 1;
+drop sequence goods_seq;
+create sequence goods_seq start with 1;
 
 select * from tp_goods;
 

@@ -18,4 +18,12 @@ public interface IGoodsDao {
 	void getGoodsSearchList(HashMap<String, Object> paramMap);
 
 	void getGoods(HashMap<String, Object> paramMap);
+
+	void listGoodsCart(HashMap<String, Object> paramMap);
+
+	void updateGoodsCart(String id, int gseq, int quantity);
+
+	void insertGoodsCart(String id, int gseq, int quantity);
+
+	void deleteGoodsCart(int gcseq);
 }

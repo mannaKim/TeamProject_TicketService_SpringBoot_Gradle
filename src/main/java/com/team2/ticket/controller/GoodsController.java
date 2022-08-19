@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.team2.ticket.dto.MemberVO;
 import com.team2.ticket.dto.Paging;
 import com.team2.ticket.service.GoodsService;
 
@@ -128,5 +129,78 @@ public class GoodsController {
 		mav.addObject("goodsVO", resultMap);
 		mav.setViewName("goods/goodsDetail");
 		return mav;
+	}
+	
+	// 장바구니
+	@RequestMapping("/goodsCartInsert")
+	public String goods_cart_insert(HttpServletRequest request,
+			@RequestParam("gseq") int gseq,
+			@RequestParam("quantity") int quantity) {
+		HttpSession session = request.getSession();
+		MemberVO loginUser
+			= (MemberVO)session.getAttribute("loginUser");
+		if(loginUser == null)
+			return "member/loginForm";
+		else {
+			gs.insertGoodsCart(loginUser.getId(), gseq, quantity);
+		}
+		return "redirect:/goodsCartList";
+	}
+	
+	@RequestMapping("/goodsCartList")
+	public ModelAndView goods_cart_list(HttpServletRequest request) {
+		ModelAndView mav = new ModelAndView();
+		HttpSession session = request.getSession();
+		MemberVO loginUser
+			= (MemberVO)session.getAttribute("loginUser");
+		if(loginUser == null)
+			mav.setViewName("member/loginForm");
+		else {
+			HashMap<String, Object> paramMap = new HashMap<String, Object>();
+			paramMap.put("id", loginUser.getId());
+			paramMap.put("ref_cursor", null);
+			gs.listGoodsCart(paramMap);
+			ArrayList<HashMap<String,Object>> cartList
+				= (ArrayList<HashMap<String,Object>>)paramMap.get("ref_cursor");
+			
+			// 카트에서 수량조절을 위해 getGoods메서드로 재고를 가져옴
+			for(int i=0; i<cartList.size(); i++) {
+				HashMap<String,Object> cart = cartList.get(i);
+				HashMap<String, Object> pMap = new HashMap<String, Object>();
+				pMap.put("gseq", cart.get("GSEQ"));
+				pMap.put("ref_cursor", null);
+				gs.getGoods(pMap);
+				ArrayList<HashMap<String, Object>> goods
+					= (ArrayList<HashMap<String, Object>>)pMap.get("ref_cursor");
+				HashMap<String, Object> goodsDetail = goods.get(0);
+				cart.put("NUM_INVENTORY", goodsDetail.get("NUM_INVENTORY"));
+				cartList.set(i, cart);
+			}
+			
+			int totalPrice = 0;
+			for(HashMap<String,Object> cart : cartList) {
+				totalPrice += Integer.parseInt(cart.get("QUANTITY").toString())
+									* Integer.parseInt(cart.get("PRICE").toString());
+			}
+			
+			mav.addObject("goodsCartList", cartList);
+			mav.addObject("totalPrice", totalPrice);
+			mav.setViewName("mypage/goodsCartList");
+		}
+		return mav;
+	}
+	
+	@RequestMapping("/goodsCartDelete")
+	public String goods_cart_delete(HttpServletRequest request,
+			@RequestParam("gcseq") int [] gcseqArr) {
+		HttpSession session = request.getSession();
+		MemberVO loginUser
+			= (MemberVO)session.getAttribute("loginUser");
+		if(loginUser == null)
+			return "member/loginForm";
+		else {
+			gs.deleteGoodsCart(gcseqArr);
+		}
+		return "redirect:/goodsCartList";
 	}
 }

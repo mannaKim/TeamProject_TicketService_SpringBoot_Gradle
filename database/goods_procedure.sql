@@ -87,3 +87,27 @@ IS
 BEGIN
     OPEN p_curvar FOR SELECT * FROM tp_goods WHERE gseq=p_gseq;
 END;
+
+
+create or replace PROCEDURE insertGoodsCart(
+    p_id IN goods_cart.id%TYPE,
+    p_gseq IN goods_cart.gseq%TYPE,
+    p_quantity IN goods_cart.quantity%TYPE
+)
+IS
+BEGIN
+    INSERT INTO goods_cart(gcseq, quantity, id, gseq)
+    VALUES(goods_cart_seq.nextVal, p_quantity, p_id, p_gseq);
+    COMMIT;
+END;
+
+
+create or replace PROCEDURE listGoodsCart(
+    p_id IN goods_cart_view.id%TYPE,
+    p_curvar OUT SYS_REFCURSOR
+)
+IS
+BEGIN
+    OPEN p_curvar FOR 
+        SELECT * FROM goods_cart_view WHERE id=p_id;
+END;

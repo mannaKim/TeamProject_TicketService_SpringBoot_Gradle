@@ -61,5 +61,28 @@
 			)
 		}
 	</select>
+		
+	<select id="listGoodsCart" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			CALL listGoodsCart(
+				#{id},
+				#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=goodsMap}
+			)
+		}
+	</select>
+	
+	<update id="updateGoodsCart">
+		UPDATE goods_cart SET quantity=#{param3}
+		WHERE id=#{param1} AND gseq=#{param2}
+	</update>
+	
+	<insert id="insertGoodsCart">
+		INSERT INTO goods_cart(gcseq, id, gseq, quantity)
+    	VALUES(goods_cart_seq.nextVal, #{param1}, #{param2}, #{param3})
+	</insert>
+	
+	<delete id="deleteGoodsCart">
+		delete from goods_cart where gcseq=#{param1}
+	</delete>
 	
 </mapper>

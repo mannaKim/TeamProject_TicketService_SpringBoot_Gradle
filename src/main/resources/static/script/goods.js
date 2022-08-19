@@ -12,13 +12,18 @@ function count(num, numOfInven){
 }
 
 function go_Gcart(){
-	document.goodsFrm.action="ticket.do?command=goodsCartInsert";
+	document.goodsFrm.action="goodsCartInsert";
 	document.goodsFrm.submit();
 }
 
-function changeQuantity(num,gseq,quantity){
+function changeQuantity(num, gseq, quantity, numOfInven){
 	if(num==-1 && quantity<=1) return;
-	let url = "ticket.do?command=goodsCartInsert&gseq="+gseq+"&quantity="+num;
+	if(num==1 && quantity>=numOfInven){
+		alert("구매 가능 수량을 초과했습니다.");
+		return;
+	}
+	let update_quantity = quantity + num;
+	let url = "goodsCartInsert?gseq="+gseq+"&quantity="+update_quantity;
 	location.href = url;
 }
 
@@ -34,7 +39,7 @@ function go_Gcart_delete(){
 	if(count==0)
 		alert("삭제할 상품을 선택하세요.");
 	else{
-		document.goodsCartFrm.action="ticket.do?command=goodsCartDelete";
+		document.goodsCartFrm.action="goodsCartDelete";
 		document.goodsCartFrm.submit();
 	}
 }
@@ -51,7 +56,7 @@ function go_Gorder_insert(){
 	if(count==0)
 		alert("구입할 상품을 선택하세요.");
 	else{
-		document.goodsCartFrm.action="ticket.do?command=goodsOrderInsertList";
+		document.goodsCartFrm.action="goodsOrderInsertList";
 		document.goodsCartFrm.submit();
 	}
 }

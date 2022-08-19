@@ -56,9 +56,10 @@
 					</c:if>
 				</table>
 				<div class="goodsButton">
-					<input type="button" value="장바구니" class="goodsButton2"
-						onClick="go_Gcart();"> <input type="button" value="즉시구매"
-						class="goodsButton1" onClick="go_Gorder();">
+					<input type="button" value="장바구니" class="goodsButton2" 
+						onClick="go_Gcart()">
+					<input type="button" value="즉시구매" class="goodsButton1" 
+						onClick="go_Gorder();">
 				</div>
 			</div>
 		</form>
