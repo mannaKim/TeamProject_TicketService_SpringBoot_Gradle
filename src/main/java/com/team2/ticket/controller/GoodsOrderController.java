@@ -18,6 +18,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.team2.ticket.dto.GoodsOrderVO;
 import com.team2.ticket.dto.MemberVO;
+import com.team2.ticket.dto.Paging;
 import com.team2.ticket.service.GoodsOrderService;
 import com.team2.ticket.service.GoodsService;
 
@@ -210,5 +211,76 @@ public class GoodsOrderController {
 			}
 		}
 		return url;
+	}
+	
+	@RequestMapping("/allGoodsOrderList")
+	public ModelAndView all_goods_order_list(HttpServletRequest request) {
+		ModelAndView mav =  new ModelAndView();
+		HttpSession session = request.getSession();
+		MemberVO loginUser
+			= (MemberVO)session.getAttribute("loginUser");
+		if(loginUser == null)
+			mav.setViewName("member/loginForm");
+		else {
+			int page = 1;
+			if(request.getParameter("page")!=null) {
+				page = Integer.parseInt(request.getParameter("page"));
+				session.setAttribute("page", page);
+			}else if(session.getAttribute("page")!=null) {
+				page = (Integer)session.getAttribute("page");
+			}else {
+				session.removeAttribute("page");
+			}
+			
+			HashMap<String,Object> paramMap = new HashMap<String,Object>();
+			paramMap.put("id", loginUser.getId());
+			paramMap.put("ref_cursor", null);
+			os.listGoodsOrderAll(paramMap, page);
+			
+			ArrayList<HashMap<String, Object>> finalList
+				= (ArrayList<HashMap<String, Object>>)paramMap.get("finalList");
+			mav.addObject("allGoodsOrderList", finalList);
+			
+			mav.addObject("title", "전체 주문 내역");
+			mav.addObject("paging", (Paging)paramMap.get("paging"));
+			mav.setViewName("mypage/allGoodsOrderList");
+		}
+		return mav;
+	}
+	
+	@RequestMapping("/goodsOrderDetail")
+	public ModelAndView goods_order_detail(HttpServletRequest request,
+			@RequestParam("goseq") int goseq) {
+		ModelAndView mav =  new ModelAndView();
+		HttpSession session = request.getSession();
+		MemberVO loginUser
+			= (MemberVO)session.getAttribute("loginUser");
+		if(loginUser == null)
+			mav.setViewName("member/loginForm");
+		else {
+			HashMap<String, Object> paramMap = new HashMap<String, Object>();
+			paramMap.put("goseq", goseq);
+			paramMap.put("ref_cursor", null);
+			os.listGoodsOrder(paramMap);
+			
+			ArrayList<HashMap<String, Object>> list
+				= (ArrayList<HashMap<String, Object>>)paramMap.get("ref_cursor");
+			
+			int totalPrice = 0;
+			for(HashMap<String,Object> order : list) {
+				totalPrice += Integer.parseInt(order.get("QUANTITY").toString())
+									* Integer.parseInt(order.get("PRICE").toString());
+			}
+			
+			int payment = Integer.parseInt(list.get(0).get("PAYMENT").toString());
+			String [] paymentList = {"신용카드","휴대폰결제","계좌이체","가상계좌"};
+			
+			mav.addObject("payment", paymentList[payment]);
+			mav.addObject("goodsOrderList", list);
+			mav.addObject("totalPrice", totalPrice);
+			mav.addObject("goodsOrderDetail", list.get(0));
+			mav.setViewName("mypage/goodsOrderDetail");
+		}
+		return mav;
 	}
 }

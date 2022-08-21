@@ -55,4 +55,22 @@
 		}
 	</insert>
 	
+	<select id="getGoodsOrderCount" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			CALL getGoodsOrderCount(
+				#{id},
+				#{cnt, mode=OUT, jdbcType=INTEGER}
+			)
+		}
+	</select>
+	
+	<select id="listGoodsOrderById" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			CALL listGoodsOrderById(
+				#{id}, #{startNum}, #{endNum},
+				#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=orderMap}
+			)
+		}
+	</select>
+	
 </mapper>

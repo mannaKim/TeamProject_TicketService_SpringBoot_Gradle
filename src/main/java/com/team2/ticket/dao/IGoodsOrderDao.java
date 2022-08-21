@@ -17,4 +17,8 @@ public interface IGoodsOrderDao {
 
 	void insertGoodsOrderOne(HashMap<String, Object> paramMap);
 
+	void getGoodsOrderCount(HashMap<String, Object> paramMap);
+
+	void listGoodsOrderById(HashMap<String, Object> paramMap);
+
 }

@@ -106,3 +106,37 @@ BEGIN
     -- 예외처리
     EXCEPTION WHEN OTHERS THEN ROLLBACK;
 END;
+
+
+create or replace PROCEDURE getGoodsOrderCount(
+    p_id IN tp_member.id%TYPE,
+    P_cnt OUT NUMBER
+)
+IS
+    v_cnt NUMBER;
+BEGIN
+    SELECT COUNT(*) INTO v_cnt 
+    FROM goods_orders
+    WHERE id=p_id;
+    p_cnt := v_cnt;
+END;
+
+
+create or replace PROCEDURE listGoodsOrderById(
+    p_id IN tp_member.id%TYPE,
+    p_startNum IN NUMBER,
+    p_endNum IN NUMBER,
+    p_curvar OUT SYS_REFCURSOR
+)
+IS
+BEGIN
+    OPEN p_curvar FOR 
+        SELECT * FROM (
+            SELECT * FROM (
+                SELECT rownum AS rn, o.* FROM (
+                    (SELECT DISTINCT goseq
+                    FROM (SELECT goseq, id, result FROM goods_order_view ORDER BY result DESC, goseq DESC)
+                    WHERE id=p_id) o)
+            ) WHERE rn>=p_startNum
+        ) WHERE rn<=p_endNum;
+END;
