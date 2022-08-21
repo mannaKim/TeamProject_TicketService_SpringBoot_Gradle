@@ -1,5 +1,9 @@
 function count(num, numOfInven){
 	let q = document.goodsFrm.quantity.value;
+	if(numOfInven == 0){
+		alert("품절된 상품입니다.");
+		return;
+	}
 	if(num==-1 && q>1) q--;
 	else if (num==1) {
 		if(q >= numOfInven){
@@ -11,12 +15,20 @@ function count(num, numOfInven){
 	document.goodsFrm.quantity.value = q;
 }
 
-function go_Gcart(){
+function go_Gcart(numOfInven){
+	if(numOfInven == 0){
+		alert("품절된 상품입니다.");
+		return;
+	}
 	document.goodsFrm.action="goodsCartInsert";
 	document.goodsFrm.submit();
 }
 
 function changeQuantity(num, gseq, quantity, numOfInven){
+	if(numOfInven == 0){
+		alert("품절된 상품입니다.");
+		return;
+	}
 	if(num==-1 && quantity<=1) return;
 	if(num==1 && quantity>=numOfInven){
 		alert("구매 가능 수량을 초과했습니다.");
@@ -55,13 +67,19 @@ function go_Gorder_insert(){
 	}
 	if(count==0)
 		alert("구입할 상품을 선택하세요.");
+	else if(document.goodsCartFrm.soldout.value=="1")
+		alert("품절된 상품이 있습니다. 품절 상품을 제외하고 구입할 상품을 선택하세요.");
 	else{
-		document.goodsCartFrm.action="goodsOrderInsertList";
+		document.goodsCartFrm.action="goodsOrderCheck";
 		document.goodsCartFrm.submit();
 	}
 }
 
-function go_Gorder(){
-	document.goodsFrm.action="ticket.do?command=goodsOrderInsert";
+function go_Gorder(numOfInven){
+	if(numOfInven == 0){
+		alert("품절된 상품입니다.");
+		return;
+	}
+	document.goodsFrm.action="goodsOrderCheckOne";
 	document.goodsFrm.submit();
 }

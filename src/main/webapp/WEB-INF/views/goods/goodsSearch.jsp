@@ -19,7 +19,12 @@
 							<img src="/goods_images/${gvo.IMAGE}">
 						</a> 
 						<a href="goodsDetail?gseq=${gvo.GSEQ}">
-							<h2>${gvo.NAME}</h2>
+							<c:choose>
+								<c:when test="${gvo.NUM_INVENTORY==0}">
+									<h2 style="text-decoration: line-through;">[품절] ${gvo.NAME}</h2>
+								</c:when>
+								<c:otherwise><h2>${gvo.NAME}</h2></c:otherwise>
+							</c:choose>
 						</a>
 						<h3>
 							<fmt:formatNumber value="${gvo.PRICE2}" type="currency" />

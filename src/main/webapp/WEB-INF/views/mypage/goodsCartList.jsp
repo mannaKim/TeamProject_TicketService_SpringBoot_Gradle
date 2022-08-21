@@ -38,18 +38,33 @@
 									</td>
 									<td width="500">
 										<a href="goodsDetail?gseq=${gcvo.GSEQ}">
-											${gcvo.GNAME}
+											<c:choose>
+												<c:when test="${gcvo.NUM_INVENTORY==0}">
+													<del>[품절] ${gcvo.GNAME}</del>
+													<input type="hidden" name="soldout" value="1">
+												</c:when>
+												<c:when test="${gcvo.NUM_INVENTORY<gcvo.QUANTITY}">
+													${gcvo.GNAME}<br>
+													<span style="color: red;">
+														남은 재고 : ${gcvo.NUM_INVENTORY}<br>
+														재고에 맞게 구매 수량을 조절하세요.
+													</span>
+													<input type="hidden" name="soldout" value="1">
+												</c:when>
+												<c:otherwise>
+													${gcvo.GNAME}
+													<input type="hidden" name="soldout" value="0">
+												</c:otherwise>
+											</c:choose>
 										</a>
 									</td>
 									<td width="100">
 										<fmt:formatNumber value="${gcvo.PRICE*gcvo.QUANTITY}" type="currency" />
 									</td>
 									<td>
-										<!-- 이부분 수정하고 커밋하기!!!!!!! -->
 										<button type="button" class="goodsQuantity"
 											onClick="changeQuantity(-1,${gcvo.GSEQ},${gcvo.QUANTITY},${gcvo.NUM_INVENTORY});">-</button>
-										<input type="text" name="quantity" size="2"
-										value="${gcvo.QUANTITY}" readonly>
+										<input type="text" name="quantity" size="2" value="${gcvo.QUANTITY}" readonly>
 										<button type="button" class="goodsQuantity"
 											onClick="changeQuantity(1,${gcvo.GSEQ},${gcvo.QUANTITY},${gcvo.NUM_INVENTORY});">+</button>
 									</td>

@@ -48,9 +48,18 @@
 				<h2>Best-Seller</h2>
 				<c:forEach items="${bestGoodsList}" var="gvo">
 					<div class="goods">
-						<a href="goodsDetail?gseq=${gvo.GSEQ}"> <img
-							src="/goods_images/${gvo.IMAGE}">
-							<p>${gvo.NAME}</p>
+						<a href="goodsDetail?gseq=${gvo.GSEQ}">
+							<img src="/goods_images/${gvo.IMAGE}">
+							<c:choose>
+								<c:when test="${gvo.NUM_INVENTORY==0}">
+									<del>
+										<p>[품절] ${gvo.NAME}</p>
+									</del>
+								</c:when>
+								<c:otherwise>
+									<p>${gvo.NAME}</p> 
+								</c:otherwise>
+							</c:choose>
 						</a>
 						<h3>
 							<fmt:formatNumber value="${gvo.PRICE2}" type="currency" />
@@ -101,7 +110,16 @@
 					<div class="goods">
 						<a href="goodsDetail?gseq=${gvo.GSEQ}"> <img
 							src="/goods_images/${gvo.IMAGE}">
-							<p>${gvo.NAME}</p>
+							<c:choose>
+								<c:when test="${gvo.NUM_INVENTORY==0}">
+									<del>
+										<p>[품절] ${gvo.NAME}</p>
+									</del>
+								</c:when>
+								<c:otherwise>
+									<p>${gvo.NAME}</p> 
+								</c:otherwise>
+							</c:choose>
 						</a>
 						<h3>
 							<fmt:formatNumber value="${gvo.PRICE2}" type="currency" />

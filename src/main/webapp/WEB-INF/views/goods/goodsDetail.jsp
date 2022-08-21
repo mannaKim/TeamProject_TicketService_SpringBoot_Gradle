@@ -22,7 +22,12 @@
 				<img src="/goods_images/${goodsVO.IMAGE}">
 			</div>
 			<div class="goodsDetail">
-				<h2>${goodsVO.NAME}</h2>
+				<c:if test="${goodsVO.NUM_INVENTORY>0}">
+					<h2>${goodsVO.NAME}</h2>
+				</c:if>
+				<c:if test="${goodsVO.NUM_INVENTORY==0}">
+					<h2><span style="color:gray">[품절] ${goodsVO.NAME}</span></h2>
+				</c:if>
 				<hr>
 				<table>
 					<tr>
@@ -57,9 +62,9 @@
 				</table>
 				<div class="goodsButton">
 					<input type="button" value="장바구니" class="goodsButton2" 
-						onClick="go_Gcart()">
+						onClick="go_Gcart(${goodsVO.NUM_INVENTORY})">
 					<input type="button" value="즉시구매" class="goodsButton1" 
-						onClick="go_Gorder();">
+						onClick="go_Gorder(${goodsVO.NUM_INVENTORY});">
 				</div>
 			</div>
 		</form>

@@ -492,3 +492,34 @@ div#goods_remot ul li {
 .goodsCart h1 {
 	display: inline;
 }
+
+/* ------------OrderCheck------------ */
+#orderCheck {
+	width: 80%;
+	margin: 0 auto;
+}
+
+#find_zip_num {
+	position: relative;
+	left: -200px;
+	float: center;
+	height: 80px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+#orderCheckButton {
+	left: 555px;
+}
+
+.toggle input[type=radio]{
+    display: none;
+}
+.toggle input[type=radio] + label {
+    color: white;
+    font-size: 25px;
+    font-weight: bold;
+}
+.toggle input[type=radio]:checked + label {
+    color: #3CB371;
+}
