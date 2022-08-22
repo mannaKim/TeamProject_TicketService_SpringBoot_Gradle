@@ -5,7 +5,7 @@
 
 <mapper namespace="com.team2.ticket.dao.IAdminGoodsDao">
 	
-	<resultMap type="java.util.HashMap" id="adminMap"></resultMap>
+	<resultMap type="java.util.HashMap" id="adminGoodsMap"></resultMap>
 	
 	<select id="getAdminGoodsKindCount" statementType="CALLABLE" parameterType="java.util.HashMap">
 		{
@@ -20,7 +20,7 @@
 		{
 			CALL getAdminGoodsKindList(
 				#{kind}, #{startNum}, #{endNum},
-				#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=adminMap}
+				#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=adminGoodsMap}
 			)
 		}
 	</select>
@@ -38,7 +38,7 @@
 		{
 			CALL getAdminGoodsSearchList(
 				#{key}, #{startNum}, #{endNum},
-				#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=adminMap}
+				#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=adminGoodsMap}
 			)
 		}
 	</select>

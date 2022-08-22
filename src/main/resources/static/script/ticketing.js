@@ -1,19 +1,16 @@
 
-function choiceDayCheck(  ){
-	if(document.formm.selectedDate.value==""){
+function choiceDayCheck( ){
+	if(document.formmm.selectedDate.value==""){
 		alert("날짜를 선택해주세요");
-		document.formm.selectedDate.focus();
+		document.formmm.selectedDate.focus();
 		return;
 	}
 	
-	document.formm.action="ticket.do?command=ticketingCart";
-	document.formm.submit();
+	document.formmm.action="ticketingCart";
+	document.formmm.submit();
 		
-	//var url = "ticket.do?command=ticketingCart&tpseq="+tpseq;
-	//var opt = "toolbar=no, menubar=no, scrollbar=no, resizable=no, width=1000, height=700";
-	//window.open(url,'ticketingCartList', opt);
-	
 }
+
 
 function go_CartList( ){
 	var cartlist = document.cartlist;
@@ -22,16 +19,16 @@ function go_CartList( ){
 		cartlist.quantity1.focus();
 		return false;
 	}	
-	cartlist.action="ticket.do?command=ticketingCartList";
+	cartlist.action="ticketingCartList";
 	cartlist.submit();
 
 }
 
-
 function go_ticketing( ){
-	document.formm.action="ticket.do?command=ticketing";
-	document.formm.submit();
+	document.cartlist.action="ticketing";
+	document.cartlist.submit();
 }
+
 
 function showCheck(ticketNum) {
 	document.frm.action = "ticket.do?command=showUpdate&tpseq="+ticketNum;
@@ -67,7 +64,7 @@ function quantity(totalPrice3,price3) {
 }
 
 function go_mypage( ){
-	document.cartlist.action="ticket.do?command=ticketCartList";
+	document.cartlist.action="ticketCartList";
 	document.cartlist.submit();
 }
 

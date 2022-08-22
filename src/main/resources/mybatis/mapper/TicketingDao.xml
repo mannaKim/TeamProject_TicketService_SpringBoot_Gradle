@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.team2.ticket.dao.ITicketingDao">
+
+	<resultMap id="ticketingMap" type="java.util.HashMap"></resultMap>
+	
+	<select id="ticketingList" statementType="CALLABLE" parameterType="java.util.HashMap">
+	 	{
+			CALL ticketingList( 
+				#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=ticketingMap}
+			)
+		}
+	</select>
+	
+	<select id="getTProduct" statementType="CALLABLE" parameterType="java.util.HashMap">
+	 	{
+			CALL getTProduct( 
+				#{tpseq},
+				#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=ticketingMap} 
+			)
+		}
+	</select>
+	<select id="getchoisDay" statementType="CALLABLE" parameterType="java.util.HashMap">
+	 	{
+			CALL getchoisDay( 
+				#{tpseq},
+				#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=ticketingMap} 
+			)
+		}
+	</select>
+	<insert id="insertOrder" statementType="CALLABLE" parameterType="java.util.HashMap">
+	 	{
+			CALL insertOrder( 
+				#{id}, #{tpseq}, #{choisdate}, #{quantity1}, #{quantity2},
+				#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=ticketingMap} 
+			)
+		}
+	</insert>
+	
+	<select id="tclistTicket" statementType="CALLABLE" parameterType="java.util.HashMap">
+	 	{
+			CALL tclistTicket( 
+				#{id},
+				#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=ticketingMap} 
+			)
+		}
+	</select>
+	
+	
+	
+</mapper>

@@ -13,6 +13,34 @@
 	<script src="/admin/admin.js"></script>
 	<script src="/admin/adminGoods.js"></script>
 	<script src="/admin/adminqna.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script type="text/javascript">
+	$(function(){
+		$('#myButton').click(function(){
+			var formselect = $('#fileupForm')[0];
+			var formdata = new FormData(formselect);
+			$.ajax({
+			url:"<%=request.getContextPath()%>/fileup",
+	        type : "POST",
+	        enctype : "multipart/form-data",
+	        async : false,
+	        data : formdata,
+	        timeout:10000,
+	        contentType : false,
+	        processData : false,
+	        success : function(data){ //  result -> data
+				if(data.STATUS == 1){
+					$("#filename").append("<div>"+data.FILENAME+"<div>");
+					$("#image").val(data.FILENAME);
+					$("#filename").append("<img src='upload/"+data.FILENAME+"' height='150'/>")
+					}
+				},
+				error:function(){ alert("실패");
+				}
+			});
+		});
+	});
+	</script>
 </head>
 <body>
 	<div id="admin_wrap">
@@ -48,8 +76,8 @@
 			  	<li><a href="ticket.do?command=adminNotice&page=1&key=">공지사항</a></li>
 			    <li><a href="adminGoodsList?page=1&key=">굿즈관리</a></li>
 			    <li><a href="adminGoodsOrderList?page=1">굿즈주문관리</a></li>
-			    <li><a href="ticket.do?command=admin_ticketList&page=1&key=">전시관리</a></li>
-			    <li><a href="ticket.do?command=adminticketOrderlistForm&page=1&key=">전시예약관리</a></li>
+			    <li><a href="admin_ticketList?page=1&key=">전시관리</a></li>
+			    <li><a href="adminticketOrderList?page=1&key=">전시예약관리</a></li>
 			    <li><a href="ticket.do?command=adminEvent&page=1">이벤트관리</a></li>
 			    <li><a href="ticket.do?command=aqna">Q&amp;A관리</a></li>
 			  </ul>
