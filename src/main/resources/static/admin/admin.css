@@ -1,0 +1,101 @@
+@charset "UTF-8";
+
+*{margin:0; padding:0;}
+ul li, ol li{list-style: none;}
+a{text-decoration: none; color:black;}
+/* 관리자 페이지 헤더*/
+#admin_wrap{width:1000px; min-height:800px; margin:20px auto;}
+header#admin_header{width:1000px; height:200px; border-bottom:1px dotted gray;}
+#admin_topMenu{width:900px; height:100px; margin:0 auto; display:flex; justify-content:space-between;}
+#admin_topMenu #admin_logo{width:200px; height:100px;}
+#admin_topMenu #admin_topicon{width:650px; height:100px;}
+#admin_topicon ul{display:inline-block; padding-top:20px;}
+#admin_topicon ul li{float:left; margin-left:20px;}
+#admin_topicon ul li:first-child{margin-left:0;}
+#admin_topicon ul li.admin_li:hover{border-bottom:1px solid black;}
+
+#admin_subMenu{width:900px; height:65px; margin:35px auto; }
+#admin_subicon{width:730px; height:60px; margin:0 auto;}
+#admin_subicon ul{display:inline-block; display:flex; justify-content:space-between; padding-top:20px;}
+#admin_subicon ul li{float:left;}
+#admin_subicon ul li:hover{border-bottom:1px solid black;}
+
+
+/* 관리자 권한부여 페이지 */
+article#admin_user{width:1000px; min-height:600px; margin:20px auto; text-align:center;}
+div#adminCheck_paging{width:350px; height:30px; margin:10px auto;}
+article#admin_user table{border-top:2px solid black; border-bottom:1px solid black; margin-top:15px;}
+article#admin_user table td{border-top:1px dotted gray;}
+
+
+/* 관리자 공지사항 페이지 */
+article#admin_notice{width:1000px; min-height:600px; margin:20px auto; text-align:center;}
+article#admin_notice table{margin:0 auto;}
+article#admin_notice table#notice_table{border-top:2px solid black; border-bottom:1px solid black; margin-top:15px;}
+article#admin_notice table#notice_table td{border-top:1px dotted gray;}
+form#adminNotice_serbox{width:710px; height:40px; margin:0 auto;}
+form#adminNotice_serbox table{float:right; line-height:40px;}
+
+
+/* 관리자 공지사항 정보 페이지 */
+article#admin_noticeView{width:1000px; min-height:300px; margin:20px auto; text-align:center;}
+article#admin_noticeView table{border-top:2px solid black; border-bottom:1px solid black; margin:0 auto;}
+article#admin_noticeView table td{border-top:1px dotted gray;}
+#noticeView_btn{width:360px; height:35px; margin:0 auto;}
+
+/* 관리자 공지사항 수정 페이지 */
+article#adminNotice_update{width:720px; min-height:500px; margin:20px auto;}
+article#adminNotice_update table{width:720px; min-height:400px; margin:15px auto; border-top:2px solid black; border-bottom:1px solid black;}
+article#adminNotice_update table td{border-bottom:1px dotted gray;}
+#adminNoticeup_btn{width:360px; height:35px; margin:0 auto; text-align:center;}
+
+/* 관리자 공지사항 등록 페이지 */
+article#adminNotice_write{width:720px; min-height:500px; margin:20px auto;}
+article#adminNotice_write table{width:720px; min-height:400px; margin:15px auto; border-top:2px solid black; border-bottom:1px solid black;}
+article#adminNotice_write table td{border-bottom:1px dotted gray;}
+#adminNoticewt_btn{width:360px; height:35px; margin:0 auto; text-align:center;}
+
+
+/* 관리자 이벤트 페이지 */
+article#admin_event{width:1000px; min-height:600px; margin:20px auto; text-align:center;}
+article#admin_event table{border-top:2px solid black; border-bottom:1px solid black; margin-top:25px; width:1000px;}
+article#admin_event table td{border-top:1px dotted gray;}
+#adminEvent_btn{width:155px; height:35px; float:right; margin-bottom:15px;}
+
+
+/* 관리자 이벤트 정보 페이지 */
+article#adminEvent_View{width:1000px; min-height:700px; margin:20px auto;}
+article#adminEvent_View table{width:1000px; min-height:700px; margin:25px auto; border-top:2px solid black; border-bottom:1px solid black;}
+article#adminEvent_View table td{border-bottom:1px dotted gray;}
+div#adminEventView_btn{width:360px; height:35px; margin:0 auto; text-align:center;}
+
+
+/* 관리자 이벤트 수정 페이지 */
+article#adminEvent_Update{width:1000px; min-height:650px; margin:20px auto;}
+article#adminEvent_Update table{width:1000px; min-height:520px; margin:25px auto; border-top:2px solid black; border-bottom:1px solid black;}
+article#adminEvent_Update table td{border-bottom:1px dotted gray;}
+div#adminEventUp_btn{width:360px; height:35px; margin:0 auto; text-align:center;}
+
+/* 관리자 이벤트 등록 페이지 */
+article#adminEvent_Write{width:1000px; min-height:650px; margin:20px auto;}
+article#adminEvent_Write table{width:1000px; min-height:520px; margin:25px auto; border-top:2px solid black; border-bottom:1px solid black;}
+article#adminEvent_Write table td{border-bottom:1px dotted gray;}
+div#adminEventWt_btn{width:360px; height:35px; margin:0 auto; text-align:center;}
+
+/* admin_ticketList */
+/* 버튼 */
+.adminbtn {text-decoration: none; text-align: center; margin: 0px;font-size: 13px; background-color: gray;  width:80; height: 30 px; color: white; padding: 3px 3px; display: inline-block; border: 1px solid black; cursor:pointer;}
+.adminbtn:active {top: 0px; background-color: white; color:black; border-color: white; border: 1px solid black; position: relative;}
+
+table#t_admin_listbox { width: 1000px;  margin-top: 20px; border-top:2px solid black;}
+table#t_admin_listbox th { text-align: center; padding: 5px -10px 3px 0px; font-size: 17px; }
+table#t_admin_listbox td#t_admin_listbox_line { border-bottom: 1px dotted black; padding: 2px 0px 0px 0px;}
+table#t_admin_listbox td#btn { float: right; }
+table#t_admin_listbox td { padding: 2px 0px 2px 4px; text-align: center; }
+div#t_admin_listboxbottom{ /* margin-left: 290px; */ float: right;}
+/* admin_ticketWrite */
+table#t_writebox{ margin: 0 auto; margin-top: 25px; }
+table#t_writebox th{ text-align: center; padding: 5px -10px 3px 0px; font-size: 17px;  }
+table#t_writebox td{ padding: 2px 0px 2px 4px; font-size: 16px;}
+table#t_writebox td#t_writebox_title{ padding: 2px 0px 2px 4px; font-size: 16px;  vertical-align: top; }
+table#t_writebox td#t_admin_listbox_line { border-bottom: 1px dotted black; padding: 2px 0px 0px 0px;}

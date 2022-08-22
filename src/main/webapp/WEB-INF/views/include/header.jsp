@@ -40,7 +40,7 @@
                                     <li><a href="mypage">MyPage</a></li>
                                     <li><a href="goodsCartList">Cart</a></li>
                                     <c:if test="${loginUser.admin=='1'}">	
-                                        <li><a href="adminNotice&page=1">Admin</a></li>
+                                        <li><a href="adminGoodsList?page=1&key=">Admin</a></li>
                                     </c:if>
                                 </c:otherwise>
                             </c:choose>
@@ -49,7 +49,7 @@
                 </div>
                 <div id="logo">
                     <div id="logobox">
-                        <a href="ticket.do?command=index"><img src="ticket_image/logo.png"/></a>
+                        <a href="/"><img src="/ticket_image/logo.png"/></a>
                     </div>
                     <div id="menubox">
                         <input type="checkbox" id="menuicon">

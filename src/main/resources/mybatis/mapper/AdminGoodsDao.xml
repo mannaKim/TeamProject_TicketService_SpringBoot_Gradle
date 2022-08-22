@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.team2.ticket.dao.IAdminGoodsDao">
+	
+	<resultMap type="java.util.HashMap" id="adminMap"></resultMap>
+	
+	<select id="getAdminGoodsKindCount" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			CALL getAdminGoodsKindCount(
+				#{kind},
+				#{cnt, mode=OUT, jdbcType=INTEGER}
+			)
+		}
+	</select>
+	
+	<select id="getAdminGoodsKindList" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			CALL getAdminGoodsKindList(
+				#{kind}, #{startNum}, #{endNum},
+				#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=adminMap}
+			)
+		}
+	</select>
+	
+	<select id="getAdminGoodsSearchCount" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			CALL getAdminGoodsSearchCount(
+				#{key},
+				#{cnt, mode=OUT, jdbcType=INTEGER}
+			)
+		}
+	</select>
+	
+	<select id="getAdminGoodsSearchList" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			CALL getAdminGoodsSearchList(
+				#{key}, #{startNum}, #{endNum},
+				#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=adminMap}
+			)
+		}
+	</select>
+	
+</mapper>

@@ -1,0 +1,82 @@
+@charset "UTF-8";
+
+article#admin_goods {
+	width: 1000px;
+	min-height: 600px;
+	margin: 20px auto;
+}
+
+article#admin_goods h2 {
+	text-align: center;
+}
+
+article#admin_goods a:hover {
+	text-decoration: underline;
+	color: black;
+}
+
+article#admin_goods div.goods_buttonBox {
+	width: 800px;
+	margin: 0 auto;
+}
+
+article#admin_goods div.goods_buttonBox input[type=button] {
+	float: right;
+	padding: 5px;
+	margin: 10px;
+}
+
+article#admin_goods table {
+	width: 800px;
+	margin: 0 auto;
+	text-align: center;
+}
+
+article#admin_goods table#search_table {
+	border: 1px solid black;
+	border-collapse: collapse;
+}
+
+article#admin_goods table#search_table td {
+	padding: 8px;
+	border: 1px solid black;
+}
+
+article#admin_goods table#goods_table {
+	border-top: 2px solid black;
+	border-bottom: 1px solid black;
+	margin-top: 15px;
+}
+article#admin_goods table#goods_table td {
+	border-top: 1px dotted gray;
+	text-align: center;
+}
+
+article#admin_goods table#goods_table2 {
+	border-top: 2px solid black;
+	border-bottom: 1px solid black;
+	margin-top: 15px;
+}
+article#admin_goods table#goods_table2 th {
+	border-top: 1px dotted gray;
+	border-right:1px dotted gray;
+	text-align: center;
+} 
+article#admin_goods table#goods_table2 td {
+	border-top: 1px dotted gray;
+	text-align: center;
+}
+
+article#admin_goods table#goods_orderTable{
+	width: 1000px;
+	margin: 0 auto;
+	text-align: center;
+	border-top: 2px solid black;
+	border-bottom: 1px solid black;
+	margin-top: 15px;
+}
+
+article#admin_goods table#goods_orderTable td {
+	border-top: 1px dotted gray;
+	text-align: center;
+}
