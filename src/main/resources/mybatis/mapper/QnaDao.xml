@@ -6,7 +6,7 @@
 <mapper namespace="com.team2.ticket.dao.IQnaDao">
 
 	<resultMap  id="qnaMap" type="java.util.HashMap"></resultMap>
-	<resultMap  id="replyMap" type="java.util.HashMap"></resultMap>
+	<resultMap  id="qnaReplyMap" type="java.util.HashMap"></resultMap>
 
 	<select id="qgetAllCount" statementType="CALLABLE" parameterType="java.util.HashMap" >
 		{
@@ -36,7 +36,7 @@
 			CALL qgetQna( 
 				#{qseq},
 				#{ref_cursor , mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=qnaMap},
-				#{ref_cursor1 , mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=replyMap}
+				#{ref_cursor1 , mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=qnaReplyMap}
 			)	  
 		}
 	</select>

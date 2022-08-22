@@ -26,11 +26,10 @@ public class MypageController {
 	@Autowired
 	TicketingService ts;
 	
-//	@RequestMapping("/mypage")
-//	public String mypage( ){
-//		return "redirect:/ticketCartList";
-//	}
-		
+	@RequestMapping("/mypage")
+	public String mypage(HttpServletRequest request, Model model) {
+		return "redirect:/goodsCartList";
+	}
 	
 	@RequestMapping("/ticketCartList")
 	public String ticketCartList( HttpServletRequest request, Model model ){

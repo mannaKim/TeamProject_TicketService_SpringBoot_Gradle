@@ -9,8 +9,8 @@
 		    <li><a href="ticketCartList?page=1">나의 관람 정보</a></li>
 		    <li><a href="allGoodsOrderList?page=1">나의 주문 정보</a></li>
 		    <li><a href="qnaMy?page=1">나의 문의 내역</a></li>
-		    <li><a href="#" onClick="checkPwd('modifyMemberForm');">회원정보 수정</a></li>
-		    <li><a href="#" onClick="checkPwd('withdrawalForm');">회원탈퇴</a></li>
+		    <li><a href="EditcheckPwd">회원정보 수정</a></li>
+		    <li><a href="WithdrawcheckPwd">회원탈퇴</a></li>
 		  </ul>
 		</nav>
 	</div>

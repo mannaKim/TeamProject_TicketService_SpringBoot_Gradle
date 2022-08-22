@@ -7,13 +7,13 @@
 	
 <mapper namespace="com.team2.ticket.dao.IAdminDao_P">
 
-	<resultMap id="adminMap" type="java.util.HashMap"></resultMap>
+	<resultMap id="adminPMap" type="java.util.HashMap"></resultMap>
 	
 	<select id="adminlistTicket" statementType="CALLABLE" parameterType="java.util.HashMap">
 	 	{
 			CALL adminlistTicket( 
 				#{startNum}, #{endNum}, #{key},
-				#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=adminMap}
+				#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=adminPMap}
 			)
 		}
 	</select>
@@ -31,7 +31,7 @@
 	 	{
 			CALL adminlistTicketCart( 
 				#{startNum}, #{endNum}, #{key},
-				#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=adminMap}
+				#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=adminPMap}
 			)
 		}
 	</select>

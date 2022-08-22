@@ -20,6 +20,15 @@ header#admin_header{width:1000px; height:200px; border-bottom:1px dotted gray;}
 #admin_subicon ul li{float:left;}
 #admin_subicon ul li:hover{border-bottom:1px solid black;}
 
+/* 관리자 유저 수정 페이지*/
+form#userpoint_box{width:420px; height:300px; margin:20px auto;}
+form#userpoint_box table{margin:0 auto; width:420px; height:300px;}
+form#userpoint_box table td.userpoint_id{height:100px;}
+
+/* 관리자 유저 수정 완료 페이지*/
+div#complet_user{width:380px; height:60px; margin:35px auto;}
+div#complet_user table td{width:380px; height:35px; text-align:center;}
+div#complet_user div#complet_userbtn{width:370px; height:40px; text-align:center; line-height:40px; margin-top:7px;}
 
 /* 관리자 권한부여 페이지 */
 article#admin_user{width:1000px; min-height:600px; margin:20px auto; text-align:center;}
@@ -39,7 +48,7 @@ form#adminNotice_serbox table{float:right; line-height:40px;}
 
 /* 관리자 공지사항 정보 페이지 */
 article#admin_noticeView{width:1000px; min-height:300px; margin:20px auto; text-align:center;}
-article#admin_noticeView table{border-top:2px solid black; border-bottom:1px solid black; margin:0 auto;}
+article#admin_noticeView table#notice_table{border-top:2px solid black; border-bottom:1px solid black; margin:0 auto; margin-top:15px;}
 article#admin_noticeView table td{border-top:1px dotted gray;}
 #noticeView_btn{width:360px; height:35px; margin:0 auto;}
 

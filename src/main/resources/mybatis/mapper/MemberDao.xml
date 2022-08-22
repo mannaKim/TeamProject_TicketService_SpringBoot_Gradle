@@ -6,8 +6,35 @@
 	
 <mapper namespace="com.team2.ticket.dao.IMemberDao">
 
+
 	<select id="getMember" resultType="com.team2.ticket.dto.MemberVO">
 		select * from tp_member where id=#{id}
 	</select>
-
+	
+	<select id="getNameMember" resultType="com.team2.ticket.dto.MemberVO">
+		select * from tp_member where name=#{name}
+	</select>
+	
+	<insert id="insertMember" parameterType="com.team2.ticket.dto.MemberVO">
+		insert into tp_member(id, pwd, name, email, phone, zip_num, address1, address2, address3)
+		values(#{id}, #{pwd}, #{name}, #{email}, #{phone}, #{zip_num}, #{address1}, #{address2}, #{address3})
+	</insert>
+	
+	<update id="updateMember" parameterType="com.team2.ticket.dto.MemberVO">
+		update tp_member set pwd=#{pwd}, name=#{name}, email=#{email}, phone=#{phone}, zip_num=#{zip_num},
+		address1=#{address1}, address2=#{address2}, address3=#{address3} where id=#{id}
+	</update>
+	
+	<delete id="deleteMember">
+		delete from tp_member where id=#{id}
+	</delete>
+	
+	<update id="resetPwd" parameterType="com.team2.ticket.dto.MemberVO">
+		update tp_member set pwd=#{pwd} where id=#{id}
+	</update>
+	
+	<select id="getOrderNum" resultType="_int">
+		select count(*) from goods_order_view 
+		where result='1' and id=#{param1}
+	</select>
 </mapper>

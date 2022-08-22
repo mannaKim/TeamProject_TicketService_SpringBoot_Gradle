@@ -62,8 +62,8 @@
 					<li>${loginUser.name}(${loginUser.id})관리자</li>
 					<li class="admin_li"><a href="logout">LOGOUT</a></li>
 					<li class="admin_li"><a href="/">사용자 페이지</a></li>
-					<li class="admin_li"><a href="ticket.do?command=adminNotice">관리자 페이지</a></li>
-					<li class="admin_li"><a href="ticket.do?command=adminCheck">관리자 권한부여</a></li>
+					<li class="admin_li"><a href="adminNotice">관리자 페이지</a></li>
+					<li class="admin_li"><a href="adminCheck">유저목록 페이지</a></li>
 				  </c:otherwise>
 				</c:choose>
 			</ul>
@@ -73,12 +73,12 @@
 		<div id="admin_subMenu">
 			<div id="admin_subicon">
 			  <ul>
-			  	<li><a href="ticket.do?command=adminNotice&page=1&key=">공지사항</a></li>
+			  	<li><a href="adminNotice?page=1&key=">공지사항</a></li>
 			    <li><a href="adminGoodsList?page=1&key=">굿즈관리</a></li>
 			    <li><a href="adminGoodsOrderList?page=1">굿즈주문관리</a></li>
 			    <li><a href="admin_ticketList?page=1&key=">전시관리</a></li>
 			    <li><a href="adminticketOrderList?page=1&key=">전시예약관리</a></li>
-			    <li><a href="ticket.do?command=adminEvent&page=1">이벤트관리</a></li>
+			   	<li><a href="adminEvent?page=1">이벤트관리</a></li>
 			    <li><a href="ticket.do?command=aqna">Q&amp;A관리</a></li>
 			  </ul>
 			 </div>

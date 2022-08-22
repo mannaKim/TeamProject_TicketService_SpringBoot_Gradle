@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+	
+<mapper namespace="com.team2.ticket.dao.IntroduceDao">
+	
+	<resultMap id="eventMap" type="java.util.HashMap"></resultMap>
+	<resultMap id="replyMap" type="java.util.HashMap"></resultMap>
+	
+	<select id="getIntro" resultType="com.team2.ticket.dto.IntroVO">
+		select * from tp_introduce
+	</select>
+	
+	<select id="getNotice" parameterType="com.team2.ticket.dto.Paging" resultType="com.team2.ticket.dto.NoticeVO">
+		select * from(
+		select * from(
+		select rownum as rn, n.* from((select * from tp_notice order by ntnum desc) n)
+		) where rn &gt;= #{startNum}
+		) where rn &lt;= #{endNum}
+	</select>
+	
+	<select id="getAllCount" resultType="_int">
+		select count(*) from tp_notice
+	</select>
+	
+	<update id="noticeReadcount">
+		update tp_notice set readcount = readcount + 1 where ntnum=#{ntnum}
+	</update>
+	
+	<select id="noticeView" resultType="com.team2.ticket.dto.NoticeVO">
+		select * from tp_notice where ntnum=#{ntnum}
+	</select>
+	
+	<select id="getEvent" resultType="com.team2.ticket.dto.EventVO">
+		select * from tp_event order by evnum desc
+	</select>
+	
+	<update id="eventReadCount" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			CALL eventReadCount
+			(
+				#{evnum}
+			)
+		}
+	</update>
+	
+	<select id="getEventView" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			CALL getEventView
+			(
+				#{evnum},
+				#{ref_cursor1, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=eventMap},
+				#{ref_cursor2, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=replyMap}
+			)
+		}
+	</select>
+	
+	<insert id="insertReply" parameterType="com.team2.ticket.dto.ReplyVO">
+		insert into tp_reply(replynum, content, rate, evnum, id)
+		values(reply_seq.nextVal, #{content}, #{rate}, #{evnum}, #{id})
+	</insert>
+	
+	<delete id="deleteReply">
+		delete from tp_reply where replynum=#{replynum}
+	</delete>
+	
+	<update id="updateReply" parameterType="com.team2.ticket.dto.ReplyVO">
+		update tp_reply set content=#{content}, rate=#{rate} where replynum=#{replynum}
+	</update>
+	
+	<select id="getReply" resultType="com.team2.ticket.dto.ReplyVO">
+	 	select * from tp_reply where replynum=#{replynum}
+	</select>
+</mapper>

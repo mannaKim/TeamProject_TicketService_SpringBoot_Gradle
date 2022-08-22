@@ -8,8 +8,10 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name='viewport' content='width=device-width, initial-scale=1'>
 	<title>TicketService</title>
+	<link href="/css/member.css" rel="stylesheet">
 	<link href="/css/ticket.css" rel="stylesheet">
 	<link href="/css/goods.css" rel="stylesheet">
+	<link href="/css/intro.css" rel="stylesheet">
 	<link href="/css/ticketingbtn.css" rel="stylesheet">
 	<link href="/css/calendar.css" rel="stylesheet">
 	<link href="/css/mypage.css" rel="stylesheet">
@@ -40,7 +42,7 @@
                                     <li><a href="mypage">MyPage</a></li>
                                     <li><a href="goodsCartList">Cart</a></li>
                                     <c:if test="${loginUser.admin=='1'}">	
-                                        <li><a href="adminGoodsList?page=1&key=">Admin</a></li>
+                                        <li><a href="adminNotice?page=1">Admin</a></li>
                                     </c:if>
                                 </c:otherwise>
                             </c:choose>
@@ -63,15 +65,15 @@
                                 <div class="contentBx">
                                     <div class="label">소개</div>
                                     <div class="content">
-                                    	<p><a href="ticket.do?command=introduce">회사소개</a></p>
-                                    	<p><a href="ticket.do?command=notice">공지사항</a></p>
-                                    	<p><a href="ticket.do?command=event">이벤트</a></p>
+                                    	<p><a href="introduce">회사소개</a></p>
+                                    	<p><a href="notice">공지사항</a></p>
+                                    	<p><a href="event">이벤트</a></p>
                                     </div>
                                 </div>
                                 <div class="contentBx">
                                     <div class="label">전시/공연 예약</div>
                                     <div id="content02" class="content">
-                                    <p><a href="ticket.do?command=ticketingList">전시 둘러보기</a></p>   
+                                    <p><a href="ticketingList">전시 둘러보기</a></p>   
                                     </div>
                                 </div>
                                 <div class="contentBx">

@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+	
+<mapper namespace="com.team2.ticket.dao.IAdminIntroduceDao">
+	
+	<resultMap id="adminMap" type="java.util.HashMap"></resultMap>
+	
+	<select id="getAdminNotice" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			CALL getAdminNotice 
+			(
+				#{startNum},
+				#{endNum},
+				#{key},
+				#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=adminMap}
+			)
+		}
+	</select>
+	
+	<select id="adminIntroAllCount" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			CALL adminIntroAllCount
+			(
+				#{introName},
+				#{key},
+				#{cnt, mode=OUT, jdbcType=INTEGER}
+			)
+		}
+	</select>
+	
+	<select id="adminEventAllCount" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			CALL adminEventAllCount
+			(
+				#{tableName},
+				#{cnt, mode=OUT, jdbcType=INTEGER}
+			)
+		}
+	</select>
+	
+	<select id="getAdminNoticeView" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			CALL getAdminNoticeView
+			(
+				#{ntnum},
+				#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=adminMap}
+			)
+		}
+	</select>
+	
+	<insert id="insertAdminNotice" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			CALL insertAdminNotice
+			(
+				#{ntnum}, #{title}, #{content}, #{id}
+			)
+		}
+	</insert>
+	
+	<delete id="deleteNotice" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			CALL deleteNotice
+			(
+				#{ntnum}
+			)
+		}
+	</delete>
+	
+	<update id="adminUpdateNotice" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			CALL adminUpdateNotice
+			(
+				#{ntnum}, #{title}, #{content}, #{id}
+			)
+		}
+	</update>
+	
+	<select id="getAdminUser" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			CALL getAdminUser
+			(
+				#{startNum},
+				#{endNum},
+				#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=adminMap}
+			)
+		}
+	</select>
+	
+	<select id="getEventList" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			CALL getEventList
+			(
+				#{startNum},
+				#{endNum},
+				#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=adminMap}
+			)
+		}
+	</select>
+	
+	<insert id="insertEvent" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			CALL insertEvent
+			(
+				#{evnum}, #{id}, #{title}, #{evdate}, #{evperson}, #{eimage1}, #{eimage2} 
+			)
+		}
+	</insert>
+	
+	<select id="getAdminEventView" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			CALL getAdminEventView
+			(
+				#{evnum},
+				#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=adminMap}
+			)
+		}
+	</select>
+	
+	<update id="updateAdminEvent" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			CALL updateAdminEvent
+			(
+				#{evnum}, #{id}, #{title}, #{evdate}, #{evperson}, #{eimage}, #{eimage2}
+			)
+		}
+	</update>
+	
+	<delete id="deleteEvent" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			CALL deleteEvent
+			(
+				#{evnum}
+			)
+		}
+	</delete>
+	
+	<update id="adminMember" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			CALL adminMember
+			(
+				#{id}, #{admin}
+			)
+		}
+	</update>
+	
+	<select id="getAdminUserPage" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			CALL getAdminUserPage
+			(
+				#{id},
+				#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=adminMap}
+			)
+		}
+	</select>
+	
+	<update id="adminPointUpdate" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			CALL adminPointUpdate
+			(
+				#{id}, #{mpoint}
+			)
+		}
+	</update>
+</mapper>

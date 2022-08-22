@@ -51,15 +51,17 @@ article#join_box{width:750px; min-height:500px; margin:60px auto;}
 #join_top #join_icon ul{display:inline-block;}
 #join_top #join_icon ul li{float:left; margin-left:15px; color:#B1B1B1;}
 #join_top #join_icon ul li:nth-child(2){color:black; font-weight:bold;}
-form#joinFrm{width:590px; height:800px; margin:15px auto; position:relative;}
+form#joinFrm{width:590px; height:920px; margin:15px auto; position:relative;}
 #join_login{width:450px; height:220px; position:relative; margin:0 auto;}
 #join_person{width:450px; height:220px; margin:0 auto;}
 #join_address{width:450px; height:230px; position:relative; margin:0 auto; margin-top:40px;}
 #join_id{margin-top:0;}
 .join{margin-top:20px;}
 .join_checkbox{width:65px; height:38px; position:absolute; top:2; right:0;}
-#join_buttons{width:450px; height:40px; margin:0 auto;}
+#join_buttons{width:450px; height:40px; margin:0 auto; margin-top:15px;}
 .join_button{width:117px; height:35px;}
+#msgbox{width:450px;}
+#msgbox h4{text-align:center;}
 
 /* 회원가입 완료 페이지 */
 article#comjoin_box {width:700px; height:400px; margin:200px auto;}
