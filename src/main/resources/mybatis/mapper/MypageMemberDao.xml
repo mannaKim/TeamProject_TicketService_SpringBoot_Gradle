@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.team2.ticket.dao.IMypageMemberDao">
+	
+	<resultMap type="java.util.HashMap" id="mypageMap"></resultMap>
+	
+	<select id="getOrderNum" resultType="_int">
+		select count(*) from goods_order_view 
+		where result='1' and id=#{param1}
+	</select>
+	
+	<delete id="deleteMember">
+		delete from tp_member where id=#{param1}
+	</delete>
+
+</mapper>

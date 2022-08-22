@@ -1,5 +1,5 @@
 function checkPwd(purpose){
-	location.href = "ticket.do?command=checkPwdForm&purpose="+purpose;
+	location.href = "checkPwdForm?purpose="+purpose;
 }
 
 function pwdCheck(){
@@ -13,9 +13,9 @@ function pwdCheck(){
 
 function withdrawalConfirm(){
 	if(confirm('탈퇴하시겠습니까?')){
-		location.href = "ticket.do?command=withdrawal";
+		location.href = "withdrawal";
 	}else {
-		location.href = "ticket.do?command=mypage";
+		location.href = "mypage";
 	}
 }
 
@@ -33,7 +33,7 @@ function go_modify(){
 		alert("이메일을 입력하세요.")
 		document.joinFrm.email.focus();
 	}else {
-		document.joinFrm.action="ticket.do?command=modifyMember";
+		document.joinFrm.action="modifyMember";
 		document.joinFrm.submit();
 	}
 }
