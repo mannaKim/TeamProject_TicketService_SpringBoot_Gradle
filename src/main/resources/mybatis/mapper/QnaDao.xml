@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.team2.ticket.dao.IQnaDao">
+
+	<resultMap  id="qnaMap" type="java.util.HashMap"></resultMap>
+	<resultMap  id="replyMap" type="java.util.HashMap"></resultMap>
+
+	<select id="qgetAllCount" statementType="CALLABLE" parameterType="java.util.HashMap" >
+		{
+			CALL qgetAllCount(
+				#{cnt, mode=OUT, jdbcType=INTEGER}
+			)
+		}
+	</select>
+	
+	<select id="qlistQna" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{  
+			CALL qlistQna( 
+				#{startNum}, #{endNum},
+				#{ref_cursor , mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=qnaMap}
+			)  
+		}
+	</select>
+
+	
+	<insert id="qinsertQna" statementType="CALLABLE" parameterType="java.util.HashMap" >
+		{ CALL qinsertQna(  #{id}, #{subject}, #{content}, #{kind}   ) }
+	</insert>
+	
+	
+	<select id="qgetQna" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{  
+			CALL qgetQna( 
+				#{qseq},
+				#{ref_cursor , mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=qnaMap},
+				#{ref_cursor1 , mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=replyMap}
+			)	  
+		}
+	</select>
+	
+	<select id="qmylistQna" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{  
+			CALL qmylistQna( 
+				#{id}, #{startNum}, #{endNum},
+				#{ref_cursor , mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=qnaMap}
+			)  
+		}
+	</select>
+	
+	<select id="qgetMyCount" statementType="CALLABLE" parameterType="java.util.HashMap" >
+			{ 
+			CALL qgetMyCount(
+				#{id},
+				#{cnt, mode=OUT, jdbcType=INTEGER}
+			)
+				}
+	</select>
+	
+	<select id="qlistQnaN" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{  
+			CALL qlistQnaN( 
+				#{startNum}, #{endNum},
+				#{ref_cursor , mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=qnaMap}
+			)  
+		}
+	</select>
+	
+	
+	<update  id="qinsertReply" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{ 
+			CALL qinsertReply(	
+			#{ qnanum }, #{ id }, #{ content } 
+			) 
+		}
+	</update>
+	
+	<select id="replycnt" resultType="_int">
+		{
+			CALL replycnt(
+				select count(*) from tp_qreply where qnanum=#{qseq}
+			)
+		}
+	</select>
+	
+	<delete id="qdeleteReply"  statementType="CALLABLE" parameterType="java.util.HashMap">
+		{ CALL qdeleteReply( #{renum} )  }
+	</delete>
+	
+	<delete id="qdeleteQna"  statementType="CALLABLE" parameterType="java.util.HashMap">
+		{ CALL qdeleteQna( #{qseq} )  }
+	</delete>
+	
+	<select id="faqList" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{  
+			CALL faqList( 
+				#{ref_cursor , mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=qnaMap}
+			)	  
+		}
+	</select>
+	
+	
+	
+</mapper>
+

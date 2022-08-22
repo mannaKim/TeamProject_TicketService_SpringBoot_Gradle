@@ -85,10 +85,10 @@
                                     </div>
                                 </div>
                                 <div class="contentBx">
-                                    <div class="label"><a href="ticket.do?command=qna">문의게시판</a></div>
+                                    <div class="label"><a href="qnaList">문의게시판</a></div>
                                      <div id="content04" class="content">
-	                                    <p><a href="ticket.do?command=qnaWriteForm">1:1문의하기</a></p>
-	                                    <p><a href="ticket.do?command=qnafnq&kind=1">FAQ</a></p>
+	                                    <p><a href="qnaWriteForm">1:1문의하기</a></p>
+	                                    <p><a href="qnafaq">FAQ</a></p>
                                     </div>
                                 </div>
                             </div>

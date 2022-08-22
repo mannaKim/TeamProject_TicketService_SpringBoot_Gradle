@@ -9,8 +9,7 @@ function go_write(){
 	    alert("분류를 선택해 주세요.");	    
 	    document.writeFrm.kind.focus();
 	}else{
-			document.writeFrm.action="ticket.do?command=qnaWrite";
+			document.writeFrm.action="qnaWrite";
 			document.writeFrm.submit();
 	}
 }
-

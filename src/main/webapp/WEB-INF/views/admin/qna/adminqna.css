@@ -1,0 +1,116 @@
+@charset "UTF-8";
+
+.aqna_table {
+	width: 1000px;
+	margin: 0 auto;
+	text-align: center;
+}
+.aqna_table th, .aqna_table td {
+	border: 1px solid gray;
+}
+
+.qna_head {
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+
+/*내용*/
+.qna_tt {
+	padding: 10px;
+	width: 100%;
+	height: 340px;
+	resize: none;
+	min-height: 100px;
+}
+
+.qna_ttt {
+	height: 250px;
+	padding: 10px;
+	width: 90%;
+}
+/*제목*/
+.qna_h {
+	height: 50px;
+	padding: 0 10px;
+	width: 100%;
+	border-width: 1px;
+}
+
+.qna_ht {
+	padding: 0 10px;
+	height: 50px;
+	width: 90%;
+}
+
+/*댓글 관련*/
+.qna_rp {
+	margin-top: 60px;
+	margin-bottom: 100px;
+}
+
+.qna_rp th, .qna_rp td {
+	height: 50px;
+}
+.qna_rp th {
+	border-bottom: 1px solid gray;
+}
+.qna_h_re {
+	height: 35px;
+	width: 97%;
+	padding-left: 10px;
+	border: 1px solid #2F4F4F;
+}
+.qna_w {
+	width: 10%;
+}
+.qna_wr{
+	padding-left: 10px;
+}
+
+/*버튼*/
+.qna_bt_box {
+	width: 100%;
+	height: 100px;
+	margin-bottom: 100px;
+}
+.qna_bts {
+	width: 306px;
+	height: 45px;
+	margin-top: 10px;
+	margin-left: 60%;
+	margin-right: 15%;
+	margin-bottom: 100px;
+}
+
+.qna_bts_1 {
+	margin-top: 10px;
+	margin-left: 830px;
+	margin-bottom: 70px;
+}
+.qna_bu {
+	position: relative;
+	width: 150px;
+	height: 45px;
+	border-radius: 5px;
+	border: 1px solid #2F4F4F;
+}
+
+.qna_bts_aa {
+	width: 306px;
+	height: 45px;
+	margin-top: 10px;
+	margin-left: 500px;
+	margin-bottom: 2px;
+}
+.qna_bu_aa {
+	width: 150px;
+	height: 45px;
+	border-radius: 5px;
+	border: 1px solid #2F4F4F;
+}
+
+
+.qna_bu:hover, .qna_bu_aa:hover {
+	background-color: #2F4F4F;
+	color: white;
+}

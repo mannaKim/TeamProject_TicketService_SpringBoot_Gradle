@@ -66,7 +66,7 @@
                     </div>
                     <div id="botqna">
                         <div id="qnatext">오늘의 전시 1:1 문의하기<br>언제든지 문의하세요!</div>
-                        <a href="qna">이동하기</a>
+                        <a href="qnaList">이동하기</a>
                     </div>
                 </div>
             </div>
