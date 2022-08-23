@@ -15,4 +15,6 @@ public interface IAdminGoodsDao {
 
 	void getAdminGoodsSearchList(HashMap<String, Object> paramMap);
 
+	void insertGoods(HashMap<String, Object> paramMap);
+
 }

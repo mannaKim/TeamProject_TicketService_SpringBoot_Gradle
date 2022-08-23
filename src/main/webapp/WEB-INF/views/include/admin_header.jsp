@@ -5,7 +5,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>admin_header</title>
+	<title>TicketService_Admin</title>
 	<link href="/admin/admin.css" rel="stylesheet">
 	<link href="/admin/adminGoods.css" rel="stylesheet">
 	<link href="/admin/adminqna.css" rel="stylesheet">
@@ -28,11 +28,61 @@
 	        timeout:10000,
 	        contentType : false,
 	        processData : false,
-	        success : function(data){ //  result -> data
+	        success : function(data){
 				if(data.STATUS == 1){
 					$("#filename").append("<div>"+data.FILENAME+"<div>");
 					$("#image").val(data.FILENAME);
 					$("#filename").append("<img src='upload/"+data.FILENAME+"' height='150'/>")
+					}
+				},
+				error:function(){ alert("실패");
+				}
+			});
+		});
+	});
+	$(function(){
+		$('#goodsUploadButton').click(function(){
+			var formselect = $('#goodsUpForm')[0];
+			var formdata = new FormData(formselect);
+			$.ajax({
+			url:"<%=request.getContextPath()%>/goodsfileup",
+	        type : "POST",
+	        enctype : "multipart/form-data",
+	        async : false,
+	        data : formdata,
+	        timeout:10000,
+	        contentType : false,
+	        processData : false,
+	        success : function(data){
+				if(data.STATUS == 1){
+					$("#filename").append("<div>"+data.FILENAME+"<div>");
+					$("#image").val(data.FILENAME);
+					$("#filename").append("<img src='goods_images/"+data.FILENAME+"' width='200'/>")
+					}
+				},
+				error:function(){ alert("실패");
+				}
+			});
+		});
+	});
+	$(function(){
+		$('#goodsUploadButton2').click(function(){
+			var formselect = $('#goodsUpForm2')[0];
+			var formdata = new FormData(formselect);
+			$.ajax({
+			url:"<%=request.getContextPath()%>/goodsfileup2",
+	        type : "POST",
+	        enctype : "multipart/form-data",
+	        async : false,
+	        data : formdata,
+	        timeout:10000,
+	        contentType : false,
+	        processData : false,
+	        success : function(data){
+				if(data.STATUS == 1){
+					$("#filename2").append("<div>"+data.FILENAME+"<div>");
+					$("#detail_img").val(data.FILENAME);
+					$("#filename2").append("<img src='goods_images/"+data.FILENAME+"' width='200'/>")
 					}
 				},
 				error:function(){ alert("실패");

@@ -43,4 +43,9 @@
 		}
 	</select>
 	
+	<insert id="insertGoods" parameterType="com.team2.ticket.dto.GoodsVO">
+		INSERT INTO tp_goods(gseq, name, kind, num_inventory, price1, price2, price3, content, image, detail_img)
+		VALUES(goods_seq.nextVal,#{name},#{kind},#{num_inventory},#{price1},#{price2},#{price3}, #{content}, #{image}, #{detail_img})
+	</insert>
+	
 </mapper>

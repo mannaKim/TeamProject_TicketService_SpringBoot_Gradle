@@ -2,8 +2,10 @@ package com.team2.ticket.dto;
 
 import java.sql.Timestamp;
 
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Positive;
 
 import lombok.Data;
 
@@ -16,15 +18,16 @@ public class GoodsVO {
 	@NotEmpty(message="상품 분류를 입력하세요.")
 	@NotNull(message="상품 분류를 입력하세요.")
 	private String kind;
-	@NotEmpty(message="원가를 입력하세요.")
+	@NotNull(message="재고를 입력하세요.")
+	@Min(1)
+	private int num_inventory;
 	@NotNull(message="원가를 입력하세요.")
+	@Min(1)
 	private int price1;
-	@NotEmpty(message="판매가를 입력하세요.")
 	@NotNull(message="판매가를 입력하세요.")
+	@Min(1)
 	private int price2;
 	private int price3;
-	@NotEmpty(message="상품 설명을 입력하세요.")
-	@NotNull(message="상품 설명을 입력하세요.")
 	private String content;
 	@NotEmpty(message="상품 대표 이미지를 입력하세요.")
 	@NotNull(message="상품 대표 이미지를 입력하세요.")

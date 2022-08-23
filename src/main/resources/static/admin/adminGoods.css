@@ -26,6 +26,12 @@ article#admin_goods div.goods_buttonBox input[type=button] {
 	margin: 10px;
 }
 
+article#admin_goods div.goods_buttonBox input[type=submit] {
+	float: right;
+	padding: 5px;
+	margin: 10px;
+}
+
 article#admin_goods table {
 	width: 800px;
 	margin: 0 auto;

@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="../admin_header.jsp" %>
+<%@ include file="../../include/admin_header.jsp"%>
 <article id="admin_goods">
   	<h2>굿즈 상세</h2>
   	<div class="goods_buttonBox">
@@ -37,15 +37,15 @@
 		<tr>
 			<th>상품 대표이미지</th>
 			<td colspan="5">
-				<img src="goods/goods_images/${gvo.image}" width="400">
+				<img src="/goods_images/${gvo.image}" width="400">
 			</td>
 		</tr>	
 		<tr>
-		<th>상품 상세이미지</th>
+			<th>상품 상세이미지</th>
 			<td colspan="5">
-				<img src="goods/goods_images/${gvo.detail_img}" width="400">
+				<img src="/goods_images/${gvo.detail_img}" width="400">
 			</td>
-			</tr>
+		</tr>
     </table>
 </article>
-<%@ include file="../admin_footer.jsp" %>
+<%@ include file="../../include/admin_footer.jsp"%>
