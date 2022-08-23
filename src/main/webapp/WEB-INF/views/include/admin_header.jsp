@@ -55,9 +55,9 @@
 	        processData : false,
 	        success : function(data){
 				if(data.STATUS == 1){
-					$("#filename").append("<div>"+data.FILENAME+"<div>");
 					$("#image").val(data.FILENAME);
-					$("#filename").append("<img src='goods_images/"+data.FILENAME+"' width='200'/>")
+					$("#filename").append("<img src='goods_images/"+data.FILENAME+"' width='200'/>");
+					$("#filename").append("<div>"+data.FILENAME+"<div>");
 					}
 				},
 				error:function(){ alert("실패");
@@ -80,9 +80,9 @@
 	        processData : false,
 	        success : function(data){
 				if(data.STATUS == 1){
-					$("#filename2").append("<div>"+data.FILENAME+"<div>");
 					$("#detail_img").val(data.FILENAME);
-					$("#filename2").append("<img src='goods_images/"+data.FILENAME+"' width='200'/>")
+					$("#filename2").append("<img src='goods_images/"+data.FILENAME+"' width='200'/>");
+					$("#filename2").append("<div>"+data.FILENAME+"<div>");	
 					}
 				},
 				error:function(){ alert("실패");

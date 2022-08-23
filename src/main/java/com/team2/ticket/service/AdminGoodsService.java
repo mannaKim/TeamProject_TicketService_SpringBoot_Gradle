@@ -48,4 +48,12 @@ public class AdminGoodsService {
 	public void insertGoods(HashMap<String, Object> paramMap) {
 		adao.insertGoods(paramMap);
 	}
+
+	public void deleteGoods(int gseq) {
+		adao.deleteGoods(gseq);
+	}
+
+	public void updateGoods(HashMap<String, Object> paramMap) {
+		adao.updateGoods(paramMap);
+	}
 }

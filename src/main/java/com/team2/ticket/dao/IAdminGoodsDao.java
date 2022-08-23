@@ -17,4 +17,8 @@ public interface IAdminGoodsDao {
 
 	void insertGoods(HashMap<String, Object> paramMap);
 
+	void deleteGoods(int gseq);
+
+	void updateGoods(HashMap<String, Object> paramMap);
+
 }

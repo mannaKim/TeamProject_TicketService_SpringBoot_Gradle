@@ -26,6 +26,7 @@ import com.team2.ticket.dto.GoodsVO;
 import com.team2.ticket.dto.MemberVO;
 import com.team2.ticket.dto.Paging;
 import com.team2.ticket.service.AdminGoodsService;
+import com.team2.ticket.service.GoodsService;
 
 @Controller
 public class AdminGoodsController {
@@ -34,6 +35,9 @@ public class AdminGoodsController {
 	
 	@Autowired
 	ServletContext context;
+	
+	@Autowired
+	GoodsService gs;
 	
 	@RequestMapping("/adminGoodsList")
 	public ModelAndView admin_goods_list(HttpServletRequest request) {
@@ -181,6 +185,148 @@ public class AdminGoodsController {
 				paramMap.put("detail_img", goodsvo.getDetail_img());
 				as.insertGoods(paramMap);
 				url = "redirect:/adminGoodsList?page=1";
+			}
+			return url;
+		}
+	}
+	
+	@RequestMapping("/adminGoodsDetail")
+	public ModelAndView admin_goods_detail(HttpServletRequest request,
+			@RequestParam("gseq") int gseq) {
+		ModelAndView mav = new ModelAndView();
+		HttpSession session = request.getSession();
+		MemberVO loginUser
+			= (MemberVO)session.getAttribute("loginUser");
+		if(loginUser == null || loginUser.getAdmin()!=1)
+			mav.setViewName("member/loginForm");
+		else {
+			HashMap<String, Object> paramMap = new HashMap<String, Object>();
+			paramMap.put("gseq", gseq);
+			paramMap.put("ref_cursor", null);
+			
+			gs.getGoods(paramMap);
+			ArrayList<HashMap<String, Object>> list
+				= (ArrayList<HashMap<String, Object>>)paramMap.get("ref_cursor");
+			HashMap<String, Object> resultMap = list.get(0);
+			
+			String [] goodsKindList = {"","문구","디지털","가방 · 파우치","취미용품","패션 · 잡화"};
+			mav.addObject("goodsKind", goodsKindList[Integer.parseInt(resultMap.get("KIND").toString())]);
+			mav.addObject("goodsVO", resultMap);
+			mav.setViewName("admin/goods/goodsDetail");
+		}
+		return mav;
+	}
+	
+	@RequestMapping("/adminGoodsDelete")
+	public String admin_goods_delete(HttpServletRequest request,
+			@RequestParam("gseq") int gseq) {
+		HttpSession session = request.getSession();
+		MemberVO loginUser
+			= (MemberVO)session.getAttribute("loginUser");
+		if(loginUser == null || loginUser.getAdmin()!=1)
+			return "member/loginForm";
+		else {
+			as.deleteGoods(gseq);
+		}
+		return "redirect:/adminGoodsList?page=1";
+	}
+	
+	@RequestMapping("/adminGoodsUpdateForm")
+	public ModelAndView admin_goods_update_form(HttpServletRequest request, 
+			@RequestParam("gseq") int gseq) {
+		ModelAndView mav = new ModelAndView();
+		HttpSession session = request.getSession();
+		MemberVO loginUser
+			= (MemberVO)session.getAttribute("loginUser");
+		if(loginUser == null || loginUser.getAdmin()!=1)
+			mav.setViewName("member/loginForm");
+		else {
+			HashMap<String, Object> paramMap = new HashMap<String, Object>();
+			paramMap.put("gseq", gseq);
+			paramMap.put("ref_cursor", null);
+			
+			gs.getGoods(paramMap);
+			ArrayList<HashMap<String, Object>> list
+				= (ArrayList<HashMap<String, Object>>)paramMap.get("ref_cursor");
+			HashMap<String, Object> resultMap = list.get(0);
+			
+			GoodsVO goods = new GoodsVO();
+			goods.setGseq(Integer.parseInt(resultMap.get("GSEQ").toString()));
+			goods.setName(resultMap.get("NAME").toString());
+			goods.setKind(resultMap.get("KIND").toString());
+			goods.setNum_inventory(Integer.parseInt(resultMap.get("NUM_INVENTORY").toString()));
+			goods.setPrice1(Integer.parseInt(resultMap.get("PRICE1").toString()));
+			goods.setPrice2(Integer.parseInt(resultMap.get("PRICE2").toString()));
+			goods.setPrice3(Integer.parseInt(resultMap.get("PRICE3").toString()));
+			goods.setContent(resultMap.get("CONTENT").toString());
+			goods.setImage(resultMap.get("IMAGE").toString());
+			goods.setDetail_img(resultMap.get("DETAIL_IMG").toString());
+			goods.setUseyn(resultMap.get("USEYN").toString());
+			goods.setBestyn(resultMap.get("BESTYN").toString());
+			
+			String [] goodsKindList = {"문구","디지털","가방 · 파우치","취미용품","패션 · 잡화"};
+			mav.addObject("goodsKindList", goodsKindList);
+			mav.addObject("goods", goods);
+			mav.setViewName("admin/goods/goodsModify");
+		}
+		return mav;
+	}
+	
+	@RequestMapping("/adminGoodsUpdate")
+	public String admin_goods_update(
+			@ModelAttribute("goods") @Valid GoodsVO goodsvo,
+			BindingResult result,
+			Model model,
+			HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		MemberVO loginUser
+			= (MemberVO)session.getAttribute("loginUser");
+		String [] goodsKindList = {"문구","디지털","가방 · 파우치","취미용품","패션 · 잡화"};
+		model.addAttribute("goodsKindList", goodsKindList);
+		if(loginUser == null || loginUser.getAdmin()!=1)
+			return "member/loginForm";
+		else {
+			String url = "admin/goods/goodsModify";
+			if(result.getFieldError("kind")!=null) 
+				model.addAttribute("message", result.getFieldError("kind").getDefaultMessage());
+			else if(result.getFieldError("name")!=null) 
+				model.addAttribute("message", result.getFieldError("name").getDefaultMessage());
+			else if(result.getFieldError("num_inventory")!=null) 
+				model.addAttribute("message", result.getFieldError("num_inventory").getDefaultMessage());
+			else if(result.getFieldError("price1")!=null) 
+				model.addAttribute("message", result.getFieldError("price1").getDefaultMessage());
+			else if(result.getFieldError("price2")!=null) 
+				model.addAttribute("message", result.getFieldError("price2").getDefaultMessage());
+			else {
+				HashMap<String,Object> paramMap = new HashMap<String,Object>();
+				paramMap.put("name", goodsvo.getName());
+				paramMap.put("kind", goodsvo.getKind());
+				paramMap.put("num_inventory", goodsvo.getNum_inventory());
+				paramMap.put("price1", goodsvo.getPrice1());
+				paramMap.put("price2", goodsvo.getPrice2());
+				paramMap.put("price3", goodsvo.getPrice3());
+				paramMap.put("useyn", goodsvo.getUseyn());
+				paramMap.put("bestyn", goodsvo.getBestyn());
+				paramMap.put("content", goodsvo.getContent());
+				paramMap.put("gseq", goodsvo.getGseq());
+				if(goodsvo.getImage()==null) {
+					paramMap.put("image", request.getParameter("oldImage"));
+				} else {
+					paramMap.put("image", goodsvo.getImage());
+				}	
+				if(goodsvo.getDetail_img()==null) {
+					paramMap.put("detail_img", request.getParameter("oldDetail_img"));
+				} else {
+					paramMap.put("detail_img", goodsvo.getDetail_img());
+				}
+//				System.out.println("갱신이미지 "+goodsvo.getImage());
+//				System.out.println("갱신상세이미지 "+goodsvo.getDetail_img());
+//				System.out.println("옛날이미지 "+request.getParameter("oldImage"));
+//				System.out.println("옛날상세이미지 "+request.getParameter("oldDetail_img"));
+//				System.out.println("바꾼이미지 "+paramMap.get("image").toString());
+//				System.out.println("바꾼상세이미지 "+paramMap.get("detail_img").toString());
+				as.updateGoods(paramMap);
+				url = "redirect:/adminGoodsDetail?gseq="+goodsvo.getGseq();
 			}
 			return url;
 		}

@@ -48,4 +48,16 @@
 		VALUES(goods_seq.nextVal,#{name},#{kind},#{num_inventory},#{price1},#{price2},#{price3}, #{content}, #{image}, #{detail_img})
 	</insert>
 	
+	<delete id="deleteGoods">
+		DELETE FROM tp_goods WHERE gseq=#{param1}
+	</delete>
+	
+	<update id="updateGoods" parameterType="com.team2.ticket.dto.GoodsVO">
+		UPDATE tp_goods
+		SET name=#{name}, kind=#{kind}, num_inventory=#{num_inventory},
+			price1=#{price1}, price2=#{price2}, price3=#{price3},
+			content=#{content}, image=#{image}, detail_img=#{detail_img}
+		WHERE gseq=#{gseq}
+	</update>
+	
 </mapper>

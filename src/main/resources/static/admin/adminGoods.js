@@ -27,36 +27,11 @@ function calculatePrice(){
 	else document.frm.price3.value = document.frm.price2.value - document.frm.price1.value;
 }
 
-function go_goodsDetail(gseq){
-	document.frm.action = "ticket.do?command=adminGoodsDetail&gseq="+gseq;
-	document.frm.submit();
-}
-
-function go_goodsModifyForm(gseq){
-	location.href = "ticket.do?command=adminGoodsUpdateForm&gseq="+gseq;
-}
-
-function go_goodsModify(){
-	if(document.frm.kind.value==""){
-		alert("상품분류를 선택하세요.");
-		document.frm.kind.focus();
-	}else if(document.frm.name.value==""){
-		alert("상품명을 입력하세요.");
-		document.frm.name.focus();
-	}else if(document.frm.price1.value==""){
-		alert("원가를 입력하세요.");
-		document.frm.price1.focus();
-	}else if(document.frm.price2.value==""){
-		alert("판매가를 입력하세요.");
-		document.frm.price2.focus();
-	}else if(document.frm.content.value==""){
-		alert("상품상세를 입력하세요.");
-		document.frm.content.focus();
-	}else{
-		if(confirm('수정하시겠습니까?')){
-			document.frm.action = "ticket.do?command=adminGoodsUpdate";
-			document.frm.submit();
-		}
+function deleteGoodsConfirm(gseq){
+	if(confirm('삭제하시겠습니까?')){
+		location.href = "adminGoodsDelete?gseq="+gseq;
+	}else {
+		location.href = "adminGoodsDetail?gseq="+gseq;
 	}
 }
 
