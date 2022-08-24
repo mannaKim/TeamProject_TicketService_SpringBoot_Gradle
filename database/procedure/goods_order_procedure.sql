@@ -137,7 +137,7 @@ BEGIN
                     (SELECT DISTINCT goseq
                     FROM (SELECT goseq, id, result 
                         FROM goods_order_view 
-                        ORDER BY result DESC, godseq DESC)
+                        ORDER BY result DESC)
                     WHERE id=p_id
                     ORDER BY goseq DESC) o)
             ) WHERE rn>=p_startNum

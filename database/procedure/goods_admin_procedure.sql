@@ -97,3 +97,14 @@ BEGIN
             ) WHERE rn>=p_startNum
         ) WHERE rn<=p_endNum;
 END;
+
+
+create or replace PROCEDURE getGoodsBannerList(
+    p_curvar OUT SYS_REFCURSOR
+)
+IS
+BEGIN
+    OPEN p_curvar FOR 
+        SELECT * FROM goods_banner
+        ORDER BY useyn DESC, order_seq;
+END;
