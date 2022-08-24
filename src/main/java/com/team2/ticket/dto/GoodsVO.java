@@ -20,14 +20,14 @@ public class GoodsVO {
 	private String kind;
 	@NotNull(message="재고를 입력하세요.")
 	@Min(1)
-	private int num_inventory;
+	private Integer num_inventory;
 	@NotNull(message="원가를 입력하세요.")
 	@Min(1)
-	private int price1;
+	private Integer price1;
 	@NotNull(message="판매가를 입력하세요.")
 	@Min(1)
-	private int price2;
-	private int price3;
+	private Integer price2;
+	private Integer price3;
 	private String content;
 	@NotEmpty(message="상품 대표 이미지를 입력하세요.")
 	@NotNull(message="상품 대표 이미지를 입력하세요.")

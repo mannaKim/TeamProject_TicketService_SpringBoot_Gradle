@@ -89,4 +89,32 @@
 		WHERE godseq=#{param1}
 	</update>
 	
+	<select id="getGoodsBannerList" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			CALL getGoodsBannerList(
+				#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=adminGoodsMap}
+			)
+		}
+	</select>
+	
+	<insert id="insertGoodsBanner" parameterType="com.team2.ticket.dto.GoodsBannerVO">
+		INSERT INTO goods_banner(gbseq, name, order_seq, image, link, useyn)
+		VALUES(goods_banner_seq.nextVal,#{name},#{order_seq},#{image},#{link},#{useyn})
+	</insert>
+	
+	<delete id="deleteGoodsBanner">
+		DELETE FROM goods_banner WHERE gbseq=#{param1}
+	</delete>
+	
+	<select id="getGoodsBanner" resultType="com.team2.ticket.dto.GoodsBannerVO">
+		SELECT * FROM goods_banner WHERE gbseq=#{param1}
+	</select>
+	
+	<update id="updateGoodsBanner" parameterType="com.team2.ticket.dto.GoodsBannerVO">
+		UPDATE goods_banner
+		SET name=#{name}, order_seq=#{order_seq}, image=#{image},
+			link=#{link}, useyn=#{useyn}
+		WHERE gbseq=#{gbseq}
+	</update>
+	
 </mapper>

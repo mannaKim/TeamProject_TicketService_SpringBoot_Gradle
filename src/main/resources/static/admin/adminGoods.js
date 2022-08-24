@@ -46,3 +46,11 @@ function changeResultAll(){
 	document.frm.action = url;
 	document.frm.submit();
 }
+
+function deleteGoodsBannerConfirm(gbseq){
+	if(confirm('삭제하시겠습니까?')){
+		location.href = "goodsBannerDelete?gbseq="+gbseq;
+	}else {
+		return;
+	}
+}

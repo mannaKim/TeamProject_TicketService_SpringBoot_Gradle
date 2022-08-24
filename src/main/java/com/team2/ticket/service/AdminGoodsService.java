@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.team2.ticket.dao.IAdminGoodsDao;
 import com.team2.ticket.dao.IGoodsOrderDao;
+import com.team2.ticket.dto.GoodsBannerVO;
 import com.team2.ticket.dto.Paging;
 
 @Service
@@ -115,5 +116,25 @@ public class AdminGoodsService {
 
 	public void changeResult(int godseq, String result) {
 		adao.changeResult(godseq, result);
+	}
+
+	public void getGoodsBannerList(HashMap<String, Object> paramMap) {
+		adao.getGoodsBannerList(paramMap);
+	}
+
+	public void insertGoodsBanner(GoodsBannerVO goodsbannervo) {
+		adao.insertGoodsBanner(goodsbannervo);
+	}
+
+	public void deleteGoodsBanner(int gbseq) {
+		adao.deleteGoodsBanner(gbseq);
+	}
+
+	public GoodsBannerVO getGoodsBanner(int gbseq) {
+		return adao.getGoodsBanner(gbseq);
+	}
+
+	public void updateGoodsBanner(GoodsBannerVO goodsbannervo) {
+		adao.updateGoodsBanner(goodsbannervo);
 	}
 }

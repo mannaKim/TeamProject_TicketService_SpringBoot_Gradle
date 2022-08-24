@@ -4,6 +4,8 @@ import java.util.HashMap;
 
 import org.apache.ibatis.annotations.Mapper;
 
+import com.team2.ticket.dto.GoodsBannerVO;
+
 @Mapper
 public interface IAdminGoodsDao {
 
@@ -28,5 +30,15 @@ public interface IAdminGoodsDao {
 	void changeResultAll(int goseq, String result);
 
 	void changeResult(int godseq, String result);
+
+	void getGoodsBannerList(HashMap<String, Object> paramMap);
+
+	void insertGoodsBanner(GoodsBannerVO goodsbannervo);
+
+	void deleteGoodsBanner(int gbseq);
+
+	GoodsBannerVO getGoodsBanner(int gbseq);
+
+	void updateGoodsBanner(GoodsBannerVO goodsbannervo);
 
 }

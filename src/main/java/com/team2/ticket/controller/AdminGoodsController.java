@@ -22,6 +22,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
+import com.team2.ticket.dto.GoodsBannerVO;
 import com.team2.ticket.dto.GoodsVO;
 import com.team2.ticket.dto.MemberVO;
 import com.team2.ticket.dto.Paging;
@@ -421,5 +422,133 @@ public class AdminGoodsController {
 			}
 		}
 		return "redirect:/adminGoodsOrderModify?goseq="+goseq;
+	}
+	
+	@RequestMapping("/adminGoodsBannerList")
+	public ModelAndView admin_goods_banner_list(HttpServletRequest request) {
+		ModelAndView mav =  new ModelAndView();
+		HttpSession session = request.getSession();
+		MemberVO loginUser
+			= (MemberVO)session.getAttribute("loginUser");
+		if(loginUser == null || loginUser.getAdmin()!=1)
+			mav.setViewName("member/loginForm");
+		else {
+			HashMap<String, Object> paramMap = new HashMap<String, Object>();
+			paramMap.put("ref_cursor", null);
+			as.getGoodsBannerList(paramMap);
+			ArrayList<HashMap<String,Object>> list 
+				= (ArrayList<HashMap<String,Object>>)paramMap.get("ref_cursor");
+			mav.addObject("goodsBannerList", list);
+			mav.setViewName("admin/banner/goodsBannerList");
+		}
+		return mav;
+	}
+	
+	@RequestMapping("goodsBannerWriteForm")
+	public String goods_banner_write_form(HttpServletRequest request, Model model) {
+		return "admin/banner/writeGoodsBanner";
+	}
+	
+	@RequestMapping(value="goodsbannerup", method=RequestMethod.POST)
+	@ResponseBody
+	public HashMap<String,Object> goodsbannerup(HttpServletRequest request, Model model) {
+		HashMap<String,Object> result = new HashMap<String,Object>();
+		String path = context.getRealPath("/goods_images/sub_images");
+		try {
+			MultipartRequest multi = new MultipartRequest(
+					request, path, 5*1024*1024, "UTF-8", new DefaultFileRenamePolicy()
+			);
+			result.put("STATUS", 1);
+			result.put("FILENAME", multi.getFilesystemName("fileimage"));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+	
+	@RequestMapping("/writeGoodsBanner")
+	public String write_goods_banner(HttpServletRequest request, Model model,
+			@ModelAttribute("goodsBanner") GoodsBannerVO goodsbannervo) {
+		HttpSession session = request.getSession();
+		MemberVO loginUser
+			= (MemberVO)session.getAttribute("loginUser");
+		if(loginUser == null || loginUser.getAdmin()!=1)
+			return "member/loginForm";
+		else {
+			String url = "admin/banner/writeGoodsBanner";
+			if(goodsbannervo.getName()==null || goodsbannervo.getName().equals(""))
+				model.addAttribute("message", "배너 이름을 입력하세요.");
+			else if(goodsbannervo.getOrder_seq()==null)
+				model.addAttribute("message", "배너 순서를 입력하세요.");
+			else if(goodsbannervo.getLink()==null || goodsbannervo.getLink().equals(""))
+				model.addAttribute("message", "배너 링크를 입력하세요.");
+			else if(goodsbannervo.getImage()==null || goodsbannervo.getImage().equals(""))
+				model.addAttribute("message", "배너 이미지를 입력하세요.");
+			else {
+				if(goodsbannervo.getOrder_seq()==0)
+					goodsbannervo.setUseyn("n");
+				else 
+					goodsbannervo.setUseyn("y");
+				as.insertGoodsBanner(goodsbannervo);
+				url = "redirect:/adminGoodsBannerList";
+			}
+			return url;
+		}
+	}
+	
+	@RequestMapping("/goodsBannerDelete")
+	public String goods_banner_delete(HttpServletRequest request,
+			@RequestParam("gbseq") int gbseq) {
+		HttpSession session = request.getSession();
+		MemberVO loginUser
+			= (MemberVO)session.getAttribute("loginUser");
+		if(loginUser == null || loginUser.getAdmin()!=1)
+			return "member/loginForm";
+		else {
+			as.deleteGoodsBanner(gbseq);
+			return "redirect:/adminGoodsBannerList";
+		}
+	}
+	
+	@RequestMapping("/goodsBannerEditForm")
+	public String goods_banner_edit_form(HttpServletRequest request, Model model,
+			@RequestParam("gbseq") int gbseq) {
+		GoodsBannerVO goodsBanner = as.getGoodsBanner(gbseq);
+		String [] orderList = {"사용안함", "1", "2", "3", "4"};
+		model.addAttribute("goodsBanner", goodsBanner);
+		model.addAttribute("orderList", orderList);
+		return "admin/banner/editGoodsBanner";
+	}
+	
+	@RequestMapping("/editGoodsBanner")
+	public String edit_goods_banner(HttpServletRequest request, Model model,
+			@ModelAttribute("goodsBanner") GoodsBannerVO goodsbannervo) {
+		HttpSession session = request.getSession();
+		MemberVO loginUser
+			= (MemberVO)session.getAttribute("loginUser");
+		if(loginUser == null || loginUser.getAdmin()!=1)
+			return "member/loginForm";
+		else {
+			String url = "admin/banner/editGoodsBanner";
+			String [] orderList = {"사용안함", "1", "2", "3", "4"};
+			model.addAttribute("orderList", orderList);
+			if(goodsbannervo.getName()==null || goodsbannervo.getName().equals(""))
+				model.addAttribute("message", "배너 이름을 입력하세요.");
+			else if(goodsbannervo.getOrder_seq()==null)
+				model.addAttribute("message", "배너 순서를 입력하세요.");
+			else if(goodsbannervo.getLink()==null || goodsbannervo.getLink().equals(""))
+				model.addAttribute("message", "배너 링크를 입력하세요.");
+			else {
+				if(goodsbannervo.getOrder_seq()==0)
+					goodsbannervo.setUseyn("n");
+				else 
+					goodsbannervo.setUseyn("y");
+				if(goodsbannervo.getImage()==null || goodsbannervo.getImage().equals(""))
+					goodsbannervo.setImage(request.getParameter("oldImage"));
+				as.updateGoodsBanner(goodsbannervo);
+				url = "redirect:/adminGoodsBannerList";
+			}
+			return url;
+		}
 	}
 }

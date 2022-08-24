@@ -28,6 +28,7 @@ public class GoodsController {
 		HashMap<String, Object> paramMap = new HashMap<String, Object>();
 		paramMap.put("ref_cursor1", null);
 		paramMap.put("ref_cursor2", null);
+		//paramMap.put("ref_cursor3", null);
 		gs.getBestNewGoods(paramMap);
 		
 		ArrayList<HashMap<String, Object>> list1

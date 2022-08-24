@@ -90,6 +90,31 @@
 			});
 		});
 	});
+	$(function(){
+		$('#goodsBannerUpload').click(function(){
+			var formselect = $('#bannerUpForm')[0];
+			var formdata = new FormData(formselect);
+			$.ajax({
+			url:"<%=request.getContextPath()%>/goodsbannerup",
+	        type : "POST",
+	        enctype : "multipart/form-data",
+	        async : false,
+	        data : formdata,
+	        timeout:10000,
+	        contentType : false,
+	        processData : false,
+	        success : function(data){
+				if(data.STATUS == 1){
+					$("#image").val(data.FILENAME);
+					$("#filename").append("<img src='goods_images/sub_images/"+data.FILENAME+"' width='400'/>");
+					$("#filename").append("<div>"+data.FILENAME+"<div>");	
+					}
+				},
+				error:function(){ alert("실패");
+				}
+			});
+		});
+	});
 	</script>
 </head>
 <body>
@@ -126,6 +151,7 @@
 			  	<li><a href="adminNotice?page=1&key=">공지사항</a></li>
 			    <li><a href="adminGoodsList?page=1&key=">굿즈관리</a></li>
 			    <li><a href="adminGoodsOrderList?page=1">굿즈주문관리</a></li>
+			    <li><a href="adminGoodsBannerList">굿즈배너관리</a></li>
 			    <li><a href="admin_ticketList?page=1&key=">전시관리</a></li>
 			    <li><a href="adminticketOrderList?page=1&key=">전시예약관리</a></li>
 			   	<li><a href="adminEvent?page=1">이벤트관리</a></li>
