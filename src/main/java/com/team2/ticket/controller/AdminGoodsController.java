@@ -26,6 +26,7 @@ import com.team2.ticket.dto.GoodsVO;
 import com.team2.ticket.dto.MemberVO;
 import com.team2.ticket.dto.Paging;
 import com.team2.ticket.service.AdminGoodsService;
+import com.team2.ticket.service.GoodsOrderService;
 import com.team2.ticket.service.GoodsService;
 
 @Controller
@@ -38,6 +39,9 @@ public class AdminGoodsController {
 	
 	@Autowired
 	GoodsService gs;
+	
+	@Autowired
+	GoodsOrderService os;
 	
 	@RequestMapping("/adminGoodsList")
 	public ModelAndView admin_goods_list(HttpServletRequest request) {
@@ -330,5 +334,92 @@ public class AdminGoodsController {
 			}
 			return url;
 		}
+	}
+	
+	@RequestMapping("/adminGoodsOrderList")
+	public ModelAndView admin_goods_order_list(HttpServletRequest request) {
+		ModelAndView mav = new ModelAndView();
+		HttpSession session = request.getSession();
+		MemberVO loginUser
+			= (MemberVO)session.getAttribute("loginUser");
+		if(loginUser == null || loginUser.getAdmin()!=1)
+			mav.setViewName("member/loginForm");
+		else {
+			int page = 1;
+			if(request.getParameter("page")!=null) {
+				page = Integer.parseInt(request.getParameter("page"));
+				session.setAttribute("page", page);
+			}else if(session.getAttribute("page")!=null) {
+				page = (Integer)session.getAttribute("page");
+			}else {
+				session.removeAttribute("page");
+			}
+			HashMap<String,Object> paramMap = new HashMap<String,Object>();
+			paramMap.put("ref_cursor", null);
+			as.listAdminGoodsOrder(paramMap, page);
+			ArrayList<HashMap<String, Object>> finalList
+				= (ArrayList<HashMap<String, Object>>)paramMap.get("finalList");
+			mav.addObject("goodsOrderList", finalList);
+			mav.addObject("paging", (Paging)paramMap.get("paging"));
+			mav.setViewName("admin/goods/goodsOrderList");
+		}
+		return mav;
+	}
+	
+	@RequestMapping("/adminGoodsOrderModify")
+	public ModelAndView admin_goods_order_modify(HttpServletRequest request,
+			@RequestParam("goseq") int goseq) {
+		ModelAndView mav =  new ModelAndView();
+		HttpSession session = request.getSession();
+		MemberVO loginUser
+			= (MemberVO)session.getAttribute("loginUser");
+		if(loginUser == null || loginUser.getAdmin()!=1)
+			mav.setViewName("member/loginForm");
+		else {
+			HashMap<String, Object> paramMap = new HashMap<String, Object>();
+			paramMap.put("goseq", goseq);
+			paramMap.put("ref_cursor", null);
+			os.listGoodsOrder(paramMap);
+			
+			ArrayList<HashMap<String, Object>> list
+				= (ArrayList<HashMap<String, Object>>)paramMap.get("ref_cursor");
+			
+			int totalPrice = 0;
+			for(HashMap<String,Object> order : list) {
+				totalPrice += Integer.parseInt(order.get("QUANTITY").toString())
+									* Integer.parseInt(order.get("PRICE").toString());
+			}
+			
+			int payment = Integer.parseInt(list.get(0).get("PAYMENT").toString());
+			String [] paymentList = {"신용카드","휴대폰결제","계좌이체","가상계좌"};
+			
+			mav.addObject("payment", paymentList[payment]);
+			mav.addObject("goodsOrderList", list);
+			mav.addObject("totalPrice", totalPrice);
+			mav.addObject("goodsOrderDetail", list.get(0));
+			mav.setViewName("admin/goods/goodsOrderModify");
+		}
+		return mav;
+	}
+	
+	@RequestMapping(value="/adminChangeOrderResult", method=RequestMethod.POST)
+	public String admin_change_order_result(HttpServletRequest request,
+			@RequestParam("goseq") int goseq,
+			@RequestParam("godseq") int godseq,
+			@RequestParam("result") String result) {
+		HttpSession session = request.getSession();
+		MemberVO loginUser
+			= (MemberVO)session.getAttribute("loginUser");
+		if(loginUser == null || loginUser.getAdmin()!=1)
+			return "member/loginForm";
+		else {
+			if(request.getParameter("all").equals("1")) 
+					as.changeResultAll(goseq, "0");
+			else {
+				if(result.equals("0")) as.changeResult(godseq, "1");
+				else as.changeResult(godseq, "0");
+			}
+		}
+		return "redirect:/adminGoodsOrderModify?goseq="+goseq;
 	}
 }

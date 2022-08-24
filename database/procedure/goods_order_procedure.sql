@@ -135,8 +135,11 @@ BEGIN
             SELECT * FROM (
                 SELECT rownum AS rn, o.* FROM (
                     (SELECT DISTINCT goseq
-                    FROM (SELECT goseq, id, result FROM goods_order_view ORDER BY result DESC, goseq DESC)
-                    WHERE id=p_id) o)
+                    FROM (SELECT goseq, id, result 
+                        FROM goods_order_view 
+                        ORDER BY result DESC, godseq DESC)
+                    WHERE id=p_id
+                    ORDER BY goseq DESC) o)
             ) WHERE rn>=p_startNum
         ) WHERE rn<=p_endNum;
 END;

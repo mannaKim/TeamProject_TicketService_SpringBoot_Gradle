@@ -37,7 +37,6 @@
 	<select id="listGoodsOrder" statementType="CALLABLE" parameterType="java.util.HashMap">
 		{
 			CALL listGoodsOrder(
-			
 				#{goseq},
 				#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=orderMap}
 			)

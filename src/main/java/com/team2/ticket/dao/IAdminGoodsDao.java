@@ -21,4 +21,12 @@ public interface IAdminGoodsDao {
 
 	void updateGoods(HashMap<String, Object> paramMap);
 
+	void getAdminGoodsOrderCount(HashMap<String, Object> paramMap);
+
+	void listAdminGoodsOrder(HashMap<String, Object> paramMap);
+
+	void changeResultAll(int goseq, String result);
+
+	void changeResult(int godseq, String result);
+
 }

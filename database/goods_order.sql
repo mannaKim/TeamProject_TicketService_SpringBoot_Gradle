@@ -45,7 +45,7 @@ select d.godseq, d.quantity, d.result, d.name, d.phone,
 	o.goseq, o.indate, o.payment,
 	m.id, m.name as mname,
 	g.gseq, g.name as gname, g.price2 as price, g.image
-from goods_orders o, goods_order_detail d, member m, tp_goods g
+from goods_orders o, goods_order_detail d, tp_member m, tp_goods g
 where o.goseq=d.goseq and o.id=m.id and d.gseq=g.gseq;
 
 select * from goods_order_view;

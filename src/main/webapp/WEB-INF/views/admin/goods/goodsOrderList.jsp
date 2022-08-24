@@ -1,6 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ include file="../admin_header.jsp" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ include file="../../include/admin_header.jsp"%>
 <article id="admin_goods">
 	<h2 align="center">굿즈 주문 리스트</h2>
 	<table id="goods_orderTable">
@@ -13,39 +12,39 @@
 		    <th width="70">처리상태</th>
 		    <th width="70">주문처리</th>
 		</tr>
-		<c:forEach items="${GoodsOrderList}" var="govo">
+		<c:forEach items="${goodsOrderList}" var="govo">
 			<tr>
 				<td>
-			   		<fmt:formatDate value="${govo.indate}" type="date"/>
+			   		<fmt:formatDate value="${govo.INDATE}" type="date"/>
 			   	</td>
 			   	<td>
-			   		${govo.oseq}
+			   		${govo.GOSEQ}
 			   	</td>
 			   	<td>
-			   		${govo.id}
+			   		${govo.ID}
 			   	</td>
 			   	<td>
-			   		<img src="goods/goods_images/${govo.image}" width="200">
+			   		<img src="/goods_images/${govo.IMAGE}" width="200">
 			   	</td>
 			   	<td>
-			   		${govo.gname}
+			   		${govo.GNAME}
 			   	</td>
 			   	<td>
-			   		<fmt:formatNumber value="${govo.price}" type="currency"/>
+			   		<fmt:formatNumber value="${govo.PRICE}" type="currency"/>
 			   	</td>
 			   	<td>
-			   		<c:if test="${govo.result=='1'}">처리중</c:if>
-		            <c:if test="${govo.result=='0'}">완료</c:if>
+			   		<c:if test="${govo.RESULT=='1'}">처리중</c:if>
+		            <c:if test="${govo.RESULT=='0'}">완료</c:if>
 			   	</td>
 			   	<td>
-			   		<a href="ticket.do?command=adminGoodsOrderModify&oseq=${govo.oseq}">이동</a>
+			   		<a href="adminGoodsOrderModify?goseq=${govo.GOSEQ}">이동</a>
 			   	</td> 
 			</tr>  
 		</c:forEach>
 	</table>
 	<br><br>
-  	<jsp:include page="/paging.jsp">
-    	<jsp:param value="ticket.do?command=adminGoodsOrderList" name="command"/>
-  	</jsp:include>
+  	<jsp:include page="../../include/paging/paging.jsp">
+  		<jsp:param value="adminGoodsOrderList" name="command" />
+	</jsp:include>
 </article>
-<%@ include file="../admin_footer.jsp" %>
+<%@ include file="../../include/admin_footer.jsp"%>

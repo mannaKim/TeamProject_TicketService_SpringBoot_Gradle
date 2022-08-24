@@ -60,4 +60,33 @@
 		WHERE gseq=#{gseq}
 	</update>
 	
+	<select id="getAdminGoodsOrderCount" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			CALL getAdminGoodsOrderCount(
+				#{cnt, mode=OUT, jdbcType=INTEGER}
+			)
+		}
+	</select>
+	
+	<select id="listAdminGoodsOrder" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			CALL listAdminGoodsOrder(
+				#{startNum}, #{endNum},
+				#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=adminGoodsMap}
+			)
+		}
+	</select>
+	
+	<update id="changeResultAll">
+		UPDATE goods_order_detail
+		SET result=#{param2}
+		WHERE goseq=#{param1}
+	</update>
+	
+	<update id="changeResult">
+		UPDATE goods_order_detail
+		SET result=#{param2}
+		WHERE godseq=#{param1}
+	</update>
+	
 </mapper>
