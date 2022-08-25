@@ -31,7 +31,7 @@
 				</c:forEach>
 				<tr>
 					<th>결제 금액</th>
-					<th><fmt:formatNumber value="${totalPrice}" type="currency" /></th>
+					<th><fmt:formatNumber value="${totalGoods.TOTALPRICE2}" type="currency" /></th>
 					<th>결제 방법</th>
 					<th>${payment}</th>
 					<th colspan="2">주문 완료</th>

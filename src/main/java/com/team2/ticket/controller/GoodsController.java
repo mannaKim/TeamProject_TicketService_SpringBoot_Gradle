@@ -164,9 +164,13 @@ public class GoodsController {
 			HashMap<String, Object> paramMap = new HashMap<String, Object>();
 			paramMap.put("id", loginUser.getId());
 			paramMap.put("ref_cursor", null);
+			paramMap.put("ref_cursor2", null);
 			gs.listGoodsCart(paramMap);
+			
 			ArrayList<HashMap<String,Object>> cartList
 				= (ArrayList<HashMap<String,Object>>)paramMap.get("ref_cursor");
+			ArrayList<HashMap<String, Object>> pointList 
+			= (ArrayList<HashMap<String, Object>>)paramMap.get("ref_cursor2");
 			
 			// 카트에서 수량조절을 위해 getGoods메서드로 재고를 가져옴
 			for(int i=0; i<cartList.size(); i++) {
@@ -183,13 +187,16 @@ public class GoodsController {
 			}
 			
 			int totalPrice = 0;
+			double MPoint = 0;
 			for(HashMap<String,Object> cart : cartList) {
 				totalPrice += Integer.parseInt(cart.get("QUANTITY").toString())
 									* Integer.parseInt(cart.get("PRICE").toString());
 			}
-			
+			MPoint = (int)totalPrice * 0.05;
 			mav.addObject("goodsCartList", cartList);
+			mav.addObject("userPoint", pointList.get(0));
 			mav.addObject("totalPrice", totalPrice);
+			mav.addObject("Mpoint", MPoint);
 			mav.setViewName("mypage/goodsCartList");
 		}
 		return mav;

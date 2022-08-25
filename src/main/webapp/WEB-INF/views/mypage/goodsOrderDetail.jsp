@@ -65,7 +65,7 @@
 					<th>결제 수단</th>
 				</tr>
 				<tr>
-					<td><fmt:formatNumber value="${totalPrice}" type="currency" /></td>
+					<td><fmt:formatNumber value="${goodsOrderDetail.TOTALPRICE2}" type="currency" /></td>
 					<td>${payment}</td>
 				</tr>
 			</table>

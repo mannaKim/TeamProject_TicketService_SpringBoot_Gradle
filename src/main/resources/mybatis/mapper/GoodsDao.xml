@@ -66,10 +66,11 @@
 		{
 			CALL listGoodsCart(
 				#{id},
-				#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=goodsMap}
+				#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=goodsMap},
+				#{ref_cursor2, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=goodsMap2}
 			)
 		}
-	</select>
+	</select>	
 	
 	<update id="updateGoodsCart">
 		UPDATE goods_cart SET quantity=#{param3}

@@ -37,7 +37,9 @@
                                     <li><a href="termsAndConditions">회원가입</a></li>
                                 </c:when>
                                 <c:otherwise>
-                                    <li>${loginUser.name}(${loginUser.id})</li>
+                                    <li>${loginUser.name}(${loginUser.id})
+                                    	<br><p style="font-size:10px;">(포인트 : ${loginUser.mpoint})</p>
+                                    </li>
                                     <li><a href="logout">LOGOUT</a></li>
                                     <li><a href="mypage">MyPage</a></li>
                                     <li><a href="goodsCartList">Cart</a></li>

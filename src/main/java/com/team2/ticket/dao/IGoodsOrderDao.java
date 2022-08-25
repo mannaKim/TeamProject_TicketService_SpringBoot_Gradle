@@ -6,7 +6,7 @@ import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
 public interface IGoodsOrderDao {
-
+	
 	void listGoodsCartToBuy(HashMap<String, Object> paramMap);
 
 	void insertGoodsOrder(HashMap<String, Object> paramMap);
@@ -20,5 +20,11 @@ public interface IGoodsOrderDao {
 	void getGoodsOrderCount(HashMap<String, Object> paramMap);
 
 	void listGoodsOrderById(HashMap<String, Object> paramMap);
-
+	
+	void updatePoint(HashMap<String, Object> paramMap);
+	
+	void deletePoint(HashMap<String, Object> paramMap);
+	
+	void getTotalGoods(HashMap<String, Object> paramMap);
+	
 }

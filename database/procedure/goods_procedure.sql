@@ -91,12 +91,15 @@ END;
 
 create or replace PROCEDURE listGoodsCart(
     p_id IN goods_cart_view.id%TYPE,
-    p_curvar OUT SYS_REFCURSOR
+    p_curvar OUT SYS_REFCURSOR,
+    p_idpoint OUT SYS_REFCURSOR
 )
 IS
 BEGIN
     OPEN p_curvar FOR 
-        SELECT * FROM goods_cart_view WHERE id=p_id;
+        SELECT * FROM goods_cart_view WHERE id=p_id; 
+    OPEN p_idpoint FOR
+        select * from tp_member where id=p_id;
 END;
 
 

@@ -153,7 +153,15 @@
 						<th>최종 결제 금액</th>
 					</tr>
 					<tr>
-						<td><fmt:formatNumber value="${totalPrice}" type="currency" /></td>
+						<td><fmt:formatNumber value="${totalprice2}" type="currency" />
+						<input type="hidden" value="${totalprice2}" name="totalprice2"></td>
+					</tr>
+					<tr>
+						<th>적립 포인트</th>
+					</tr>
+					<tr>
+						<td><fmt:formatNumber value="${Mpoint}" type="currency" />
+						<input type="hidden" value="${Mpoint}" name="Mpoint"></td>
 					</tr>
 				</table>
 				<br>

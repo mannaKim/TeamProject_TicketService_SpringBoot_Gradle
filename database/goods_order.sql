@@ -7,6 +7,7 @@ CREATE TABLE goods_orders
 	payment varchar2(20) NOT NULL,
 	PRIMARY KEY (goseq)
 );
+alter table goods_orders add totalprice2 number(30) default'0' not null;
 
 DROP TABLE goods_order_detail CASCADE CONSTRAINTS;
 CREATE TABLE goods_order_detail
@@ -42,7 +43,7 @@ create or replace view goods_order_view
 as
 select d.godseq, d.quantity, d.result, d.name, d.phone,
 	d.zip_num, d.address1, d.address2, d.address3, 
-	o.goseq, o.indate, o.payment,
+	o.goseq, o.indate, o.payment, o.totalprice2,
 	m.id, m.name as mname,
 	g.gseq, g.name as gname, g.price2 as price, g.image
 from goods_orders o, goods_order_detail d, tp_member m, tp_goods g

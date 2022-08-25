@@ -30,7 +30,7 @@
 								<td><fmt:formatDate value="${govo.INDATE}" type="date" /></td>
 								<td><img src="/goods_images/${govo.IMAGE}"></td>
 								<td>${govo.GNAME}</td>
-								<td><fmt:formatNumber value="${govo.PRICE}" type="currency" />
+								<td><fmt:formatNumber value="${govo.TOTALPRICE2}" type="currency" />
 								</td>
 								<td>
 									<a href="goodsOrderDetail?goseq=${govo.GOSEQ}">조회</a>

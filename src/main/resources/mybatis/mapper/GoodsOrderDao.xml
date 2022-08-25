@@ -7,6 +7,34 @@
 	
 	<resultMap type="java.util.HashMap" id="orderMap"></resultMap>
 	
+	<update id="updatePoint" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			CALL updatePoint
+			(
+				#{id}, #{Mpoint}	
+			)
+		}
+	</update>
+	
+	<update id="deletePoint" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			CALL deletePoint
+			(
+				#{id}, #{dpoint}
+			)
+		}
+	</update>
+	
+	<select id="getTotalGoods" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			CALL getTotalGoods
+			(
+				#{goseq},
+				#{ref_cursor2, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=orderMap}
+			)
+		}
+	</select>
+	
 	<select id="listGoodsCartToBuy" statementType="CALLABLE" parameterType="java.util.HashMap">
 		{
 			CALL listGoodsCartToBuy(
@@ -19,7 +47,7 @@
 	<insert id="insertGoodsOrder" statementType="CALLABLE" parameterType="java.util.HashMap">
 		{
 			CALL insertGoodsOrder(
-				#{id}, #{payment},
+				#{id}, #{payment}, #{totalprice2},
 				#{goseq, mode=OUT, jdbcType=INTEGER}
 			)
 		}
@@ -46,7 +74,7 @@
 	<insert id="insertGoodsOrderOne" statementType="CALLABLE" parameterType="java.util.HashMap">
 		{
 			CALL insertGoodsOrderOne(
-				#{id}, #{payment},
+				#{id}, #{payment}, #{totalprice2},
 				#{goseq, mode=OUT, jdbcType=INTEGER},
 				#{gseq}, #{quantity},
 				#{name}, #{zip_num}, #{address1}, #{address2}, #{address3}, #{phone}

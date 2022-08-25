@@ -13,14 +13,15 @@ END;
 create or replace PROCEDURE insertGoodsOrder(
     p_id IN goods_orders.id%TYPE,
     p_payment IN goods_orders.payment%TYPE,
+    p_totalprice2 in goods_orders.totalprice2%type,
     p_goseq OUT goods_orders.goseq%TYPE
 )
 IS
     v_goseq goods_orders.goseq%TYPE;
 BEGIN
     -- goods_orders에 값 삽입
-    INSERT INTO goods_orders(goseq, id, payment) 
-    VALUES(goods_orders_seq.nextval, p_id, p_payment);
+    INSERT INTO goods_orders(goseq, id, payment, totalprice2) 
+    VALUES(goods_orders_seq.nextval, p_id, p_payment, p_totalprice2);
     -- 가장 최근에 삽입한 goseq 추출
     SELECT MAX(goseq) INTO v_goseq FROM goods_orders;
     p_goseq := v_goseq;
@@ -76,6 +77,7 @@ END;
 create or replace PROCEDURE insertGoodsOrderOne(
     p_id IN goods_orders.id%TYPE,
     p_payment IN goods_orders.payment%TYPE,
+    p_totalprice2 in goods_orders.totalprice2%type,
     p_goseq OUT goods_orders.goseq%TYPE,
     p_gseq IN goods_order_detail.gseq%TYPE,
     p_quantity IN goods_order_detail.quantity%TYPE,
@@ -90,8 +92,8 @@ IS
     v_goseq tp_goods.gseq%TYPE;
 BEGIN
     -- goods_orders에 값 삽입
-    INSERT INTO goods_orders(goseq, id, payment) 
-    VALUES(goods_orders_seq.nextval, p_id, p_payment);
+    INSERT INTO goods_orders(goseq, id, payment, totalprice2) 
+    VALUES(goods_orders_seq.nextval, p_id, p_payment, p_totalprice2);
     -- 가장 최근에 삽입한 goseq 추출
     SELECT MAX(goseq) INTO v_goseq FROM goods_orders;
     p_goseq := v_goseq;
@@ -143,3 +145,35 @@ BEGIN
             ) WHERE rn>=p_startNum
         ) WHERE rn<=p_endNum;
 END;
+
+
+-- 포인트 업데이트
+create or replace procedure updatePoint(
+    p_id in tp_member.id%type,
+    p_mpoint in tp_member.mpoint%type
+)
+is
+begin
+    update tp_member set mpoint = mpoint + p_mpoint where id=p_id;
+end;
+
+-- 포인트 차감
+create or replace procedure deletePoint(
+    p_id in tp_member.id%type,
+    p_dpoint in tp_member.mpoint%type
+)
+is
+begin
+    update tp_member set mpoint = mpoint - p_dpoint where id=p_id;
+end;
+
+-- 굿즈 차감액 출력
+create or replace procedure getTotalGoods(
+    p_goseq in goods_orders.goseq%type,
+    p_tcur OUT SYS_REFCURSOR
+)
+is
+begin
+    open p_tcur for
+    select * from goods_orders where goseq=p_goseq order by goseq desc;
+end;

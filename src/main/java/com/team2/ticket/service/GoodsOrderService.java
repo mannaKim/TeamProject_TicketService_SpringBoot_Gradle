@@ -11,9 +11,10 @@ import com.team2.ticket.dto.Paging;
 
 @Service
 public class GoodsOrderService {
+
 	@Autowired
 	IGoodsOrderDao odao;
-
+	
 	public void listGoodsCartToBuy(HashMap<String, Object> paramMap) {
 		ArrayList<HashMap<String,Object>> list
 			= new ArrayList<HashMap<String,Object>>();
@@ -37,6 +38,7 @@ public class GoodsOrderService {
 
 	public void listGoodsOrder(HashMap<String, Object> paramMap) {
 		odao.listGoodsOrder(paramMap);
+		odao.getTotalGoods(paramMap);
 	}
 
 	public void insertGoodsOrderOne(HashMap<String, Object> paramMap) {
@@ -88,5 +90,13 @@ public class GoodsOrderService {
 		}
 		paramMap.put("finalList", finalList);
 		paramMap.put("paging", paging);
+	}
+	
+	public void deletePoint(HashMap<String, Object> paramMap) {
+		odao.deletePoint(paramMap);
+	}
+	
+	public void updatePoint(HashMap<String, Object> paramMap) {
+		odao.updatePoint(paramMap);
 	}
 }

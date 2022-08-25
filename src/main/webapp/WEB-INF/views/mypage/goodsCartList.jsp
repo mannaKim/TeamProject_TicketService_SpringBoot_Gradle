@@ -74,9 +74,30 @@
 								</tr>
 							</c:forEach>
 							<tr>
-								<th colspan="3">총 결제 예상 금액</th>
+								<th colspan="3">결제 금액</th>
 								<th colspan="2">
 									<fmt:formatNumber value="${totalPrice}" type="currency" />
+									<input type="hidden" name="totalPrice1" value="${totalPrice}" onKeyup="cal()"><br>
+								</th>
+							</tr>
+							<tr>
+								<th colspan="3">적립금 사용(보유 적립금) : ${userPoint.MPOINT}</th>
+								<th colspan="2">
+									<input type="text" name="dpoint" placeholder="0" onKeyup="cal();">
+									<input type="button" value="사용" onClick="pointCheck('${userPoint.MPOINT}');">
+								</th>
+							</tr>
+							<tr>
+								<th colspan="3">결제 금액</th>
+								<th colspan="2">
+									<input type="text" name="totalPrice2">
+								</th>
+							</tr>
+							<tr>
+								<th colspan="3">적립 예정 포인트</th>
+								<th colspan="2">
+									<fmt:formatNumber value="${Mpoint}" type="currency"></fmt:formatNumber>
+									<input type="hidden" value="${Mpoint}" name="Mpoint">
 								</th>
 							</tr>
 						</table>
@@ -84,7 +105,7 @@
 							<input type="button" value="계속 쇼핑하기" class="goodsButton2"
 								onClick="location.href='goodsMain'">
 							<input type="button" value="선택한 상품 주문하기" class="goodsButton1"
-								onClick="go_Gorder_insert();">
+								onClick="go_Gorder_insert('${Mpoint}');">
 						</div>
 					</div>
 				</c:otherwise>

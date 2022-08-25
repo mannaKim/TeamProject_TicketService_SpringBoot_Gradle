@@ -56,7 +56,7 @@ function go_Gcart_delete(){
 	}
 }
 
-function go_Gorder_insert(){
+function go_Gorder_insert(mpoint){
 	var count = 0;
 	if(document.goodsCartFrm.gcseq.length == undefined){
 		if(document.goodsCartFrm.gcseq.checked==true) count++;
@@ -70,7 +70,7 @@ function go_Gorder_insert(){
 	else if(document.goodsCartFrm.soldout.value=="1")
 		alert("품절된 상품이 있습니다. 품절 상품을 제외하고 구입할 상품을 선택하세요.");
 	else{
-		document.goodsCartFrm.action="goodsOrderCheck";
+		document.goodsCartFrm.action="goodsOrderCheck?point=" + mpoint;
 		document.goodsCartFrm.submit();
 	}
 }
@@ -82,4 +82,44 @@ function go_Gorder(numOfInven){
 	}
 	document.goodsFrm.action="goodsOrderCheckOne";
 	document.goodsFrm.submit();
+}
+
+function cal() {
+	if(document.goodsCartFrm.dpoint.value=="" || document.goodsCartFrm.totalPrice1.value==""){
+		return;
+	}
+	document.goodsCartFrm.totalPrice2.value = document.goodsCartFrm.totalPrice1.value - document.goodsCartFrm.dpoint.value;
+}
+
+function pointCheck(mpoint){
+	if(document.goodsCartFrm.dpoint.value > mpoint) {
+		alert("회원님의 보유 포인트는 " + mpoint + "입니다.");
+		return document.goodsCartFrm.dpoint.value = "";
+	} else if(document.goodsCartFrm.dpoint.value < 500){
+		alert("500포인트 이하는 사용하실수 없습니다.");
+		return document.goodsCartFrm.dpoint.value = "";
+	}else {
+		alert("포인트가 사용되었습니다.");
+		return true;
+	}
+}
+
+function cal2() {
+	if(document.goodsFrm.dpoint.value=="" || document.goodsFrm.totalPrice1.value==""){
+		return;
+	}
+	document.goodsFrm.totalPrice2.value = document.goodsFrm.totalPrice1.value - document.goodsFrm.dpoint.value;
+}
+
+function pointCheck2(mpoint){
+	if(document.goodsFrm.dpoint.value > mpoint) {
+		alert("회원님의 보유 포인트는 " + mpoint + "입니다.");
+		return document.goodsFrm.dpoint.value = "";
+	} else if(document.goodsFrm.dpoint.value < 500){
+		alert("500포인트 이하는 사용하실수 없습니다.");
+		return document.goodsFrm.dpoint.value = "";
+	} else {
+		alert("포인트가 사용되었습니다.");
+		return true;
+	}
 }

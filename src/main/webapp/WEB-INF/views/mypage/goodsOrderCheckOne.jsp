@@ -148,10 +148,31 @@
 				<br>
 				<table id="orderCheck">
 					<tr>
-						<th>최종 결제 금액</th>
+						<th colspan="3">결제 금액</th>
+						<th colspan="2">
+							<fmt:formatNumber value="${totalPrice}" type="currency" />
+							<input type="hidden" name="totalPrice1" value="${totalPrice}" onKeyup="cal2()"><br>
+						</th>
 					</tr>
 					<tr>
-						<td><fmt:formatNumber value="${totalPrice}" type="currency" /></td>
+						<th colspan="3">적립금 사용(보유 적립금) : ${loginUser.mpoint}</th>
+						<th colspan="2">
+							<input type="text" name="dpoint" placeholder="0" onKeyup="cal2();">
+							<input type="button" value="사용" onClick="pointCheck2('${loginUser.mpoint}');">
+						</th>
+					</tr>
+					<tr>
+						<th colspan="3">결제 금액</th>
+						<th colspan="2">
+							<input type="text" name="totalPrice2">
+						</th>
+					</tr>
+					<tr>
+						<th colspan="3">적립 예정 포인트</th>
+						<th colspan="2">
+							<fmt:formatNumber value="${Mpoint}" type="currency"></fmt:formatNumber>
+							<input type="hidden" value="${Mpoint}" name="Mpoint">
+						</th>
 					</tr>
 				</table>
 				<br>
