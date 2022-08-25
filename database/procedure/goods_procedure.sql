@@ -98,3 +98,15 @@ BEGIN
     OPEN p_curvar FOR 
         SELECT * FROM goods_cart_view WHERE id=p_id;
 END;
+
+
+create or replace PROCEDURE getGoodsBanner(
+    p_curvar OUT SYS_REFCURSOR
+)
+IS
+BEGIN
+    OPEN p_curvar FOR 
+        SELECT * FROM goods_banner 
+        WHERE useyn='y'
+        ORDER BY order_seq;
+END;
