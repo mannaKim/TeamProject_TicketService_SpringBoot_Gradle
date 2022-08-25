@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ include file="../../include/admin_header.jsp"%>
 	<link href="adminqna.css" rel="stylesheet">
 	<script src="script/adminqna.js"></script>
 
@@ -75,3 +76,18 @@
 	</form>
 	</div>
 </article>
+
+<script type="text/javascript">
+
+function reply_check(){
+	 if(document.frm_reply.content.value == "") {
+	    alert("내용를 입력해 주세요.");	    
+	    document.frm_reply.content.focus();
+	    return false;
+	}else{
+		return true;
+	}
+}
+</script>
+
+<%@ include file="../../include/admin_footer.jsp"%>

@@ -69,13 +69,13 @@
 	</select>
 	
 	
-	<update  id="qinsertReply" statementType="CALLABLE" parameterType="java.util.HashMap">
+	<insert  id="qinsertReply" statementType="CALLABLE" parameterType="java.util.HashMap">
 		{ 
 			CALL qinsertReply(	
 			#{ qnanum }, #{ id }, #{ content } 
 			) 
 		}
-	</update>
+	</insert>
 	
 	<select id="replycnt" resultType="_int">
 		{
@@ -101,6 +101,60 @@
 		}
 	</select>
 	
+	<select id="faqListK" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{  
+			CALL faqListK( 
+				#{ kind },
+				#{ref_cursor , mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=qnaMap}
+			)	  
+		}
+	</select>
+	
+	<select id="qgetAllFaq" statementType="CALLABLE" parameterType="java.util.HashMap" >
+		{
+			CALL qgetAllFaq(
+				#{cnt, mode=OUT, jdbcType=INTEGER}
+			)
+		}
+	</select>
+	
+		<select id="qlistFaq" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{  
+			CALL qlistFaq( 
+				#{startNum}, #{endNum},
+				#{ref_cursor , mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=qnaMap}
+			)  
+		}
+	</select>
+	
+	<update  id="qinsertFaq" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{ 
+			CALL qinsertFaq(	
+			#{ con_q }, #{ kind }, #{ con_a } 
+			) 
+		}
+	</update>
+	
+	<update  id="qUpdateFaq" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{ 
+			CALL qUpdateFaq(	
+			#{ con_q }, #{ kind }, #{ con_a }, #{ faqnum }
+			) 
+		}
+	</update>
+	
+	<select id="pgetFaq" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{  
+			CALL pgetFaq( 
+				#{faqnum}, 
+				#{ref_cursor1 , mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=qnaMap}
+			)  
+		}
+	</select>
+	
+	<delete id="faqDelete"  statementType="CALLABLE" parameterType="java.util.HashMap">
+		{ CALL faqDelete( #{faqnum} )  }
+	</delete>
 	
 	
 </mapper>

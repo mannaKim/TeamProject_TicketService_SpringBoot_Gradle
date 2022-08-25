@@ -1,8 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ include file="../include/header.jsp" %>
-<link href="/css/qna.css" rel="stylesheet">
+<%@ include file="../include/header.jsp"%>
 <%@ include file="../include/sub/mypage_sub_menu.jsp"%>
+<link href="/css/qna.css" rel="stylesheet">
+
 <article>
 	<div class="qna_px">
 		<div style="width:1000px;text-align:left;margin:40px auto 20px;">

@@ -155,7 +155,8 @@
 			    <li><a href="admin_ticketList?page=1&key=">전시관리</a></li>
 			    <li><a href="adminticketOrderList?page=1&key=">전시예약관리</a></li>
 			   	<li><a href="adminEvent?page=1">이벤트관리</a></li>
-			    <li><a href="ticket.do?command=aqna">Q&amp;A관리</a></li>
+			    <li><a href="aqnaList">Q&amp;A관리</a></li>
+			    <li><a href="faqList">FAQ관리</a></li>
 			  </ul>
 			 </div>
 		</div>

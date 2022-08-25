@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.team2.ticket.dto.FaqVO;
 import com.team2.ticket.dto.MemberVO;
 import com.team2.ticket.dto.Paging;
 import com.team2.ticket.dto.QnaVO;
@@ -67,83 +68,12 @@ public class QnaController {
 	public String qna_writre_form( HttpServletRequest request) {
 		HttpSession session = request.getSession();
 		MemberVO loginUser = (MemberVO)session.getAttribute("loginUser");
-		if( loginUser == null ) return "member/login";
+		if( loginUser == null ) return "member/loginForm";
 		String [] kindList = {"전시", "회원안내", "관람/예약", "굿즈", "기타"};
 
 		request.setAttribute("kindList", kindList);
 		
 	    return "qna/qnaWrite";
-	}
-	
-	// faq
-	@RequestMapping(value="/qnafnq")
-	public String fnq( HttpServletRequest request) {
-		HttpSession session = request.getSession();
-		MemberVO loginUser = (MemberVO)session.getAttribute("loginUser");
-		if( loginUser == null ) return "member/login";
-		
-		String url = "qna/qnafnq";
-		
-		int kind = Integer.parseInt( request.getParameter("kind") );
-		System.out.println("kind = " + kind);
-		if(kind==1) {
-			// 전체 fnq 보기
-		}else if(kind==2) {
-			url = "qna/qnafnq2";
-			// "전시"
-		}else if(kind==3) {
-			url = "qna/qnafnq3";
-			// "회원안내"
-		}else if(kind==4) {
-			url = "qna/qnafnq4";
-			// "관람/예약"
-		} else {
-			url = "qna/qnafnq5";
-			// "굿즈"
-		}
-		
-	    return url;
-	}
-	
-	@RequestMapping(value="/qnafaq")
-	public ModelAndView faq( HttpServletRequest request) {
-		ModelAndView mav = new ModelAndView();
-		HttpSession session = request.getSession();
-		MemberVO loginUser = (MemberVO)session.getAttribute("loginUser");
-		if( loginUser == null ) mav.setViewName("member/login");
-		
-		String url = "qna/fnq_test";
-		
-//		int kind = Integer.parseInt( request.getParameter("kind") );
-//		System.out.println("kind = " + kind);
-//		if(kind==1) {
-//			// 전체 fnq 보기
-//		}else if(kind==2) {
-//			url = "qna/qnafnq2";
-//			// "전시"
-//		}else if(kind==3) {
-//			url = "qna/qnafnq3";
-//			// "회원안내"
-//		}else if(kind==4) {
-//			url = "qna/qnafnq4";
-//			// "관람/예약"
-//		} else {
-//			url = "qna/qnafnq5";
-//			// "굿즈"
-//		}
-
-		mav.setViewName(url);	
-		
-		HashMap<String, Object> paramMap = new HashMap<String, Object>();
-		paramMap.put("ref_cursor", null);
-		qs.faqList( paramMap );
-		
-		ArrayList<HashMap<String, Object>> list 
-		= (ArrayList<HashMap<String, Object>>)paramMap.get("ref_cursor");
-		
-		mav.addObject("faqList", list );
-		
-	    return mav;
 	}
 	
 	@RequestMapping("/qnaWrite")
@@ -155,7 +85,7 @@ public class QnaController {
 		HttpSession session = request.getSession();
 		MemberVO loginUser = (MemberVO)session.getAttribute("loginUser");
 	    if (loginUser == null) 
-	    	mav.setViewName("member/login");
+	    	mav.setViewName("member/loginForm");
 	    else {
 //	    	mav.setViewName("qna/qnaWrite");
 //	    	if(result.getFieldError("subject") != null ) 
@@ -187,7 +117,7 @@ public class QnaController {
 		HttpSession session = request.getSession();
 		MemberVO loginUser = (MemberVO)session.getAttribute("loginUser");
 		if( loginUser == null ) {
-			mav.setViewName("member/login");
+			mav.setViewName("member/loginForm");
 		}else {
 			HashMap<String, Object> paramMap = new HashMap<String, Object>();
 			paramMap.put("qseq", qseq );
@@ -209,6 +139,7 @@ public class QnaController {
 		return mav;
 	}
 	
+	// mypage
 	@RequestMapping(value="/qnaMy")
 	public ModelAndView qna_my_list(Model model, HttpServletRequest request) {
 		ModelAndView mav = new ModelAndView();
@@ -289,6 +220,197 @@ public class QnaController {
 		return "redirect:/qnaMy";
 	}
 	
+	// faq
+		@RequestMapping(value="/qnafaq")
+		public ModelAndView faq( HttpServletRequest request) {
+			ModelAndView mav = new ModelAndView();
+			HttpSession session = request.getSession();
+			MemberVO loginUser = (MemberVO)session.getAttribute("loginUser");
+			if( loginUser == null ) mav.setViewName("member/loginForm");
+			else {
+
+			HashMap<String, Object> paramMap = new HashMap<String, Object>();
+			paramMap.put("ref_cursor", null);
+			qs.faqList( paramMap );
+
+			ArrayList<HashMap<String, Object>> list 
+			= (ArrayList<HashMap<String, Object>>)paramMap.get("ref_cursor");
+			
+			mav.addObject("faqList", list );
+			mav.setViewName("qna/faq");
+			}
+		    return mav;
+		}
+		
+		@RequestMapping(value="/qnafaqK")
+		public ModelAndView faq_kind( HttpServletRequest request) {
+			ModelAndView mav = new ModelAndView();
+			HttpSession session = request.getSession();
+			MemberVO loginUser = (MemberVO)session.getAttribute("loginUser");
+			if( loginUser == null ) mav.setViewName("member/loginForm");
+			
+			String url = "qna/faq";
+			
+			int kind = Integer.parseInt( request.getParameter("kind") );
+
+			mav.setViewName(url);	
+			
+			HashMap<String, Object> paramMap = new HashMap<String, Object>();
+			paramMap.put("ref_cursor", null);
+			paramMap.put("kind", kind);
+			qs.faqListK( paramMap );
+			
+			ArrayList<HashMap<String, Object>> list 
+			= (ArrayList<HashMap<String, Object>>)paramMap.get("ref_cursor");
+			
+			mav.addObject("faqList", list );
+			
+		    return mav;
+		}
+		
+		@RequestMapping(value="/faqList")
+		public ModelAndView faq_list(Model model, HttpServletRequest request) {
+			ModelAndView mav = new ModelAndView();
+			HttpSession session = request.getSession();
+			MemberVO loginUser = (MemberVO)session.getAttribute("loginUser");
+			
+			if( loginUser == null || loginUser.getAdmin()!=1 ) {
+				mav.setViewName("member/loginForm");
+			}else {
+				
+				int page=1;
+				if( request.getParameter("page")!= null) {
+					page = Integer.parseInt( request.getParameter("page") );
+					session.setAttribute("page", page);
+				}else if( session.getAttribute("page")!=null) {
+					page = (Integer)session.getAttribute("page");
+				}else {
+					session.removeAttribute("page");
+				}
+				
+				HashMap<String, Object> paramMap = new HashMap<String, Object>();
+				
+				paramMap.put("ref_curser", null);
+				qs.qlistFaq( paramMap, page );
+				
+				ArrayList<HashMap<String, Object>> list 
+				= (ArrayList<HashMap<String, Object>>)paramMap.get("ref_cursor");
+				
+				mav.addObject("faqList", list);
+				mav.addObject("paging", (Paging)paramMap.get("paging"));
+				mav.setViewName("admin/qna/afaqlist");
+			}
+			return mav;
+		}
+		
+		@RequestMapping(value="/faqWriteForm")
+		public String faq_writre_form( HttpServletRequest request) {
+			HttpSession session = request.getSession();
+			MemberVO loginUser = (MemberVO)session.getAttribute("loginUser");
+			if( loginUser == null || loginUser.getAdmin()!=1 ) 
+				return "member/loginForm";
+			String [] kindList = {"전시", "회원안내", "관람/예약", "굿즈"};
+
+			request.setAttribute("kindList", kindList);
+			
+		    return "admin/qna/afaqwrite";
+		}
+		
+		@RequestMapping("/faqWrite")
+		public ModelAndView faq_Write( 
+				@ModelAttribute("dto") @Valid FaqVO faqvo,
+				BindingResult result,  
+				HttpServletRequest request,
+				@RequestParam("subject") String con_q, 
+				@RequestParam("content") String con_a) {
+			ModelAndView mav = new ModelAndView();
+			HttpSession session = request.getSession();
+			MemberVO loginUser = (MemberVO)session.getAttribute("loginUser");
+		    if (loginUser == null) 
+		    	mav.setViewName("member/loginForm");
+		    else {
+
+		    		HashMap<String, Object> paramMap = new HashMap<String, Object>();
+					paramMap.put("con_q", con_q);
+					paramMap.put("kind", faqvo.getKind() );
+					paramMap.put("con_a", con_a );
+				
+					qs.qinsertFaq( paramMap );
+					mav.setViewName("redirect:/faqList");
+		    }
+		    return mav;
+		}
+		
+		@RequestMapping(value="/faqUpdateForm")
+		public ModelAndView faq_update_form( HttpServletRequest request, @RequestParam("faqnum") String faqnum) {
+			ModelAndView mav = new ModelAndView();
+			HttpSession session = request.getSession();
+			MemberVO loginUser = (MemberVO)session.getAttribute("loginUser");
+			if( loginUser == null || loginUser.getAdmin()!=1 ) mav.setViewName("member/loginForm");
+			else {
+			String [] kindList = {"전시", "회원안내", "관람/예약", "굿즈"};
+			System.out.println("실행테스트");
+			request.setAttribute("kindList", kindList);
+			HashMap<String, Object> paramMap = new HashMap<String, Object>();
+			paramMap.put("faqnum", Integer.parseInt(faqnum));
+			paramMap.put("ref_cursor1", null);
+			qs.pgetFaq( paramMap );
+
+			ArrayList< HashMap<String, Object>> list
+				=(ArrayList< HashMap<String, Object>>) paramMap.get("ref_cursor1");
+			HashMap<String, Object> fvo = list.get(0);
+
+			FaqVO favo = new FaqVO();
+			favo.setKind( (String)fvo.get("KIND") );
+			favo.setCon_q( (String)fvo.get("CON_Q") );
+			favo.setCon_a( (String)fvo.get("CON_A") );
+			mav.addObject("faqVO", favo);
+			System.out.println("내용" + (String)fvo.get("CON_A"));
+
+			mav.setViewName("admin/qna/afaqUpdate");
+			}
+			 return mav;
+		}
+		
+		@RequestMapping("/faqDelete")
+		public String faq_Delete(
+				@RequestParam("faqnum") int faqnum,
+				HttpServletRequest request) {
+			System.out.println("faqnum : "+ faqnum + "       ");
+			HashMap<String, Object> paramMap = new HashMap<String, Object>();
+			paramMap.put("faqnum" , faqnum);
+			qs.faqDelete(paramMap);
+			
+			return "redirect:/faqList";
+		}
+		
+		
+		@RequestMapping("/faqUpdate")
+		public ModelAndView faq_Update( 
+				@ModelAttribute("dto") @Valid FaqVO faqvo,
+				BindingResult result,  
+				HttpServletRequest request,
+				@RequestParam("subject") String con_q, 
+				@RequestParam("content") String con_a) {
+			ModelAndView mav = new ModelAndView();
+			HttpSession session = request.getSession();
+			MemberVO loginUser = (MemberVO)session.getAttribute("loginUser");
+		    if (loginUser == null) 
+		    	mav.setViewName("member/loginForm");
+		    else {
+
+		    		HashMap<String, Object> paramMap = new HashMap<String, Object>();
+					paramMap.put("con_q", con_q);
+					paramMap.put("kind", faqvo.getKind() );
+					paramMap.put("con_a", con_a );
+					paramMap.put("faqnum", faqvo.getFaqnum() );
+				
+					qs.qUpdateFaq( paramMap );
+					mav.setViewName("redirect:/faqList");
+		    }
+		    return mav;
+		}
+	
 	// admin
 	@RequestMapping(value="/aqnaList")
 	public ModelAndView a_qna_list(Model model, HttpServletRequest request) {
@@ -296,7 +418,7 @@ public class QnaController {
 		HttpSession session = request.getSession();
 		MemberVO loginUser = (MemberVO)session.getAttribute("loginUser");
 		
-		if( loginUser == null ) {
+		if( loginUser == null || loginUser.getAdmin()!=1 ) {
 			mav.setViewName("member/loginForm");
 		}else {
 			
@@ -335,8 +457,8 @@ public class QnaController {
 		ModelAndView mav = new ModelAndView();
 		HttpSession session = request.getSession();
 		MemberVO loginUser = (MemberVO)session.getAttribute("loginUser");
-		if( loginUser == null ) {
-			mav.setViewName("member/login");
+		if( loginUser == null || loginUser.getAdmin()!=1 ) {
+			mav.setViewName("member/loginForm");
 		}else {
 			HashMap<String, Object> paramMap = new HashMap<String, Object>();
 			paramMap.put("qseq", qseq );
@@ -354,13 +476,6 @@ public class QnaController {
 			mav.addObject("replyList", list1 );
 			mav.addObject("id", loginUser.getId());
 			
-//			int num = 1;
-//			if ( cnt > 0) num = 2;
-			
-			//qs.qnarep(qseq); 
-			// 위에꺼는 무조건 2로 바꾸는 것.
-//			qs.qnaRep(qseq, num);
-			
 			mav.setViewName("admin/qna/aqnaView");
 		}
 		return mav;
@@ -372,7 +487,7 @@ public class QnaController {
 		HttpSession session = request.getSession();
 		MemberVO loginUser = (MemberVO)session.getAttribute("loginUser");
 		
-		if( loginUser == null ) {
+		if( loginUser == null || loginUser.getAdmin()!=1 ) {
 			mav.setViewName("member/loginForm");
 		}else {
 			

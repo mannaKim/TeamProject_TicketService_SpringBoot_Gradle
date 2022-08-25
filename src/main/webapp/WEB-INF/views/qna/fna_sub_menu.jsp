@@ -64,11 +64,11 @@ li:first-child{
 	</div>
 		<div class="fnqkind">
 		    <ul class="allkind">
-		    <li class="kind" ><a id="qna_link" href="qnafnq?kind=1">전체보기</a></li>
-		    <li class="kind"><a id="qna_link" href="qnafnq?kind=2"> &nbsp;  전시  &nbsp; </a></li>
-		    <li class="kind"><a id="qna_link" href="qnafnq?kind=3">회원안내</a></li>
-		    <li class="kind"><a id="qna_link" href="qnafnq?kind=4">관람/예약</a></li>
-		    <li class="kind"><a id="qna_link" href="qnafnq?kind=5">&nbsp;  굿즈  &nbsp; </a></li>
+		    <li class="kind" ><a id="qna_link" href="qnafaq">전체보기</a></li>
+		    <li class="kind"><a id="qna_link" href="qnafaqK?kind=1"> &nbsp;  전시  &nbsp; </a></li>
+		    <li class="kind"><a id="qna_link" href="qnafaqK?kind=2">회원안내</a></li>
+		    <li class="kind"><a id="qna_link" href="qnafaqK?kind=3">관람/예약</a></li>
+		    <li class="kind"><a id="qna_link" href="qnafaqK?kind=4">&nbsp;  굿즈  &nbsp; </a></li>
 		    </ul>
 		</div>
 	</div>

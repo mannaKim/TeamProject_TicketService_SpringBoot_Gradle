@@ -15,7 +15,7 @@ header#admin_header{width:1000px; height:200px; border-bottom:1px dotted gray;}
 #admin_topicon ul li.admin_li:hover{border-bottom:1px solid black;}
 
 #admin_subMenu{width:900px; height:65px; margin:35px auto; }
-#admin_subicon{width:730px; height:60px; margin:0 auto;}
+#admin_subicon{width:820px; height:60px; margin:0 auto;}
 #admin_subicon ul{display:inline-block; display:flex; justify-content:space-between; padding-top:20px;}
 #admin_subicon ul li{float:left;}
 #admin_subicon ul li:hover{border-bottom:1px solid black;}

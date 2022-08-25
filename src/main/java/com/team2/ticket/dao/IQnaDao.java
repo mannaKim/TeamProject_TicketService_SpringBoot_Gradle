@@ -24,6 +24,13 @@ public interface IQnaDao {
 	public void qlistQnaN(HashMap<String, Object> paramMap);
 	public List<QnaVO> selectfaq();
 	public void faqList(HashMap<String, Object> paramMap);
+	public void faqListK(HashMap<String, Object> paramMap);
+	public void qinsertFaq(HashMap<String, Object> paramMap);
+	public void qgetAllFaq(HashMap<String, Object> paramMap);
+	public void qlistFaq(HashMap<String, Object> paramMap);
+	public void qUpdateFaq(HashMap<String, Object> paramMap);
+	public void pgetFaq(HashMap<String, Object> paramMap);
+	public void faqDelete(HashMap<String, Object> paramMap);
 
 
 }

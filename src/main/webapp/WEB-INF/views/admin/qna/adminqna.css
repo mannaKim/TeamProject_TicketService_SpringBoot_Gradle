@@ -95,22 +95,8 @@
 	border: 1px solid #2F4F4F;
 }
 
-.qna_bts_aa {
-	width: 306px;
-	height: 45px;
-	margin-top: 10px;
-	margin-left: 500px;
-	margin-bottom: 2px;
-}
-.qna_bu_aa {
-	width: 150px;
-	height: 45px;
-	border-radius: 5px;
-	border: 1px solid #2F4F4F;
-}
 
-
-.qna_bu:hover, .qna_bu_aa:hover {
+.qna_bu:hover {
 	background-color: #2F4F4F;
 	color: white;
 }

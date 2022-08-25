@@ -2,16 +2,36 @@
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@ include file="../../include/header.jsp" %>
+<%@ include file="../../include/admin_header.jsp"%>
 	<link href="adminqna.css" rel="stylesheet">
-	
-<div style="margin-top: 200px;"></div>
-<article id="admin_notice" style="margin-top: 300px;">
+<style>
+.qna_bts_a {
+	width: 350px;
+	height: 47px;
+	margin-top: 10px;
+	margin-left: 60%;
+	margin-bottom: 2px;
+}
+.qna_bu_a {
+	position: relative;
+	width: 150px;
+	height: 45px;
+	border-radius: 5px;
+	border: 1px solid #2F4F4F;
+}
+.qna_bu_a:hover {
+	background-color: #2F4F4F;
+	color: white;
+}
+
+</style>
+
+<article id="admin_notice">
 	<h2 align="center">1:1 문의 관리 </h2>
-	<div class="qna_bts_aa">
-		<input type="button" value="답변대기" class="qna_bu_aa"
+	<div class="qna_bts_a">
+		<input type="button" value="답변대기" class="qna_bu_a"
 			onclick="location.href='aqnaListN'">
-		<input type="button" value="전체" class="qna_bu_aa"
+		<input type="button" value="전체" class="qna_bu_a"
 			onclick="location.href='aqnaList'">
 	</div>
 	<form name="formm" method="post">
@@ -84,3 +104,4 @@
 	</form>
 
 </article>
+<%@ include file="../../include/admin_footer.jsp"%>

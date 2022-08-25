@@ -119,6 +119,50 @@ public class QnaService {
 		
 	}
 
+	public void faqListK(HashMap<String, Object> paramMap) {
+		qdao.faqListK(paramMap);
+		
+	}
+
+	public void qinsertFaq(HashMap<String, Object> paramMap) {
+		qdao.qinsertFaq(paramMap);
+		
+	}
+
+	public void qlistFaq(HashMap<String, Object> paramMap, int page) {
+		Paging paging = new Paging();
+		paging.setPage(page);
+		paging.setDisplayPage(5);
+		paging.setDisplayRow(5);
+		paramMap.put("cnt", 0);
+		qdao.qgetAllFaq(paramMap);
+		int count = Integer.parseInt( paramMap.get("cnt").toString());
+		paging.setTotalCount(count);
+		paging.paging();
+		
+		paramMap.put("startNum", paging.getStartNum() );
+		paramMap.put("endNum", paging.getEndNum() );
+		paramMap.put("paging", paging);
+		
+		qdao.qlistFaq( paramMap );
+		
+	}
+
+	public void qUpdateFaq(HashMap<String, Object> paramMap) {
+		qdao.qUpdateFaq(paramMap);
+		
+	}
+
+	public void pgetFaq(HashMap<String, Object> paramMap) {
+		qdao.pgetFaq(paramMap);
+		
+	}
+
+	public void faqDelete(HashMap<String, Object> paramMap) {
+		qdao.faqDelete(paramMap);
+		
+	}
+
 
 
 }

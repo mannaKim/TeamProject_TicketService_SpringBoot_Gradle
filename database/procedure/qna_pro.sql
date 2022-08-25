@@ -187,3 +187,88 @@ BEGIN
         
 END;
 
+
+CREATE OR REPLACE PROCEDURE faqListK (
+	p_kind IN tp_faq.kind%TYPE,
+    p_rc   OUT     SYS_REFCURSOR )
+IS
+BEGIN
+    OPEN p_rc FOR
+        SELECT * FROM tp_faq where kind=p_kind;
+        
+END;
+
+
+create or replace PROCEDURE qgetAllFaq(
+    p_cnt OUT NUMBER
+)
+IS
+    v_cnt NUMBER;
+BEGIN
+    SELECT COUNT(*) INTO v_cnt FROM TP_FAQ;
+    p_cnt := v_cnt;
+END;
+
+
+CREATE OR REPLACE PROCEDURE qlistFaq (
+    p_startNum IN NUMBER,
+    p_endNum IN NUMBER,
+    p_curvar OUT SYS_REFCURSOR
+    )
+
+is
+begin
+
+    OPEN p_curvar For 
+    select * from(select * from(select rownum as rn, q.* from((select * from tp_faq order by faqnum desc) q)) where rn>=p_startNum) where rn<=p_endNum;
+
+end;
+
+
+
+CREATE OR REPLACE PROCEDURE qinsertFaq(
+    p_con_q IN tp_faq.con_q%TYPE,
+    p_kind IN tp_faq.kind%TYPE, 
+    p_con_a IN tp_faq.con_a%TYPE )
+IS
+BEGIN
+    insert into tp_faq( faqnum, con_q, kind, con_a ) 
+    values( tp_faq_seq.nextVal, p_con_q, p_kind, p_con_a );
+    commit;
+END;
+
+
+
+create or replace PROCEDURE qUpdateFaq(
+    p_con_q IN tp_faq.con_q%TYPE,
+    p_kind IN tp_faq.kind%TYPE, 
+    p_con_a IN tp_faq.con_a%TYPE,
+    p_faqnum IN tp_faq.faqnum%TYPE
+)
+IS
+BEGIN
+    update tp_faq set con_q=p_con_q, kind=p_kind, con_a=p_con_a
+    where faqnum=p_faqnum;
+    commit;
+END;
+
+
+
+CREATE OR REPLACE PROCEDURE  pgetFaq(
+    p_faqnum IN tp_faq.faqnum%type,
+    p_cur1 OUT SYS_REFCURSOR
+)
+IS
+BEGIN
+    OPEN p_cur1 FOR
+        SELECT * FROM tp_faq WHERE faqnum=p_faqnum;
+END;
+
+
+CREATE OR REPLACE PROCEDURE faqDelete(
+    p_faqnum IN tp_faq.faqnum%TYPE )
+IS
+BEGIN
+    delete from tp_faq where faqnum=p_faqnum;
+    commit;
+END;
