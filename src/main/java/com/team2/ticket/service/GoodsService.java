@@ -81,4 +81,8 @@ public class GoodsService {
 			gdao.deleteGoodsCart(gcseq);
 		}
 	}
+
+	public void getGoodsBanner(HashMap<String, Object> paramMap) {
+		gdao.getGoodsBanner(paramMap);
+	}
 }

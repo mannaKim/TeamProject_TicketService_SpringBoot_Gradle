@@ -28,15 +28,19 @@ public class GoodsController {
 		HashMap<String, Object> paramMap = new HashMap<String, Object>();
 		paramMap.put("ref_cursor1", null);
 		paramMap.put("ref_cursor2", null);
-		//paramMap.put("ref_cursor3", null);
 		gs.getBestNewGoods(paramMap);
-		
 		ArrayList<HashMap<String, Object>> list1
 			= (ArrayList<HashMap<String, Object>>)paramMap.get("ref_cursor1");
 		ArrayList<HashMap<String, Object>> list2
 			= (ArrayList<HashMap<String, Object>>)paramMap.get("ref_cursor2");
 		model.addAttribute("bestGoodsList", list1);
 		model.addAttribute("newGoodsList", list2);
+		
+		paramMap.put("ref_cursor", null);
+		gs.getGoodsBanner(paramMap);
+		ArrayList<HashMap<String, Object>> list3
+			= (ArrayList<HashMap<String, Object>>)paramMap.get("ref_cursor");
+		model.addAttribute("goodsBannerList", list3);
 		
 		return "goods/goodsMain";
 	}
@@ -74,7 +78,7 @@ public class GoodsController {
 		return mav;
 	}
 	
-	@RequestMapping(value="/goodsSearch", method=RequestMethod.POST)
+	@RequestMapping(value="/goodsSearch")
 	public ModelAndView goods_search(HttpServletRequest request) {
 		ModelAndView mav = new ModelAndView();
 		HttpSession session = request.getSession();

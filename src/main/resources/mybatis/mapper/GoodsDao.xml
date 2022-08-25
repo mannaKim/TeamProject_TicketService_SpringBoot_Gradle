@@ -85,4 +85,12 @@
 		delete from goods_cart where gcseq=#{param1}
 	</delete>
 	
+	<select id="getGoodsBanner" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			CALL getGoodsBanner(
+				#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=goodsMap}
+			)
+		}
+	</select>
+	
 </mapper>

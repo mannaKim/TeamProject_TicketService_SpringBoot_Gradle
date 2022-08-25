@@ -23,6 +23,7 @@ import com.team2.ticket.dto.IntroVO;
 import com.team2.ticket.dto.NoticeVO;
 import com.team2.ticket.dto.Paging;
 import com.team2.ticket.dto.ReplyVO;
+import com.team2.ticket.service.GoodsService;
 import com.team2.ticket.service.IntroduceService;
 
 @Controller
@@ -31,8 +32,17 @@ public class IntroduceController {
 	@Autowired
 	IntroduceService ids;
 	
+	@Autowired
+	GoodsService gs;
+	
 	@RequestMapping("/")
-	public String index() {
+	public String index(Model model) {
+		HashMap<String, Object> paramMap = new HashMap<String, Object>();
+		paramMap.put("ref_cursor", null);
+		gs.getGoodsBanner(paramMap);
+		ArrayList<HashMap<String, Object>> list
+			= (ArrayList<HashMap<String, Object>>)paramMap.get("ref_cursor");
+		model.addAttribute("goodsBannerList", list);
 		return "main";
 	}
 	
