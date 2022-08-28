@@ -3,7 +3,7 @@
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ include file="../../include/admin_header.jsp"%>
-	<link href="adminqna.css" rel="stylesheet">
+
 <style>
 .qna_bts_a {
 	width: 350px;
@@ -26,7 +26,7 @@
 
 </style>
 
-<article id="admin_notice">
+<article id="admin_notice" >
 	<h2 align="center">1:1 문의 관리 </h2>
 	<div class="qna_bts_a">
 		<input type="button" value="답변대기" class="qna_bu_a"

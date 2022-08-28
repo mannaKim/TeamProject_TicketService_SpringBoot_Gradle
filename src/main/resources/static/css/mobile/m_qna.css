@@ -1,0 +1,287 @@
+@charset "UTF-8";
+
+.qna_px{
+	width: 90%;
+	height: 1010px;
+	margin: 0 auto;
+}
+.qna_px_faq{
+	width: 90%;
+	height: 1600px;
+	margin: 0 auto;
+}
+.qna_px_list{
+	width: 90%;
+	height: 700px;
+	margin: 0 auto;
+}
+	table {
+	font-size: 12px;
+	width: 95%;
+	margin: 0 auto;
+	text-align: center;
+}
+table th {
+	background-color: #2F4F4F;
+	color: white;
+}
+th {
+	border-collapse: collapse;
+}
+	
+.qna_list tr {
+	hight: 40px;
+}
+.qnatable tr {
+	height: 40px;
+}
+.qnatable .qna_bigt {
+	height: 170px;
+}
+
+.qna_head_m {
+	width: 100%;
+	margin-bottom: 50px;
+	font-size: 15px;
+	color: #2F4F4F;
+	/*다크 슬레이트 색상*/
+}
+.qna_head_left{
+	margin-left: 10%;
+	font-size: 30px;
+}
+
+.qna_head_my {
+	margin-top: 50px;
+	margin-left: 30px;
+	width: 100%;
+	margin-bottom: 30px;
+	font-size: 15px;
+	color: #2F4F4F;
+	/*다크 슬레이트 색상*/
+}
+
+/*input 관련 속성 */
+input {
+	background: transparent;
+}
+input:focus, textarea:focus {
+	outline:none;
+}
+
+select {
+	position: relative;
+	width: 100px;
+	height: 40px;
+	border-radius: 5px;
+	border: 1px solid #2F4F4F;
+	text-align: center;
+	background: #2F4F4F;
+	color: white;
+}
+/*내용*/
+.qna_tt {
+	padding: 5px;
+	width: 100%;
+	height: 340px;
+	resize: none;
+	min-height: 100px;
+}
+
+.qna_ttt {
+	padding: 5px;
+	width: 90%;
+}
+
+/*제목*/
+.qna_h {
+	height: 50px;
+	padding: 0 5px;
+	width: 100%;
+	border-width: 1px;
+}
+
+.qna_ht {
+	padding: 0 5px;
+	height: 50px;
+	width: 90%;
+}
+
+/*댓글 관련*/
+.qna_re_t{
+	width: 90%;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.qna_rp {
+	margin-top: 60px;
+	margin-bottom: 100px;
+}
+
+.qna_re_t tr{
+	height: 35px;
+}
+
+.qna_h_re {
+	height: 35px;
+	width: 98%;
+	padding-left: 10px;
+	border: 1px solid #2F4F4F;
+}
+.qna_w {
+	width: 10%;
+}
+.qna_wr{
+	padding-left: 10px;
+	width: 50%;
+}
+
+/*버튼*/
+.qna_bt_box {
+	width: 100%;
+	height: 100px;
+	margin-bottom: 100px;
+}
+.qna_bts {
+	width: 80%;
+	height: 45px;
+	margin: 0 auto;
+	margin-top: 30px;
+	margin-bottom: 100px;
+}
+
+.qna_bts_1 {
+	width: 40%;
+	margin-top: 30px;
+	margin-left: 60%;
+	height: 70px;
+}
+.qna_bu {
+	width: 100px;
+	height: 45px;
+	border-radius: 5px;
+	margin-left: 15%;
+	border: 1px solid #2F4F4F;
+}
+.qna_bu:hover {
+	background-color: #2F4F4F;
+	color: white;
+}
+
+/*페이지*/
+.qna_pag {
+	margin-top: 30px; margin-left : 20%;
+	margin-right: 20%; 	margin-left: 20%;
+	width: 60%;
+	text-align: center;
+}
+
+
+/*리스트 테이블*/
+#qna_list th, #qna_list td {
+	padding: 10px;
+}
+#qna_list .qna_empty {
+	padding-top: 150px;
+	padding-bottom: 150px;
+	
+}
+
+/* F&Q 관련 */
+.qna_sub_main{
+	height: 170px; width: 100%;
+	margin: 0 auto;
+}
+.fnqkind{
+	width: 90%; 
+	height: 88px;
+	margin: 0 auto;
+	margin-top: 50px;
+	font-size: 11px;
+}
+.allkind{
+	margin: 0 auto;
+	list-style: none;
+}
+
+.kind {
+	text-align: center;
+	border: 1px solid #2F4F4F;
+	width: 19.2%;
+	float: left;
+	cursor: pointer;
+	height: 40px;
+}
+.kind a {
+	height: 50px;
+	text-decoration : none;
+	text-align: center;
+	vertical-align: middle;
+	line-height: 50px;
+    padding: 5px 0px;
+}
+.kind:hover, #qna_link:hover, #qna_link:active{
+	 background-color: #2F4F4F;
+	 color: white;
+}
+
+#qna_link:hover, #qna_link:active{
+	 background-color: #2F4F4F;
+	 color: white;
+}
+
+/*1:1문의 헤드*/
+.qna_head {
+	margin-top: 220px;
+	margin-left: 10%;
+	width: 90%;
+	margin-bottom: 50px;
+	font-size: 30px;
+	color: #2F4F4F;
+	/*다크 슬레이트 색상*/
+}
+
+.answer {
+	display: none;
+	padding-bottom: 20px;
+	padding-left: 10px;
+}
+.faq-content {
+	border-bottom: 1px solid #2F4F4F;
+	margin-bottom: 10px;
+	width: 100%;
+}
+.question {
+	font-size: 15px;
+	padding: 30px 0;
+	cursor: pointer;
+	border: none;
+	outline: none;
+	background: none;
+	width: 90%;
+	text-align: left;
+}
+.question:hover {
+	color: #5F9EA0;
+}
+[id$="-toggle"] {
+	margin-right: 9px;
+}
+.box_content {
+	width: 90%;
+	margin: 0 auto;
+}
+.faq-content:last-child {
+	margin-bottom: 100px;
+}
+.m_kind {
+	color: #3CB371;
+	border: 1px solid #3CB371;
+    width: 70px;
+    padding: 7px 0px;
+    margin-right: 7px;
+	display: inline-block;
+	text-align: center;
+}
+	

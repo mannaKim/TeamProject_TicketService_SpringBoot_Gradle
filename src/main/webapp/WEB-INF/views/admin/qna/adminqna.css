@@ -17,7 +17,7 @@
 /*내용*/
 .qna_tt {
 	padding: 10px;
-	width: 100%;
+	width: 90%;
 	height: 340px;
 	resize: none;
 	min-height: 100px;
@@ -32,7 +32,7 @@
 .qna_h {
 	height: 50px;
 	padding: 0 10px;
-	width: 100%;
+	width: 90%;
 	border-width: 1px;
 }
 
@@ -95,8 +95,31 @@
 	border: 1px solid #2F4F4F;
 }
 
-
 .qna_bu:hover {
 	background-color: #2F4F4F;
 	color: white;
+}
+
+.qna_bu_f {
+	width: 75px;
+	height: 45px;
+	border-radius: 5px;
+	border: 1px solid #2F4F4F;
+}
+.qna_bu_f:hover{
+background-color: #2F4F4F;
+	color: white;
+}
+
+.qna_bu_he {
+	width: 150px;
+	height: 45px;
+	border-radius: 5px;
+	border: 1px solid #2F4F4F;
+	margin-left:70%;
+}
+
+.qna_bt_faq{
+	width: 306px;
+	height: 45px;
 }

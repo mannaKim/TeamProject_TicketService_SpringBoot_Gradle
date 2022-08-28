@@ -1,13 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="../include/header.jsp" %>
-<link href="/css/qna.css" rel="stylesheet">
+<link href="/css/mobile/m_qna.css" rel="stylesheet">
 
 <article style="margin-top: 150px;">
-	<div class="qna_px">
+	<div class="qna_px_list">
 	<div class="qna_head_m">
-		<h2> 1:1 문의 </h2>
+		<h2 class="qna_head_left"> 1:1 문의 </h2>
 	</div>
-	<form name="formm" method="post" class="qna_box">
+	<form name="formm" method="post">
 		<table id="qna_list" class="qna_table">
 			<tr>
 				<th>번호</th>
@@ -27,7 +27,7 @@
 						<tr>
 							<td>${qnaVO.QSEQ}</td>
 							<td align="left" class="qna_wr"><a
-								href="qnaView?qseq=${qnaVO.QSEQ}"> 
+								href="mqnaView?qseq=${qnaVO.QSEQ}"> 
 									<c:choose>
 										<c:when test="${qnaVO.KIND==1}">
 											[전시]
@@ -87,7 +87,7 @@
 		<div  class="clear"></div>
 		<br>
 	<div class="qna_bts_1">
-		<input type="button" value="1:1 문의하기"  class="qna_bu" onClick="location.href='qnaWriteForm'"> 
+		<input type="button" value="1:1 문의하기"  class="qna_bu" onClick="location.href='mqnaWriteForm'"> 
 		<!-- 문의하기 버튼을 누르면 QnaWirteFormAction 으로 이동합니다.  -->
 	</div>
 	<div  class="clear"></div><br>

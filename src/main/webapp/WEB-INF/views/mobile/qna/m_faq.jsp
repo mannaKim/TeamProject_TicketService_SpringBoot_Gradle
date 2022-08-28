@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ include file="fna_sub_menu.jsp"%>
-
+<%@ include file="m_fna_sub_menu.jsp"%>
 <style>    
 .menu a{cursor:pointer;}    
 .menu .hide{display:none;}
@@ -9,7 +8,7 @@
 
 <article>
 	<div class="clear"></div>
-	<div class="qna_px">
+	<div class="qna_px" style="min-hight: 1000px;">
 	<div class="box_content" style="margin-top: 50px;">
 	<c:forEach items="${faqList}" var="faqVO">
 	 <div class="faq-content">

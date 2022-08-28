@@ -2,23 +2,28 @@
 	pageEncoding="UTF-8"%>
 <%@ include file="../include/header.jsp" %>
 <link href="/css/qna.css" rel="stylesheet">
+
 <style>
 .qna_sub_main{
 	height: 200px; width: 1100px;
 	margin: 0 auto;
 }
+
 .fnqkind{
 	width: 800px; height: 70px;
 	margin: 0 auto;
 	margin-top: 50px;
 }
+
 .allkind{
 	margin: 0 auto;
 	list-style: none;
 }
+
 li:first-child{
 	margin-left: 7px;
 }
+
 .kind {
 	text-align: center;
 	border: 1px solid #2F4F4F;
@@ -27,6 +32,7 @@ li:first-child{
 	cursor: pointer;
 	height: 60px;
 }
+
 .kind a {
 	height: 60px;
 	text-decoration : none;
@@ -55,8 +61,8 @@ li:first-child{
 	color: #2F4F4F;
 	/*다크 슬레이트 색상*/
 }
-
 </style>
+
 <article>
 	<div class="qna_sub_main">
 	<div class="qna_head">

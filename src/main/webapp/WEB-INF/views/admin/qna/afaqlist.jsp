@@ -1,12 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ include file="../../include/admin_header.jsp"%>
 	<link href="adminqna.css" rel="stylesheet">
 <style>
-#qna_bt_faq {
-	margin-left: 1050px;
+.qna_bt_faq{
+	width: 100%;
+}
+.qna_bu_he{
+	margin-left: 65%;
+	width: 150px;
+	height: 45px;
+	border-radius: 5px;
+	border: 1px solid #2F4F4F;
 }
 .qna_bu_f {
 	position: relative;
@@ -15,16 +22,17 @@
 	border-radius: 5px;
 	border: 1px solid #2F4F4F;
 }
-.qna_bu_f:hover{
+.qna_bu_f:hover, .qna_bu_he:hover{
 background-color: #2F4F4F;
 	color: white;
 }
 </style>
-<article id="admin_notice">
+
+<article id="admin_notice" >
 	<form name="formm" method="post">
 	<h2 align="center">FAQ 관리 </h2>
-	<div class="qna_bt" id="qna_bt_faq">
-		<input type="button" value="추가" class="qna_bu"
+	<div class="qna_bt_faq">
+		<input type="button" value="추가" class="qna_bu_he"
 			onclick="location.href='faqWriteForm'">
 	</div>
 		<table id="notice_table">

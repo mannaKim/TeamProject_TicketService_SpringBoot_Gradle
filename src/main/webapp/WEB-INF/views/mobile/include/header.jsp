@@ -17,6 +17,7 @@
 	<script src="/script/mobile/mobilebanner.js"></script>
 	<script src="/script/mobile/mobileintro.js"></script>
 	<script src="/script/mobile/mobilemember.js"></script>
+	<script src="/script/mobile/m_qna.js"></script>
 </head>
 <body>
 	<div id="wrap">
@@ -82,10 +83,10 @@
                                     </div>
                                 </div>
                                 <div class="contentBx">
-                                    <div class="label"><a href="ticket.do?command=qna">문의게시판</a></div>
+                                    <div class="label"><a href="mqnaList">문의게시판</a></div>
                                      <div id="content04" class="content">
-	                                    <p><a href="ticket.do?command=qnaWriteForm">1:1문의하기</a></p>
-	                                    <p><a href="ticket.do?command=qnafnq&kind=1">FAQ</a></p>
+	                                    <p><a href="mqnaWriteForm">1:1문의하기</a></p>
+	                                    <p><a href="mqnafaq">FAQ</a></p>
                                     </div>
                                 </div>
                             </div>

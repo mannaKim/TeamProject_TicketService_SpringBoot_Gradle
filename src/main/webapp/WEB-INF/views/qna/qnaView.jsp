@@ -2,7 +2,8 @@
 	pageEncoding="UTF-8"%>
 <%@ include file="../include/header.jsp" %>
 <link href="/css/qna.css" rel="stylesheet">
-<article style="margin-top: 150px;">
+
+<article style="margin-top: 150px; margin-bottom: 150px;">
 	<div class="qna_px">
 	<div class="qna_head_m">
 		<h2>1:1 문의</h2>
@@ -18,11 +19,10 @@
 				<td class="qna_ht" align="left">${qnaVO.ID}</td>
 			</tr>
 			<tr>
-			<tr>
 				<th>등록일</th>
 				<td class="qna_ht" align="left"><fmt:formatDate value="${qnaVO.INDATE}" type="date" /></td>
 			</tr>
-			<tr>
+			<tr class="qna_bigt">
 				<th>문의내용</th>
 				<td class="qna_ttt" align="left">${qnaVO.CONTENT}</td>
 			</tr>
@@ -38,7 +38,7 @@
 	<form method="post" name="frm_reply" class="qna_rp">
 		<input type="hidden" name="command" value="qnaReply" /> <input
 			type="hidden" name="qnanum" value="${qnaVO.QSEQ}" />
-		<table>
+		<table class="qna_re_t">
 			<c:forEach items="${replyList}" var="reply">
 				<c:choose>
 					<c:when test="${reply.CONTENT==null}">
@@ -47,7 +47,7 @@
 						<tr>
 							<th width="100">작성자</th>
 							<th align="left" class="qna_wr">답변 내용</th>
-							<th>날짜</th>
+							<th width="200">날짜</th>
 						</tr>
 					</c:otherwise>
 				</c:choose>

@@ -1,11 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ include file="../include/header.jsp"%>
-<%@ include file="../include/sub/mypage_sub_menu.jsp"%>
-<link href="/css/qna.css" rel="stylesheet">
+<%@ include file="../include/header.jsp" %>
+<%@ include file="../include/sub/m_mypage_sub_menu.jsp" %>
+<link href="/css/mobile/m_qna.css" rel="stylesheet">
+
 <article>
-	<div class="qna_px_faq">
-		<div style="width:1000px;text-align:left;margin:40px auto 20px;">
+	<div class="qna_px_list">
+		<div style="text-align:left;margin:40px auto 20px;">
 			<h1>나의 문의</h1>
 		</div>
 		<form name="formm" method="post">
@@ -28,7 +29,7 @@
 							<tr>
 								<td>${qnaVO.QSEQ}</td>
 								<td align="left" class="qna_wr"><a
-									href="qnaMyView?qseq=${qnaVO.QSEQ}"> 
+									href="mqnaMyView?qseq=${qnaVO.QSEQ}"> 
 										<c:choose>
 										<c:when test="${qnaVO.KIND==1}">
 											[전시]
@@ -68,7 +69,7 @@
 
 			<div id="paging" align="center"
 				style="font-size: 110%; font-weight: bold;">
-				<c:url var="action" value="qnaMy" />
+				<c:url var="action" value="mqnaMy" />
 				<c:if test="${paging.prev}">
 					<a href="${action}?page=${paging.beginPage-1}">◀</a>&nbsp;
 		    </c:if>
@@ -91,7 +92,7 @@
 			<br>
 			<div class="clear"></div>
 			<div class="qna_bts_1">
-				<input type="button" value="1:1 문의하기"  class="qna_bu" onClick="location.href='qnaWriteForm'"> 
+				<input type="button" value="1:1 문의하기"  class="qna_bu" onClick="location.href='mqnaWriteForm'"> 
 				<!-- 문의하기 버튼을 누르면 QnaWirteFormAction 으로 이동합니다.  -->
 			</div>
 			<div class="clear"></div>

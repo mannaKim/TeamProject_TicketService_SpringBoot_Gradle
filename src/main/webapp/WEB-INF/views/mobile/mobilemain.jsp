@@ -55,7 +55,7 @@
                     </div>
                     <div id="botqna">
                         <div id="qnatext">
-                        	<a href="qna">이동하기</a>
+                        	<a href="mqnaList">이동하기</a>
                         </div>
                     </div>
                 </div>

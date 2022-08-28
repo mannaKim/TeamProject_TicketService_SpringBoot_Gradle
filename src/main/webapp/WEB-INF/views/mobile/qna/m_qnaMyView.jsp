@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ include file="../include/header.jsp"%>
-<%@ include file="../include/sub/mypage_sub_menu.jsp"%>
-<link href="/css/qna.css" rel="stylesheet">
+<%@ include file="../include/header.jsp" %>
+<%@ include file="../include/sub/m_mypage_sub_menu.jsp" %>
+<link href="/css/mobile/m_qna.css" rel="stylesheet">
 
 <style>
 article {
@@ -25,11 +25,10 @@ article {
 				<td class="qna_ht" align="left">${qnaVO.ID}</td>
 			</tr>
 			<tr>
-			<tr>
 				<th>등록일</th>
 				<td class="qna_ht" align="left"><fmt:formatDate value="${qnaVO.INDATE}" type="date" /></td>
 			</tr>
-			<tr>
+			<tr class="qna_bigt">
 				<th>문의내용</th>
 				<td class="qna_ttt" align="left">${qnaVO.CONTENT}</td>
 			</tr>
@@ -38,24 +37,24 @@ article {
 		<div class="qna_bts">
 			<c:if test="${qnaVO.REP<2}">
 				<input type="button" value="삭제" class="qna_bu" 
-				onclick="location.href='qnaDelete?qseq=${qnaVO.QSEQ}'">
+				onclick="location.href='mqnaDelete?qseq=${qnaVO.QSEQ}'">
 			</c:if>
 			<input type="button" value="목록으로" class="qna_bu" 
-				onclick="location.href='qnaMy'">
+				onclick="location.href='mqnaMy'">
 		</div>
 	</form>
 
 		<form method="post" name="frm_reply" class="qna_rp">
 			<input type="hidden" name="command" value="qnaReply" /> <input
 				type="hidden" name="qnanum" value="${qnaVO.qseq}" />
-			<table>
+			<table class="qna_re_t">
 				<c:forEach items="${replyList}" var="reply">
 				<c:choose>
 					<c:when test="${reply.CONTENT==null}">
 					</c:when>
 					<c:otherwise>
 						<tr>
-							<th width="100">작성자</th>
+							<th>작성자</th>
 							<th align="left" class="qna_wr">답변 내용</th>
 							<th>날짜</th>
 						</tr>
