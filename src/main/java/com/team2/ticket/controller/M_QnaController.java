@@ -36,7 +36,7 @@ public class M_QnaController {
 		MemberVO loginUser = (MemberVO)session.getAttribute("loginUser");
 		
 		if( loginUser == null ) {
-			mav.setViewName("member/loginForm");
+			mav.setViewName("mobile/member/M_loginForm");
 		}else {
 			
 			int page=1;
@@ -85,7 +85,7 @@ public class M_QnaController {
 		HttpSession session = request.getSession();
 		MemberVO loginUser = (MemberVO)session.getAttribute("loginUser");
 	    if (loginUser == null) 
-	    	mav.setViewName("member/loginForm");
+	    	mav.setViewName("mobile/member/M_loginForm");
 	    else {
 //	    	mav.setViewName("qna/qnaWrite");
 //	    	if(result.getFieldError("subject") != null ) 
@@ -117,7 +117,7 @@ public class M_QnaController {
 		HttpSession session = request.getSession();
 		MemberVO loginUser = (MemberVO)session.getAttribute("loginUser");
 		if( loginUser == null ) {
-			mav.setViewName("member/loginForm");
+			mav.setViewName("mobile/member/M_loginForm");
 		}else {
 			HashMap<String, Object> paramMap = new HashMap<String, Object>();
 			paramMap.put("qseq", qseq );
@@ -147,7 +147,7 @@ public class M_QnaController {
 		MemberVO loginUser = (MemberVO)session.getAttribute("loginUser");
 		
 		if( loginUser == null ) {
-			mav.setViewName("member/loginForm");
+			mav.setViewName("mobile/member/M_loginForm");
 		}else {
 			
 			int page=1;
@@ -186,7 +186,7 @@ public class M_QnaController {
 		HttpSession session = request.getSession();
 		MemberVO loginUser = (MemberVO)session.getAttribute("loginUser");
 		if( loginUser == null ) {
-			mav.setViewName("member/login");
+			mav.setViewName("mobile/member/M_loginForm");
 		}else {
 			HashMap<String, Object> paramMap = new HashMap<String, Object>();
 			paramMap.put("qseq", qseq );
@@ -226,7 +226,7 @@ public class M_QnaController {
 			ModelAndView mav = new ModelAndView();
 			HttpSession session = request.getSession();
 			MemberVO loginUser = (MemberVO)session.getAttribute("loginUser");
-			if( loginUser == null ) mav.setViewName("member/loginForm");
+			if( loginUser == null ) mav.setViewName("mobile/member/M_loginForm");
 			else {
 
 			HashMap<String, Object> paramMap = new HashMap<String, Object>();
@@ -247,7 +247,7 @@ public class M_QnaController {
 			ModelAndView mav = new ModelAndView();
 			HttpSession session = request.getSession();
 			MemberVO loginUser = (MemberVO)session.getAttribute("loginUser");
-			if( loginUser == null ) mav.setViewName("member/loginForm");
+			if( loginUser == null ) mav.setViewName("mobile/member/M_loginForm");
 			
 			String url = "mobile/qna/m_faq";
 			
@@ -275,7 +275,7 @@ public class M_QnaController {
 			MemberVO loginUser = (MemberVO)session.getAttribute("loginUser");
 			
 			if( loginUser == null || loginUser.getAdmin()!=1 ) {
-				mav.setViewName("member/loginForm");
+				mav.setViewName("mobile/member/M_loginForm");
 			}else {
 				
 				int page=1;
@@ -308,7 +308,7 @@ public class M_QnaController {
 			HttpSession session = request.getSession();
 			MemberVO loginUser = (MemberVO)session.getAttribute("loginUser");
 			if( loginUser == null || loginUser.getAdmin()!=1 ) 
-				return "member/loginForm";
+				return "mobile/member/M_loginForm";
 			String [] kindList = {"전시", "회원안내", "관람/예약", "굿즈"};
 
 			request.setAttribute("kindList", kindList);
@@ -327,7 +327,7 @@ public class M_QnaController {
 			HttpSession session = request.getSession();
 			MemberVO loginUser = (MemberVO)session.getAttribute("loginUser");
 		    if (loginUser == null) 
-		    	mav.setViewName("member/loginForm");
+		    	mav.setViewName("mobile/member/M_loginForm");
 		    else {
 
 		    		HashMap<String, Object> paramMap = new HashMap<String, Object>();
@@ -346,7 +346,7 @@ public class M_QnaController {
 			ModelAndView mav = new ModelAndView();
 			HttpSession session = request.getSession();
 			MemberVO loginUser = (MemberVO)session.getAttribute("loginUser");
-			if( loginUser == null || loginUser.getAdmin()!=1 ) mav.setViewName("member/loginForm");
+			if( loginUser == null || loginUser.getAdmin()!=1 ) mav.setViewName("mobile/member/M_loginForm");
 			else {
 			String [] kindList = {"전시", "회원안내", "관람/예약", "굿즈"};
 			System.out.println("실행테스트");
@@ -396,7 +396,7 @@ public class M_QnaController {
 			HttpSession session = request.getSession();
 			MemberVO loginUser = (MemberVO)session.getAttribute("loginUser");
 		    if (loginUser == null) 
-		    	mav.setViewName("member/loginForm");
+		    	mav.setViewName("mobile/member/M_loginForm");
 		    else {
 
 		    		HashMap<String, Object> paramMap = new HashMap<String, Object>();

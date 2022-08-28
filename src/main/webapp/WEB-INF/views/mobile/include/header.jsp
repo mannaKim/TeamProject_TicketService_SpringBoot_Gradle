@@ -12,12 +12,13 @@
 	<link href="/css/mobile/mobilemypage.css" rel="stylesheet">
 	<link href="/css/mobile/mobilemember.css" rel="stylesheet">
 	<link href="/css/mobile/Mobileintro.css" rel="stylesheet">
+	<link href="/css/mobile/m_goods.css" rel="stylesheet">
 	<script src="/script/mobile/jquery-3.6.0.js"></script>
 	<script src="/script/mobile/mobilemain.js"></script>
-	<script src="/script/mobile/mobilebanner.js"></script>
 	<script src="/script/mobile/mobileintro.js"></script>
 	<script src="/script/mobile/mobilemember.js"></script>
 	<script src="/script/mobile/m_qna.js"></script>
+	<script src="/script/mobile/m_goods.js"></script>
 </head>
 <body>
 	<div id="wrap">
@@ -35,8 +36,8 @@
                                     <li>${loginUser.name}(${loginUser.id})
                                     <br><p style="font-size:10px;">(포인트 : ${loginUser.mpoint})</p></li>
                                     <li><a href="Mlogout">LOGOUT</a></li>
-                                    <li><a href="Mmypage">MyPage</a></li>
-                                    <li><a href="goodsCartList">Cart</a></li>
+                                    <li><a href="m_mypage">MyPage</a></li>
+                                    <li><a href="m_goodsCartList">Cart</a></li>
                                     <c:if test="${loginUser.admin=='1'}">	
                                         <li><a href="adminNotice?page=1">Admin</a></li>
                                     </c:if>
@@ -73,13 +74,13 @@
                                     </div>
                                 </div>
                                 <div class="contentBx">
-                                    <div class="label"><a href="goodsMain">굿즈</a></div>
+                                    <div class="label"><a href="m_goodsMain">굿즈</a></div>
                                     <div id="content03" class="content">
-                                    <p><a href="goodsCategory?kind=1&page=1">문구</a></p>
-                                    <p><a href="goodsCategory?kind=2&page=1">디지털</a></p>
-                                    <p><a href="goodsCategory?kind=3&page=1">가방 · 파우치</a></p>
-                                    <p><a href="goodsCategory?kind=4&page=1">취미용품</a></p>
-                                    <p><a href="goodsCategory?kind=5&page=1">패션 · 잡화</a></p>
+                                    <p><a href="m_goodsCategory?kind=1&page=1">문구</a></p>
+                                    <p><a href="m_goodsCategory?kind=2&page=1">디지털</a></p>
+                                    <p><a href="m_goodsCategory?kind=3&page=1">가방 · 파우치</a></p>
+                                    <p><a href="m_goodsCategory?kind=4&page=1">취미용품</a></p>
+                                    <p><a href="m_goodsCategory?kind=5&page=1">패션 · 잡화</a></p>
                                     </div>
                                 </div>
                                 <div class="contentBx">

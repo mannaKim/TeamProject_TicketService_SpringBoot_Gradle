@@ -1,7 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-    <%@ include file="../include/header.jsp"%>
-<%@ include file="../include/sub/sub_image_menu.jsp"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ include file="../include/header.jsp"%>
+<%@ include file="../include/m_sub/m_mypage_sub_menu.jsp"%>
 <article>
 <br><br>
         <div class="wdBox">
@@ -9,7 +8,7 @@
                 <h3>회원님의 정보 내역을 확인해 주세요.</h3>
                 <p>회원탈퇴 후 모두 소멸됩니다.</p>
                 <ul>
-                    <li>이름 : <span>${member.name}</span></li>
+                    <li>이름 : <span>${loginUser.name}</span></li>
                     <li>진행중인 주문 : <span style="color: red;">${orderNum}</span>건
                         &nbsp; <a href="allGoodsOrderList">> 내역확인</a>
                     </li>
@@ -44,7 +43,7 @@
             </div>
             <div class="clear"></div>
             <br>
-            <input type="button" value="회원탈퇴" class="goodsButton2" onClick="withdrawalConfirm('${loginUser.id}')">
+            <input type="button" value="회원탈퇴" class="goodsButton2" onClick="withdrawalConfirm()">
         </div>
         <br><br>
     </article>

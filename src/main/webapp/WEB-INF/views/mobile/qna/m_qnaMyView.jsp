@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="../include/header.jsp" %>
-<%@ include file="../include/sub/m_mypage_sub_menu.jsp" %>
+<%@ include file="../include/m_sub/m_mypage_sub_menu.jsp" %>
 <link href="/css/mobile/m_qna.css" rel="stylesheet">
 
 <style>

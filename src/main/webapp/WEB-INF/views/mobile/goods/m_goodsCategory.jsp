@@ -1,0 +1,33 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ include file="../include/header.jsp"%>
+<article class="underHeader">
+	<%@ include file="../include/m_sub/m_goods_sub_menu.jsp"%>
+	<div class="goodsBox">
+		<h1>${goodsKind}</h1>
+		<hr>
+		<c:forEach items="${goodsCategoryList}" var="gvo">
+			<div class="goodsCategory">
+				<a href="m_goodsDetail?gseq=${gvo.GSEQ}">
+					<img src="/goods_images/${gvo.IMAGE}">
+				</a>
+				<a href="m_goodsDetail?gseq=${gvo.GSEQ}">
+					<c:choose>
+						<c:when test="${gvo.NUM_INVENTORY==0}">
+							<h2 style="text-decoration: line-through;">[품절] ${gvo.NAME}</h2>
+						</c:when>
+						<c:otherwise><h2>${gvo.NAME}</h2></c:otherwise>
+					</c:choose>
+				</a>
+				<h3>
+					<fmt:formatNumber value="${gvo.PRICE2}" type="currency" />
+				</h3>
+				<span>${gvo.CONTENT}</span>
+			</div>
+		</c:forEach>
+		<jsp:include page="../include/paging/goods_paging.jsp">
+			<jsp:param value="m_goodsCategory?kind=${kind}" name="command" />
+		</jsp:include>
+		<br>
+	</div>
+</article>
+<%@ include file="../include/footer.jsp"%>

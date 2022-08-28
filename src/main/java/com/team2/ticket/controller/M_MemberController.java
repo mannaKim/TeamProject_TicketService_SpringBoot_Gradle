@@ -204,46 +204,46 @@ public class M_MemberController {
 		}
 	}
 	
-//	@RequestMapping(value="/MWithdrawcheck", method=RequestMethod.POST)
-//	public ModelAndView Withdrawcheck(@ModelAttribute("member") @Valid MemberVO membervo, BindingResult result,
-//			@RequestParam(value="id", required=false) String id, 
-//			@RequestParam(value="pwd", required=false) String pwd, HttpServletRequest request,
-//			Model model) {
-//		ModelAndView mav = new ModelAndView();
-//		mav.setViewName("member/WithdrawcheckPwd");
-//		
-//		if(result.getFieldError("pwd") != null) {
-//			mav.addObject("message", result.getFieldError("pwd").getDefaultMessage());
-//			return mav;
-//		} else {
-//			MemberVO mvo = ms.getMember(id);
-//			if(!mvo.getPwd().equals(pwd)) {
-//				mav.addObject("message", "비밀번호가 일치하지 않습니다.");
-//			} else {
-//				mav.addObject("member", mvo);
-//				mav.setViewName("member/withdrawalForm");
-//			}
-//			return mav;
-//		}
-//	}
-//	
-//	@RequestMapping("/withdrawal")
-//	public String withdrawal(@RequestParam("id") String id, Model model, HttpServletRequest request) {
-//		String url = "";
-//		
-//		HttpSession session = request.getSession();
-//		MemberVO mvo = (MemberVO) session.getAttribute("loginUser");
-//		if(mvo==null) {
-//			return "member/loginForm";
-//		} else {
-//			MemberVO member = ms.getMember(id);
-//			ms.deleteMember(member.getId());
-//			session.removeAttribute("loginUser");
-//			url = "redirect:/";
-//		}
-//		return url;
-//	}
-//	
+	@RequestMapping(value="/MWithdrawcheck", method=RequestMethod.POST)
+	public ModelAndView Withdrawcheck(@ModelAttribute("member") @Valid MemberVO membervo, BindingResult result,
+			@RequestParam(value="id", required=false) String id, 
+			@RequestParam(value="pwd", required=false) String pwd, HttpServletRequest request,
+			Model model) {
+	ModelAndView mav = new ModelAndView();
+	mav.setViewName("mobile/member/M_WithdrawcheckPwd");
+	
+	if(result.getFieldError("pwd") != null) {
+		mav.addObject("message", result.getFieldError("pwd").getDefaultMessage());
+		return mav;
+	} else {
+		MemberVO mvo = ms.getMember(id);
+		if(!mvo.getPwd().equals(pwd)) {
+			mav.addObject("message", "비밀번호가 일치하지 않습니다.");
+		} else {
+			int orderNum = ms.getOrderNum(membervo.getId());
+			model.addAttribute("orderNum", orderNum);
+			mav.addObject("member", mvo);
+			mav.setViewName("mobile/member/M_withdrawalForm");
+		}
+		return mav;
+		}
+	}
+	
+	@RequestMapping("/Mwithdrawal")
+	public String withdrawal(@RequestParam("id") String id, Model model, HttpServletRequest request) {
+		String url = "";
+		HttpSession session = request.getSession();
+		MemberVO mvo = (MemberVO) session.getAttribute("loginUser");
+		if(mvo==null) {
+			return "mobile/member/M_loginForm";
+		} else {
+			ms.deleteMember(mvo.getId());
+			session.removeAttribute("loginUser");
+			url = "redirect:/";
+		}
+		return url;
+	}
+	
 	@RequestMapping("/MfindIdForm")
 	public String findIdForm() {
 		return "mobile/member/M_findId";

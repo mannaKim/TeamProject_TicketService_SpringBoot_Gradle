@@ -13,7 +13,7 @@
 					</div>
 					<div class="goodsCartButton">
 						<input type="button" value="쇼핑하러 가기" class="goodsButton1"
-							onClick="location.href='goodsMain'">
+							onClick="location.href='m_goodsMain'">
 					</div>
 				</c:when>
 				<c:otherwise>
@@ -22,57 +22,46 @@
 						<h1>장바구니</h1>
 						<input type="button" value="선택상품 삭제" class="goodsButton3"
 							onClick="go_Gcart_delete();">
-						<table>
-							<tr>
-								<th colspan="2">상품명</th>
-								<th>가격</th>
-								<th>수량</th>
-								<th>선택</th>
-							</tr>
-							<c:forEach items="${goodsCartList}" var="gcvo">
-								<tr>
-									<td width="300">
-										<a href="goodsDetail?gseq=${gcvo.GSEQ}">
-											<img src="/goods_images/${gcvo.IMAGE}">
-										</a>
-									</td>
-									<td width="500">
-										<a href="goodsDetail?gseq=${gcvo.GSEQ}">
-											<c:choose>
-												<c:when test="${gcvo.NUM_INVENTORY==0}">
-													<del>[품절] ${gcvo.GNAME}</del>
-													<input type="hidden" name="soldout" value="1">
-												</c:when>
-												<c:when test="${gcvo.NUM_INVENTORY<gcvo.QUANTITY}">
-													${gcvo.GNAME}<br>
-													<span style="color: red;">
-														남은 재고 : ${gcvo.NUM_INVENTORY}<br>
-														재고에 맞게 구매 수량을 조절하세요.
-													</span>
-													<input type="hidden" name="soldout" value="1">
-												</c:when>
-												<c:otherwise>
-													${gcvo.GNAME}
-													<input type="hidden" name="soldout" value="0">
-												</c:otherwise>
-											</c:choose>
-										</a>
-									</td>
-									<td width="100">
-										<fmt:formatNumber value="${gcvo.PRICE*gcvo.QUANTITY}" type="currency" />
-									</td>
-									<td>
-										<button type="button" class="goodsQuantity"
+						<br><br>
+						<c:forEach items="${goodsCartList}" var="gcvo">
+							<div class="goodsCartBox">
+								<input type="checkbox" name="gcseq" value="${gcvo.GCSEQ}" checked>
+								<a href="m_goodsDetail?gseq=${gcvo.GSEQ}">
+									<img src="/goods_images/${gcvo.IMAGE}">
+								</a>
+								<div>
+									<a href="m_goodsDetail?gseq=${gcvo.GSEQ}"> 
+										<c:choose>
+											<c:when test="${gcvo.NUM_INVENTORY==0}">
+												<del>[품절] ${gcvo.GNAME}</del>
+												<input type="hidden" name="soldout" value="1">
+											</c:when>
+											<c:when test="${gcvo.NUM_INVENTORY<gcvo.QUANTITY}">
+												<p>${gcvo.GNAME}</p><br>
+												<span style="color: red;"> 남은 재고 :
+													${gcvo.NUM_INVENTORY}<br> 재고에 맞게 구매 수량을 조절하세요.
+												</span>
+											<input type="hidden" name="soldout" value="1">
+											</c:when>
+											<c:otherwise>
+												${gcvo.GNAME}
+												<input type="hidden" name="soldout" value="0">
+											</c:otherwise>
+										</c:choose>
+									</a>
+									<br>
+									<button type="button" class="goodsQuantity"
 											onClick="changeQuantity(-1,${gcvo.GSEQ},${gcvo.QUANTITY},${gcvo.NUM_INVENTORY});">-</button>
-										<input type="text" name="quantity" size="2" value="${gcvo.QUANTITY}" readonly>
-										<button type="button" class="goodsQuantity"
+									<input type="text" name="quantity" size="2" value="${gcvo.QUANTITY}" readonly>
+									<button type="button" class="goodsQuantity"
 											onClick="changeQuantity(1,${gcvo.GSEQ},${gcvo.QUANTITY},${gcvo.NUM_INVENTORY});">+</button>
-									</td>
-									<td>
-										<input type="checkbox" name="gcseq" value="${gcvo.GCSEQ}" checked>
-									</td>
-								</tr>
-							</c:forEach>
+									<br>
+									<fmt:formatNumber value="${gcvo.PRICE*gcvo.QUANTITY}" type="currency" />
+								</div>
+								<hr>
+							</div>
+						</c:forEach>
+						<table>
 							<tr>
 								<th colspan="3">결제 금액</th>
 								<th colspan="2">
@@ -81,10 +70,10 @@
 								</th>
 							</tr>
 							<tr>
-								<th colspan="3">적립금 사용(보유 적립금) : ${loginUser.MPOINT}</th>
+								<th colspan="3">적립금 사용(보유 적립금) : ${userPoint.MPOINT}</th>
 								<th colspan="2">
 									<input type="text" name="dpoint" placeholder="0" onKeyup="cal();">
-									<input type="button" value="사용" onClick="pointCheck('${loginUser.MPOINT}');">
+									<input type="button" value="사용" onClick="pointCheck('${userPoint.MPOINT}');">
 								</th>
 							</tr>
 							<tr>
@@ -103,7 +92,9 @@
 						</table>
 						<div class="goodsCartButton">
 							<input type="button" value="계속 쇼핑하기" class="goodsButton2"
-								onClick="location.href='goodsMain'">
+								onClick="location.href='m_goodsMain'">
+						</div>
+						<div class="goodsCartButton">
 							<input type="button" value="선택한 상품 주문하기" class="goodsButton1"
 								onClick="go_Gorder_insert('${Mpoint}');">
 						</div>

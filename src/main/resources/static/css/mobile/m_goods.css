@@ -1,0 +1,458 @@
+@charset "UTF-8";
+
+@charset "UTF-8";
+
+article.underHeader{
+	position: relative;
+	width:100%;
+	margin-top:130px;
+}
+
+.background_white {
+	position: relative;
+	width: 100%;
+	margin: 0;
+	background-color: white;
+}
+
+/* ------------sub_image_menu------------ */
+.goods_subMenu {
+	width: 100%;
+	margin: 0 auto;
+}
+
+.goods_searchBox {
+	position: relative;
+	width: 300px;
+	height: 40px;
+	margin: 0 auto;
+	background: white;
+	border-radius: 20px 20px 20px 20px;
+	overflow: hidden;
+}
+
+.goods_searchBox div {
+	position: relative;
+	float: left;
+	margin: 0 auto;
+}
+
+.goods_search {
+	width: 200px;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+}
+
+.goods_search input[type=text] {
+	border: 0;
+	outline: none;
+}
+
+.goods_searchBtn {
+	width: 100px;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	margin: 0 auto;
+}
+
+.goods_searchBtn input[type=submit] {
+	background-image: url('/goods_images/sub_images/search.png');
+	background-repeat: no-repeat;
+	background-color: white;
+	width: 40px;
+	height: 40px;
+	cursor: pointer;
+	border: 0px;
+	outline: 0;
+	background-position: center center;
+	background-size: 30px;
+}
+
+.goods_categoryBox {
+	position: relative;
+	width: 100%;
+	margin: 0 auto;
+	padding: 10px 0px;
+}
+
+.goods_categoryBox table {
+	margin: 0 auto;
+}
+
+.goods_categoryBox table tr td {
+	margin: 0 auto;
+	padding: 0 5px 0 5px;
+	text-align: center;
+}
+
+.goods_categoryBox table tr td:first-child {
+	margin: 0 auto;
+	padding: 0 5px 0 0px;
+	text-align: center;
+}
+
+.goods_categoryBox table tr td:last-child {
+	margin: 0 auto;
+	padding: 0 0px 0 5px;
+	text-align: center;
+}
+
+.goods_categoryBox table tr td img {
+	cursor: pointer;
+}
+
+.goods_categoryBox a {
+	text-decoration: none;
+	color: black;
+	font-size: 50%;
+}
+
+/* ------------goodsMain------------ */
+.goodsBox {
+	width: 100%;
+	text-align: left;
+	margin: 0 auto;
+}
+
+.goodsBox_main {
+	width: 100%;
+	height: 540px;
+	text-align: center;
+	margin: 0 auto;
+}
+
+.goodsBox_main h2 {
+	text-align: left;
+	font-size: 20px;
+	color: black;
+	padding-top: 15px;
+	margin-top: 0;
+	margin-bottom: 15px;
+}
+
+.goods {
+	width: 160px;
+	margin-left: 10px;
+	margin-right: 10px;
+	padding-bottom: 30px;
+	float: left;
+	text-align: left;
+	font-size: 10px;
+}
+
+.goods img {
+	width: 160px;
+	height: 160px;
+	border-radius: 5px;
+	overflow: hidden;
+}
+
+.goodsBox a {
+	text-decoration: none;
+	color: black;
+}
+
+.goodsBox a:hover {
+	text-decoration: underline;
+	color: black;
+}
+
+.goods h3 {
+	margin: 15px 0px 0px;
+}
+
+/* ------------goodsDetail------------ */
+.goodsBox hr {
+	border: 0;
+	height: 1px;
+	background-color: gray;
+}
+
+.goodsDetail_img1 {
+	margin: 0px 20px; 
+ 	width: 320px; 
+ 	height: 320px;
+	border-radius: 5px;
+	overflow: hidden;
+}
+
+.goodsDetail_img2 {
+	text-align: center;
+	background-color: white;
+}
+
+.goodsDetail {
+	position: relative;
+	width: 320px;
+	height: 500px;
+	right: 0px;
+	margin: 20px 20px 20px 20px;
+	background-color: white;
+	float: left;
+	border-radius: 5px;
+	text-align: left;
+}
+
+.goodsDetail h2 {
+	margin: 50px;
+}
+
+.goodsDetail hr {
+	margin: 0 20px;
+}
+
+.goodsDetail table {
+	position: relative;
+	width: 300px;
+	margin: 20px 70px;
+	font-size: 18px;
+}
+
+.goodsDetail table tr {
+	height: 60px;
+}
+
+.goodsQuantity {
+	width: 20px;
+	height: 20px;
+	border: none;
+	border-radius: 5px;
+	background-color: #a8a8a8;
+	font-size: 16px;
+	text-align: center;
+	line-height: 20px;
+	color: white;
+	cursor: pointer;
+}
+
+.goodsButton {
+	text-align: left;
+	margin-left: 40px;
+}
+
+.goodsButton1 {
+	height: 50px;
+	width: 250px;
+	border: none;
+	border-radius: 5px;
+	background-color: #467575;
+	font-size: 18px;
+	font-weight: bold;
+	color: white;
+	cursor: pointer;
+}
+
+.goodsButton2 {
+	height: 50px;
+	width: 250px;
+	border: 2px solid #467575;
+	border-radius: 5px;
+	background-color: white;
+	font-size: 18px;
+	font-weight: bold;
+	color: #467575;
+	cursor: pointer;
+	margin-right: 20px;
+}
+
+.goodsButton1:hover {
+	border: none;
+	background-color: #223939;
+	color: white;
+}
+
+.goodsButton2:hover {
+	border: 2px solid #223939;
+	background-color: white;
+	color: #223939;
+}
+
+/* ------------goodsCategory------------ */
+.goodsBox h1 {
+	margin: 20px;
+	padding-top: 20px;
+	font-size: 20px;
+}
+
+.goodsCategory {
+	position: relative;
+	width: 100%;
+	height: 150px;
+	margin: 20px 0;
+	background-color: white;
+	text-align: left;
+}
+
+.goodsCategory img {
+	float: right;
+	width: 150px;
+	height: 150px;
+}
+
+.goodsCategory h2 {
+	margin: 0px 10px 10px 10px;
+	padding-top: 10px;
+	font-size: 14px;
+	font-weight: normal;
+}
+
+.goodsCategory h3 {
+	margin: 0px 10px 5px 10px;
+	color: #6aafe6;
+	font-size: 12px;
+}
+
+.goodsCategory span {
+	margin-left: 9px;
+	width: 190px;
+	float: left;
+	font-size: 10px;
+}
+
+/* ------------goodsSearch------------ */
+.goodsEmpty {
+	border: 1px solid black;
+	width: 90%;
+	height: 180px;
+	background-color: white;
+	margin: 0 auto;
+}
+
+.goodsEmpty h3 {
+	margin-top: 20px;
+	margin-left: 10px;
+	margin-right: 10px;
+	font-size: 15px;
+}
+
+/* ------------goodsCart------------ */
+.emptyGoodsCart {
+	border: 1px solid black;
+	width: 90%;
+	height: 180px;
+	background-color: white;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.emptyGoodsCart h3 {
+	margin: 20px 0;
+}
+
+.emptyGoodsCart img {
+	margin-top: 20px;
+	width: 100px;
+}
+
+.goodsCartButton {
+	position: relative;
+	width: 300px;
+	left: 20px;
+	margin: 20px auto;
+}
+
+.goodsCart {
+	width: 100%;
+}
+
+.goodsCart .goodsCartBox {
+	width: 90%;
+	height: 130px;
+	background-color: white;
+	padding: 10px;
+	margin:0 auto;
+}
+
+.goodsCart div img {
+	margin-right: 10px;
+	width: 130px;
+	height: 130px;
+	float: left;
+}
+
+.goodsCart table {
+	width: 100%;
+	text-align: center;
+}
+
+.goodsCart th {
+	background-color: #2F4F4F;
+	color: white;
+	border-collapse: collapse;
+	padding: 10px;
+	font-size: 17px;
+	text-align: center;
+	font-weight: bold;
+}
+
+.goodsCart td {
+	border-bottom: 2px solid white;
+}
+
+.goodsCart td img {
+	text-align: left;
+	width: 100px;
+	height: 100px;
+}
+
+/* .goodsCart .goodsCartButton {
+	position: relative;
+	width: 600px;
+	left: 20px;
+	margin: 20px 0;
+} */
+
+.goodsButton3 {
+	width: 120px;
+	height: 30px;
+	border: none;
+	border-radius: 3px;
+	background-color: #9a9a9a;
+	font-size: 15px;
+	color: white;
+	cursor: pointer;
+}
+
+.goodsButton3:hover {
+	border: none;
+	background-color: #656565;
+	color: white;
+}
+
+.goodsCart .goodsButton3 {
+	float: right;
+	margin-bottom: 20px;
+}
+
+.goodsCart h1 {
+	display: inline;
+}
+
+/* ------------OrderCheck------------ */
+#orderCheck {
+	width: 90%;
+	margin: 0 auto;
+}
+
+#find_zip_num {
+	position: relative;
+	left: -98px;
+	float: center;
+	height: 25px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+.toggle input[type=radio]{
+    display: none;
+}
+.toggle input[type=radio] + label {
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+}
+.toggle input[type=radio]:checked + label {
+    color: #3CB371;
+}

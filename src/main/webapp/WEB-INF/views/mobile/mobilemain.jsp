@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="include/header.jsp" %>
+<script src="/script/mobile/mobilebanner.js"></script>
 		<main>
             <div id="page01" class="page">
                 <div id="ticketbox">
