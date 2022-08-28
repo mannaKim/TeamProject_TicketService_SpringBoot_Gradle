@@ -23,50 +23,25 @@ import com.team2.ticket.dto.IntroVO;
 import com.team2.ticket.dto.NoticeVO;
 import com.team2.ticket.dto.Paging;
 import com.team2.ticket.dto.ReplyVO;
-import com.team2.ticket.service.GoodsService;
 import com.team2.ticket.service.IntroduceService;
 
 @Controller
-public class IntroduceController {
+public class M_IntroduceController {
 
 	@Autowired
 	IntroduceService ids;
 	
-	@Autowired
-	GoodsService gs;
-	
-	@RequestMapping("/")
-	public String start() {
-		return "start";
-	}  
-	
-	@RequestMapping("/webmain")
-	public String index(HttpServletRequest request, Model model) {
-		HashMap<String, Object> paramMap = new HashMap<String, Object>();
-		paramMap.put("ref_cursor", null);
-		ids.getTieketMain(paramMap);
-		ArrayList<HashMap<String, Object>> list = (ArrayList<HashMap<String, Object>>)paramMap.get("ref_cursor");
-		model.addAttribute("ticketList", list);
-		
-		paramMap.put("ref_cursor", null);
-		gs.getGoodsBanner(paramMap);
-		ArrayList<HashMap<String, Object>> list2
-			= (ArrayList<HashMap<String, Object>>)paramMap.get("ref_cursor");
-		model.addAttribute("goodsBannerList", list2);
-		return "main";
-	}
-	
-	@RequestMapping("/introduce")
+	@RequestMapping("/Mintroduce")
 	public ModelAndView introduce(HttpServletRequest request) {
 		ModelAndView mav = new ModelAndView();
 		
 		HashMap<String, Object> result = ids.getIntro();
 		mav.addObject("introduce", (IntroVO)result.get("intro"));
-		mav.setViewName("introduce/introduceForm");
+		mav.setViewName("mobile/introduce/M_introduceForm");
 		return mav;
 	}
 	
-	@RequestMapping("/notice")
+	@RequestMapping("/Mnotice")
 	public ModelAndView notice(HttpServletRequest request) {
 		ModelAndView mav = new ModelAndView();
 		HttpSession session = request.getSession();
@@ -83,31 +58,31 @@ public class IntroduceController {
 		HashMap<String, Object> result = ids.getNotice(page);
 		mav.addObject("notice", (List<NoticeVO>)result.get("notice"));
 		mav.addObject("paging", (Paging)result.get("paging"));
-		mav.setViewName("introduce/noticeForm");
+		mav.setViewName("mobile/introduce/M_noticeForm");
 		return mav;
 	}
 	
-	@RequestMapping("/noticeView")
+	@RequestMapping("/MnoticeView")
 	public ModelAndView noticeView(@RequestParam("ntnum") int ntnum, HttpServletRequest request) {
 		ModelAndView mav = new ModelAndView();
 		
 		HashMap<String, Object> result = ids.noticeView(ntnum);
 		mav.addObject("noticeView", (NoticeVO)result.get("noticeView"));
-		mav.setViewName("introduce/noticeView");
+		mav.setViewName("mobile/introduce/M_noticeView");
 		return mav;
 	}
 	
-	@RequestMapping("/event")
+	@RequestMapping("/Mevent")
 	public ModelAndView event(HttpServletRequest request) {
 		ModelAndView mav = new ModelAndView();
 		
 		HashMap<String, Object> result = ids.getEvent();
 		mav.addObject("event", (List<EventVO>)result.get("event"));
-		mav.setViewName("introduce/eventForm");
+		mav.setViewName("mobile/introduce/M_eventForm");
 		return mav;
 	}
 	
-	@RequestMapping("/eventDetail")
+	@RequestMapping("/MeventDetail")
 	public ModelAndView eventDetail(@RequestParam("evnum") int evnum,
 			HttpServletRequest request) {
 		ModelAndView mav = new ModelAndView();
@@ -123,17 +98,17 @@ public class IntroduceController {
 			
 		mav.addObject("eventView", list1.get(0));
 		mav.addObject("ereply", list2);
-		mav.setViewName("introduce/eventDetail");
+		mav.setViewName("mobile/introduce/M_eventDetail");
 		return mav;
 	}
 	
-	@RequestMapping(value="/eventReply", method=RequestMethod.POST)
+	@RequestMapping(value="/MeventReply", method=RequestMethod.POST)
 	public String eventReply(ReplyVO replyvo, HttpServletRequest request) {
 		ids.insertReply(replyvo);
-		return "redirect:/eventDetailWithoutCount?num=" + replyvo.getEvnum();
+		return "redirect:/MeventDetailWithoutCount?num=" + replyvo.getEvnum();
 	}
 	
-	@RequestMapping("/eventDetailWithoutCount")
+	@RequestMapping("/MeventDetailWithoutCount")
 	public ModelAndView eventDetailWithoutCount(@RequestParam("num") int evnum,
 			HttpServletRequest request) {
 		ModelAndView mav = new ModelAndView();
@@ -150,26 +125,26 @@ public class IntroduceController {
 		
 		mav.addObject("eventView", list1.get(0));
 		mav.addObject("ereply", list2);
-		mav.setViewName("introduce/eventDetail");
+		mav.setViewName("mobile/introduce/M_eventDetail");
 		return mav;
 	}
 	
-	@RequestMapping("/delRep")
+	@RequestMapping("/MdelRep")
 	public String delRep(@RequestParam("replynum") int replynum, @RequestParam("evnum") int evnum,
 			HttpServletRequest request) {
 		ids.deleteReply(replynum);
-		return "redirect:/eventDetailWithoutCount?num=" + evnum;
+		return "redirect:/MeventDetailWithoutCount?num=" + evnum;
 	}
 	
-	@RequestMapping("/updRepForm")
+	@RequestMapping("/MupdRepForm")
 	public String updRepForm(@RequestParam("replynum") int replynum,
 			HttpServletRequest request, Model model) {
 		HashMap<String, Object> result = ids.getReply(replynum);
 		model.addAttribute("reply", (ReplyVO)result.get("reply"));
-		return "introduce/updRepForm";
+		return "mobile/introduce/M_updRepForm";
 	}
 	
-	@RequestMapping("/updRep")
+	@RequestMapping("/MupdRep")
 	public String updRep(@ModelAttribute("reply") @Valid ReplyVO replyvo, BindingResult result,
 			HttpServletRequest request, Model model) {
 		String url = "redirect:/eventDetailWithoutCount?num=" + replyvo.getEvnum();
@@ -181,7 +156,7 @@ public class IntroduceController {
 		} else {
 			ids.updateReply(replyvo);
 			model.addAttribute("reply", replyvo);
-			url = "introduce/completeReply";
+			url = "mobile/introduce/M_completeReply";
 		}
 		return url;
 		

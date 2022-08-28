@@ -26,5 +26,6 @@ public interface IntroduceDao {
 	public void updateReply(ReplyVO replyvo);
 	public ReplyVO getReply(int replynum);
 	public int getAllCount();
+	public void getTicketMain(HashMap<String, Object> paramMap);
 
 }

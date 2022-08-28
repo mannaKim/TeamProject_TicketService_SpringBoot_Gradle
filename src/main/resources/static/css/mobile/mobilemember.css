@@ -1,0 +1,212 @@
+@charset "UTF-8";
+
+*{margin:0; padding:0;}
+ul li, ol li{list-style: none;}
+a{text-decoration: none; color:black;}
+		
+/* 로그인 페이지 */
+div#login_Box{width:100%; height:400px; margin:130px auto;}
+form#loginFrm{width:100%; height:300px;}
+
+fieldset{border:none;}
+fieldset#login_file{width:100%; height:165px; margin:0 auto; border:none;}
+
+div#login_logo {width:200px; height:100px; margin:0 auto;}
+div#login_buttons{margin:20px auto; width:100%; height:45px;}
+.login_btn{width:80%; height:45px; margin-left:10%;}
+
+div#login_opt {width:89%; height:30px; margin:10px auto;}
+div#login_opt ul{display:inilne-block; list-style:none;}
+div#login_opt ul li{float:left;}
+div#login_opt ul li:first-child{margin-left:30px;}
+div#login_opt ul li:nth-child(2){margin-left:15px;}
+div#login_opt ul li:last-child{margin-left:15px;}
+div#login_opt ul li a{color:gray;}
+.m_login_btn{width:100%; height:45px;}
+ 
+/* 이용약관체크 페이지 */
+article#teams_One {width:100%; height:400px; margin:100px auto;}
+#teams_top {
+	width:100%; 
+	height:200px; 
+	display:flex;
+	flex-direction:column;
+	justify-content:space-around; 
+	border-bottom:1px dotted black;
+}
+#teams_top #teams_logo{width:51.5%; height:100px; margin:0 auto;}
+#teams_top #teams_icon{width:75%; height:35px; margin:0 auto;}
+#teams_top #teams_icon ul{display:inline-block;}
+#teams_top #teams_icon ul li{float:left; margin-left:15px; color:#B1B1B1;}
+#teams_top #teams_icon ul li:first-child{color:black; font-weight:bold;}
+
+form#termFrm{width:100%; height:250px; margin:25px auto;}
+form#termFrm div#teams_terms{width:100%; height:45px; line-height:45px;}
+form#termFrm div#teams_checkBox{width:100%; height:160px; }
+div#teams_checkBox ul{display:inline-block; width:100%;}
+form#termFrm ul li{ height:40px; line-height:40px; border-bottom:1px dotted silver; font-size:13px; display:flex; justify-content: space-between;}
+form#termFrm ul li:first-child{box-shadow:2px 2px 2px gray; border:1px solid silver;}
+form#termFrm ul li a{color:#8396C1;}
+#teams_buttons{width:90%; height:50px; margin:20px auto;}
+.teams_btn{width:160px; height:40px;}
+
+
+/* 회원가입(join)페이지 */
+article#join_box{width:100%; min-height:500px; margin:60px auto;}
+#join_top{
+	width:100%; 
+	height:200px; 
+	display:flex;
+	flex-direction:column;
+	justify-content:space-around; 
+	border-bottom:1px dotted black;
+}
+#join_top #join_logo{width:51.5%; height:100px; margin:0 auto;}
+#join_top #join_icon{width:75%; height:35px; margin:0 auto;}
+#join_top #join_icon ul{display:inline-block;}
+#join_top #join_icon ul li{float:left; margin-left:15px; color:#B1B1B1;}
+#join_top #join_icon ul li:nth-child(2){color:black; font-weight:bold;}
+
+
+form#joinFrm{width:100%; height:820px; margin:15px auto; position:relative;}
+#join_login{width:100%; height:220px; position:relative; margin:0 auto;}
+#join_person{width:100%; height:220px; margin:0 auto;}
+#join_address{width:100%; height:230px; position:relative; margin:0 auto; margin-top:40px;}
+.join_input{width:75%; height:35px; font-size:1.2em;}
+#join_id{margin-top:0;}
+.join{margin-top:20px;}
+.join_checkbox{width:15%; height:38px; position:absolute; top:2; left:78%;}
+#join_buttons{width:100%; height:40px; margin:0 auto; margin-top:15px;}
+.join_button{width:28%; height:35px;}
+#msgbox{width:100%;}
+#msgbox h4{text-align:center;}
+
+/* 회원 수정 페이지 */
+article#edit_box{width:100%; min-height:500px; margin:60px auto;}
+
+/* 회원 수정/삭제 비밀번호 입력 */
+article#chkPwdBox{width:100%; min-height:300px;}
+
+/* 회원가입 완료 페이지 */
+article#comjoin_box {width:100%; height:400px; margin:200px auto;}
+#comjoin_top{
+	width:100%; 
+	height:200px; 
+	display:flex;
+	flex-direction:column;
+	justify-content:space-around; 
+	border-bottom:1px dotted black;
+}
+#comjoin_top #comjoin_logo{width:51.5%; height:100px; margin:0 auto;}
+#comjoin_top #comjoin_icon{width:75%; height:35px; margin:0 auto;}
+#comjoin_top #comjoin_icon ul{display:inline-block;}
+#comjoin_top #comjoin_icon ul li{float:left; margin-left:15px; color:#B1B1B1;}
+#comjoin_top #comjoin_icon ul li:last-child{color:black; font-weight:bold;}
+
+#comjoin_box{width:100%; height:90px; margin-top:15px;}
+#comjoin_box .comjoin_btn{width:100%; height:40px; margin:7px auto; text-align:center; line-height:40px;}
+.m_comjoin_btn{width:30%; height:30px;}
+
+/* 아이디 체크 팝업 */
+form#idcheck_box{width:100%; height:350px; margin:0 auto;}
+.m_id_box{width:100%; height:45px;}
+#idcheck_join{margin-top:10px;}
+#idcheck_msg{line-height:65px; border-top:1px dotted silver;}
+input#m_check_input{width:75%; height:35px; font-size:1.2em;}
+.m_idc_btn{width:15%; height:37px;}
+
+/* 아이디 찾기 팝업 */
+form#findid_box{width:80%; height:300px; margin:0 auto; margin-top:100px;}
+form#findid_box table{margin:0 auto; width:100%; height:300px;}
+form#findid_box table td#findid_name{border-bottom:1px dotted gray; height:110px; margin:0 auto;}
+form#findid_box table td.find_id{width:100%; height:100px;}
+.m_findId{width:100%; height:35px; font-size:1.2em;} 
+
+
+div#complet_id{width:80%; height:60px; margin:0 auto; margin-top:100px;}
+div#complet_id table{width:100%; text-align:center;}
+div#complet_id table tr td span{font-size:1.5em;}
+div#complet_id div#complet_btn{width:100%; height:40px; text-align:center; line-height:40px; margin-top:7px;}
+
+/* 비밀번호 찾기 팝업 */
+form#findpwd_box{width:80%; height:300px; margin:0px auto; margin-top:40px;}
+form#findpwd_box table{margin:0 auto; width:100%; height:300px;}
+form#findpwd_box table td#findpwd_id{border-bottom:1px dotted gray; height:110px;}
+form#findpwd_box table td#findpwd_name{border-bottom:1px dotted gray; height:110px;}
+form#findpwd_box table td.find_pwd{height:100px;}
+.m_findpwd{width:100%; height:35px; font-size:1.2em;}
+
+/* 비밀번호찾기 step2 페이지 */
+form#findStep_box{width:80%; min-height:300px; margin:0px auto; margin-top:40px;}
+form#findStep_box table{margin:0 auto; width:100%; height:300px;}
+form#findStep_box table td.findStep_opt{border-bottom:1px dotted gray; height:65px; font-size:18px;}
+form#findStep_box table td#fintStep_num{padding-top:10px;}
+div#fintStep_btn{width:100%; height:35px; text-align:center; margin-top:10px;}
+#m_fintpwd2{width:100%; height:35px; font-size:1.2em;}
+
+/* 신규 비밀번호 입력 페이지 */
+form#resetpwd_box{width:80%; height:300px; margin:0px auto; margin-top:40px;}
+form#resetpwd_box table{margin:0 auto; width:100%; height:300px;}
+form#resetpwd_box table td#resetpwd_pass{border-bottom:1px dotted gray; height:110px;}
+form#resetpwd_box table td.reset_opt{height:100px;}
+.m_resetpwd{width:100%; height:35px; font-size:1.2em;}
+
+/* 비밀번호 변경완료 페이지 */
+div#complet_pwd{width:80%; height:60px; margin:0px auto; margin-top:40px;}
+div#complet_pwd table{width:100%; text-align:center;}
+div#complet_pwd div#completpwd_btn{width:100%; height:40px; text-align:center; line-height:40px; margin-top:7px;}
+
+
+/* 회원정보 수정/탈퇴 ------------checkPwd.jsp------------ */
+.chkPwdBox {
+	width: 100%;
+	text-align: center;
+	margin: 0 auto;
+	background-color: white;
+	border-radius: 5px;
+}
+
+.chkPwd table {
+	width: 71.42%;
+	margin: 0 auto;
+}
+
+.m_chkPwdBox{width:100%; height:35px;}
+
+/* 회원정보 수정/탈퇴 버튼 css*/
+.goodsButton1 {
+	height: 50px;
+	width: 30.95%;
+	border: none;
+	border-radius: 5px;
+	background-color: #467575;
+	font-size: 18px;
+	font-weight: bold;
+	color: white;
+	cursor: pointer;
+}
+
+.goodsButton2 {
+	height: 50px;
+	width: 30.95%;
+	border: 2px solid #467575;
+	border-radius: 5px;
+	background-color: white;
+	font-size: 18px;
+	font-weight: bold;
+	color: #467575;
+	cursor: pointer;
+	margin-right: 20px;
+}
+
+.goodsButton1:hover {
+	border: none;
+	background-color: #223939;
+	color: white;
+}
+
+.goodsButton2:hover {
+	border: 2px solid #223939;
+	background-color: white;
+	color: #223939;
+}

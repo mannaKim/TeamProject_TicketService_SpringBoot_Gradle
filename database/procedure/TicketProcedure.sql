@@ -1,3 +1,13 @@
+-- 메인 화면 전시 이미지
+create or replace procedure getTicketMain(
+    p_ticur OUT SYS_REFCURSOR
+)
+is
+begin
+    open p_ticur for
+    select * from tp_ticket_product order by tpseq desc;
+end;
+
 
 -- 이벤트 조회수
 create or replace procedure eventReadCount(

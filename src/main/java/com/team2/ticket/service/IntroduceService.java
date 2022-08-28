@@ -90,4 +90,8 @@ public class IntroduceService {
 		result.put("reply", rvo);
 		return result;
 	}
+	
+	public void getTieketMain(HashMap<String, Object> paramMap) {
+		idao.getTicketMain(paramMap);
+	}
 }

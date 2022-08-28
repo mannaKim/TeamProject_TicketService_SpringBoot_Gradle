@@ -1,0 +1,560 @@
+@charset "UTF-8";
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+ul li, ol li {
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+	color: black;
+}
+
+body {
+	background: #E2E2E2;
+}
+
+#wrap {
+	width:100%;
+	height:auto;
+	overflow:hidden;
+}
+
+/* 헤더  */
+header {
+	width:100%;
+	height:130px;
+	background:white;
+	position:fixed;
+	z-index:10;
+}
+
+#top {
+	width:93.3%;
+	height:120px;
+	margin:0 auto;
+	left:10%;
+}
+
+#top #login{
+	width:93.3%;
+	height:30px;
+}
+
+#top #logo {
+	width:93.3%;
+	height:80px;
+}
+
+#top #login nav#user_menu {
+	width:82%;
+	height:20px;
+	float:right;
+	margin-top:10px;
+	text-align:center;
+	align-items:center;
+}
+
+
+#top #login nav#user_menu ul{
+	display:inline-block;
+}
+
+#top #login nav#user_menu ul li {
+	float: left;
+	margin-left: 10px;
+	font-size:0.8em;
+}
+
+#logo {
+	display:flex;
+	justify-content: space-between;
+	align-items: center;	
+}
+
+#logo #logobox{
+	width:40%;
+	height:60px;
+	margin-left:20px;
+}
+
+#logo #logobox img{
+	width:100%;
+	height:45px;
+	object-fit:cover;
+}
+
+#logo #menubox{
+	width:12%;
+	height:40px;
+	margin-right:20px;
+}
+
+input[id="menuicon"] {
+	display: none;
+}
+
+input[id="menuicon"]+label {
+	display: block;
+	width: 60px;
+	height: 40px;
+	position: relative;
+	cursor: pointer;
+	color: white;
+}
+
+input[id="menuicon"]+label span {
+	display: block;
+	position: absolute;
+	width: 70%;
+	height: 5px;
+	border-radius: 30px;
+	background: #000;
+	transition: all .35s;
+}
+
+input[id="menuicon"]+label span:nth-child(1) {
+	top: 0;
+}
+
+input[id="menuicon"]+label span:nth-child(2) {
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+input[id="menuicon"]+label span:nth-child(3) {
+	bottom: 0;
+}
+
+input[id="menuicon"]:checked+label {
+	z-index: 2;
+}
+
+input[id="menuicon"]:checked+label span {
+	background: #fff;
+}
+
+input[id="menuicon"]:checked+label span:nth-child(1) {
+	top: 50%;
+	transform: translateY(-50%) rotate(45deg);
+}
+
+input[id="menuicon"]:checked+label span:nth-child(2) {
+	opacity: 0;
+}
+
+input[id="menuicon"]:checked+label span:nth-child(3) {
+	bottom: 50%;
+	transform: translateY(50%) rotate(-45deg);
+}
+
+div[class="sidebar"] {
+	width: 70%;
+	height: 100%;
+	background: #222;
+	position: fixed;
+	top: 0;
+	right: -70%;
+	z-index: 1;
+	transition: all .35s;
+	text-align: center;
+}
+
+input[id="menuicon"]:checked+label+div {
+	right: 0;
+}
+
+
+.accordion {
+	max-width: 90%;
+	margin-top: 160px;
+}
+
+.accordion .contentBx {
+	position: relative;
+	margin: 10px 20px;
+}
+
+.accordion .contentBx .label {
+	position: relative;
+	padding: 10px;
+	border-bottom: 1px dotted silver;
+	color: white;
+	cursor: pointer;
+}
+
+.accordion .contentBx .label a {
+	color: white;
+}
+
+.accordion .contentBx .label::before {
+	content: '+';
+	position: absolute;
+	top: 50%;
+	right: 20px;
+	transform: translateY(-50%);
+	font-size: 1.5em;
+}
+
+.accotrion .contentBx.active .label::before {
+	content: '-';
+}
+
+.accordion .contentBx .content {
+	position: relative;
+	background: #fff;
+	height: 0;
+	overflow: hidden;
+	transition: 0.5s;
+}
+
+.accordion .contentBx .content p {
+	height: 50px;
+	border: 1px dotted silver;
+	line-height: 50px;
+	cursor: pointer;
+	transition: all 0.5s;
+}
+
+.accordion .contentBx .content p:hover {
+	background: silver;
+}
+
+.accordion .contentBx .content p:hover a {
+	color: black;
+}
+
+.accordion .contentBx.active .content {
+	height: 150px;
+	padding: 10px;
+}
+
+.accordion .contentBx.active #content02{
+	height:50px;
+}
+
+.accordion .contentBx.active #content03 {
+	height: 250px;
+}
+
+.accordion .contentBx.active #content04 {
+	height: 120px;
+}
+
+.clear {
+	clear: both;
+}
+
+/* mobilemain.jsp */
+.page{
+	width:100%;
+}
+
+#page01{
+	height:400px;
+	margin-top:130px;
+	position:relative;
+}
+
+#page01 #ticketbox {
+	height: 400px;
+	margin: 0 auto;
+	display: flex;
+	position: relative;
+}
+
+#page01 #ticketbox #ticketimage {
+	width: 100%;
+	height: 400px;
+	position: relative;
+	overflow: hidden;
+}
+
+#page01 #ticketbox #ticketimage #imgbox {
+	position: absolute;
+	width: 2150px;
+	height: 400px;
+	left: 0;
+	top: 0;
+}
+
+#page01 #ticketbox #ticketimage #imgbox img {
+	width:420px;
+	height: 100%;
+	object-fit: cover;
+}
+
+#page01 #ticketbox #ticketimage #remot {
+	width: 7%;
+	height: 30px;
+	background: white;
+	position: absolute;
+	top: 0;
+	right: 0;
+	border-radius: 50%;
+	font-size: 22px;
+	text-align: center;
+	line-height: 30px;
+	z-index: 3;
+	cursor: pointer;
+}
+
+#page01 #ticketbox #ticketimage #lbutton {
+	position: absolute;
+	width: 7%;
+	height: 30px;
+	background: white;
+	bottom: 0;
+	left: 0;
+	border-radius: 50%;
+	font-size: 22px;
+	text-align: center;
+	line-height: 30px;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+#page01 #ticketbox #ticketimage #rbutton {
+	position: absolute;
+	width: 7%;
+	height: 30px;
+	background: white;
+	bottom: 0;
+	left: 5%;
+	border-radius: 50%;
+	font-size: 22px;
+	text-align: center;
+	line-height: 30px;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+#page01 #ticketbox #ticketimage #currentNum {
+	width: 20%;
+	height: 30px;
+	background: white;
+	position: absolute;
+	top: 0;
+	right: 0;
+	z-index: 2;
+	font-size: 18px;
+	line-height: 30px;
+	font-weight: bold;
+}
+
+#page02{
+	height:85px;
+}
+
+#page02 #tickettitle {
+	width: 44%;
+	height: 85px;
+	margin:0 auto;
+}
+
+#page02 #tickettitle #ticketname{
+	width: 100%;
+	height:50px;
+	
+}
+
+#page02 #tickettitle #ticketname a {
+	display:inline-block;
+	width:100%;
+	height:50px;
+	margin-top:9%;
+	font-size:1em;
+	border:1px solid black;
+	line-height:50px;
+	text-align:center;
+}
+
+/* 굿즈 슬라이드 이미지 */
+#page03{
+	height:300px;
+	background:white;
+}
+
+#page03 #goodsbox {
+	width:100%;
+	height: 300px;
+	margin: 0 auto;
+}
+
+/* ------------슬라이드 배너------------ */
+#slide_banner {
+	position: relative;
+	width: 100%;
+	height: 300px;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+#banner_imgs {
+	position: absolute;
+	width: 1700px;
+	height: 300px;
+	left: 0;
+	top: 0;
+	transition: 0.5s
+}
+
+.b_img {
+	width:420px;
+	height:100%;
+	object-fit: cover;
+}
+
+div#goods_remot {
+	position: relative;
+	width: 100%;
+	height: 40px;
+	margin: 0 auto;
+	top: 85%;
+	text-align: center;
+}
+
+div#goods_remot ul {
+	list-style: none;
+	display: inline-block;
+	padding: 0;
+	margin: 0;
+}
+
+div#goods_remot ul li {
+	float: left;
+	cursor: pointer;
+	width: 14px;
+	height: 14px;
+	border-radius: 50%;
+	background: rgba(0, 0, 0, 0.2);
+	margin: 10px 18px;
+}
+
+#goods_lbutton {
+	position: relative;
+	width: 15%;
+	height: 60px;
+	float: left;
+	top: 30%;
+	left: 5%;
+	cursor: pointer;
+	overflow: hidden;
+	background-image: url(/goods_images/sub_images/left.png);
+	background-size: 60px 60px;
+	background-position: center center;
+	background-color: rgba(0, 0, 0, 0.2);
+	border-radius: 50%;
+}
+
+#goods_rbutton {
+	position: relative;
+	width: 15%;
+	height: 60px;
+	float: left;
+	top: 30%;
+	left:65%;
+	cursor: pointer;
+	overflow: hidden;
+	background-image: url(/goods_images/sub_images/right.png);
+	background-size: 60px 60px;
+	background-position: center center;
+	background-color: rgba(0, 0, 0, 0.2);
+	border-radius: 50%;
+}
+
+/* 문의 게시판 이동 */
+#page04{
+	height:150px;
+	position: relative;
+}
+
+#page04 #qnabox {
+	width:44%;
+	height:150px;
+	position: relative;
+	margin:0 auto;
+	display:flex;
+	flex-direction:column;
+	justify-content:space-around;
+}
+
+#page04 #qnabox #topqna {
+	width:100%;
+	height: 50px;
+}
+
+#page04 #qnabox #topqna #qnaname {
+	width: 100%;
+	height: 50px;
+	border-bottom: 1px solid black;
+	text-align: center;
+	line-height: 50px;
+	font-size:1.2em;
+}
+
+#page04 #qnabox #botqna{
+	width:100%;
+	height:50px;
+	
+}
+
+#page04 #qnabox #botqna #qnatext a {
+	display:inline-block;
+	width:100%;
+	height:50px;
+	border:1px solid black;
+	line-height:50px;
+	font-size:1em;
+	text-align:center;
+}
+
+/* footer */
+footer {
+	width:100%;
+	height:200px;
+	background:black;
+}
+
+footer #fotbox {
+	width:75%;
+	height:200px;
+	margin:0 auto;
+}
+
+footer #fotbox #ftext {
+	width:100%;
+	height: 135px;
+}
+
+footer #fotbox #ftext p {
+	color: white;
+	letter-spacing: 1px;
+	width:100%;
+	height:105px;
+	display:block;
+	margin:0 auto;
+	font-size:0.7em;
+	padding-top:25px;
+}
+
+footer #fotbox #fimg {
+	width:100%;
+	height:60px;
+	margin:0 auto;
+}
+
+footer #fotbox #fimg ul {
+	display:inline-block;
+}
+
+footer #fotbox #fimg ul li {
+	width:13%;
+	height:45px;
+	float:left;
+	margin-left:30px;
+}

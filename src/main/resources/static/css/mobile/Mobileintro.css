@@ -1,0 +1,77 @@
+@charset "UTF-8";
+
+/* 회사 소개  */
+article.introatc{width:100%; margin-top:130px;}
+h1.introtitle{text-align:center; display:block; width:100%; height:50px;}
+form#introForm {width:100%; height:700px; margin:0 auto; background:white;}
+.m_intro_title{width:100%; height:75px;}
+.m_intro_form{width:100%; height:45px;}
+.m_intro_img{width:100%; height:400px;}
+.m_intro_img img{width:100%; height:300px;}
+table#intro{border-top:1px dotted gray;}
+table#intro tr th{border-bottom:1px dotted gray; font-size:1.8em;}
+#intro_buttons{width:47.61%; height:70px; margin:0 auto; text-align:center;}
+.submit{display: inline-block; width:50%; height:50px; border:1px solid black; margin:0 auto; cursor:pointer;}
+
+/* 공지사항  */
+form#noticeForm{width:100%; min-height:700px; margin:0 auto; background:white; padding-top:30px;}
+form#noticeForm table{width:100%; margin-top:45px; border-top:2px solid black;}
+#m_readcount{font-size:0.9em; color:silver;}
+.m_title1{width:100%; height:30px; font-size:1.1em;}
+.m_title2{width:100%; height:30px; font-size:0.9em; color:silver; border-bottom:1px dotted gray;}
+form#noticeForm tr td{text-align:center;}
+#notice_paging{margin:0 auto; width:54.76%; height:30px; font-size:110%; font-weight:bold;}
+
+form#noticeView{width:100%; min-height:600px; margin:0 auto; background:white;}
+form#noticeView table{width:100%; margin-top:30px; border-top:2px solid black; border-bottom:1px solid black; text-align:center;}
+.m_noticeView1{width:100%; height:75px; font-size:1.1em;}
+.m_noticeView2{width:71.42%; height:50px; text-align:right; font-size:0.8em; border-top:1px solid black;}
+.m_noRead{width:23.8%; height:50px;}
+.m_noticeView3{width:100%; height:300px;}
+
+/* 이벤트  */
+div#eventBox {width:100%; height:auto; overflow:hidden; margin:0 auto; background:white; padding-top:30px;}
+div#eventBox h1{text-align:center;}
+div#eventBox div#event_imgbox{width:100%; height:300px; box-shadow:3px 3px 3px 3px gray; float:left; margin-top:40px;}
+div#eventBox div#event_imgbox img{width:100%; height:150px;}
+
+
+form#eventform {width:100%; height:auto; overflow:hidden; margin:0 auto; background:white;}
+form#eventform table{width:100%; height:auto; overflow:hidden; margin-top:30px; border-top:2px solid black; border-bottom:1px solid black;}
+form#eventform table tr th#m_event_title{height:70px; font-size:2em; border-bottom:1px dotted gray;}
+form#eventform table tr th#m_event_date{text-align:right; border-bottom:1px dotted gray;}
+form#eventform table tr th.m_eventView{text-align:center; font-size:0.9em; height:50px;}
+form#eventform img{width:100%; object-fit: cover;}
+
+
+
+
+form#frm_event{width:100%; height:auto; overflow:hidden; margin:0 auto;}
+form#frm_event table{width:100%; height:auto; overflow:hidden: border-top:2px solid black;}
+form#frm_event table tr td#m_reply_rate{width:100%; height:30px; border-top:1px solid black;}
+form#frm_event table tr td#m_reply_rate select#m_select{width:50%; height:30px;}
+form#frm_event table tr td#m_reply_id{width:100%; height:45px;}
+form#frm_event table tr td#m_reply_id span{
+	width:22%; 
+	height:27px;
+	display:inline-block; 
+	text-align:center; 
+	font-size:0.8em;
+	line-height:27px;
+	}
+input#m_reply{width:49%; height:45px;}
+
+#m_ereply_rate{width:100%; height:30px; border-top:1px dotted black;}
+#m_ereply{
+	width:100%; 
+	height:60px; 
+	display:flex;
+	justify-content: space-between;
+	align-items: center;}
+div.m_reply_rep{height:60px; line-height:60px;}
+div#m_rid{width:22%;}
+div#m_con{width:50%;}
+div#m_rbtn{width:25%;}
+.reply_event{width:18%; height:45px; font-size:0.6em; cursor:pointer;}
+.reply_bnt{width:40%; height:40px; font-size:0.6em; border:1px solid black; cursor:pointer;}
+
