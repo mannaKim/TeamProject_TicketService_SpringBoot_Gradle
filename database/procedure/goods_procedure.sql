@@ -125,3 +125,18 @@ BEGIN
         WHERE useyn='y' AND mobile='y'
         ORDER BY order_seq;
 END;
+
+
+create or replace PROCEDURE getGoodsAndPoint(
+    p_gseq IN tp_goods.gseq%TYPE,
+    p_id IN tp_member.id%TYPE,
+    p_curvar OUT SYS_REFCURSOR,
+    p_idpoint OUT SYS_REFCURSOR
+)
+IS
+BEGIN
+    OPEN p_curvar FOR 
+        SELECT * FROM tp_goods WHERE gseq=p_gseq;
+    OPEN p_idpoint FOR
+        select * from tp_member where id=p_id;
+END;
