@@ -28,9 +28,9 @@
 					<tr>
 						<td align="center" colspan="3">
 							<input type="text" id="sample6_postcode" placeholder="우편번호"
-							name="zip_num" value="${loginUser.zip_num}" size="30" readonly> <input
-							type="button" onclick="sample6_execDaumPostcode()"
-							class="goodsButton3" id="find_zip_num" value="우편번호 찾기"> <br> <input
+							name="zip_num" value="${loginUser.zip_num}" size="30" readonly> <br>
+							<input type="button" onclick="sample6_execDaumPostcode()" 
+							id="find_zip_num" value="우편번호 찾기"> <br> <input
 							type="text" id="sample6_address" placeholder="주소" name="address1"
 							value="${loginUser.address1}" size="30" readonly> <br> <input
 							type="text" id="sample6_detailAddress" placeholder="상세주소"

@@ -106,5 +106,5 @@ IS
 BEGIN
     OPEN p_curvar FOR 
         SELECT * FROM goods_banner
-        ORDER BY useyn DESC, order_seq;
+        ORDER BY useyn DESC, mobile, order_seq;
 END;

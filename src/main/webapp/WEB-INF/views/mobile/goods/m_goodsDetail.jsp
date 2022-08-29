@@ -19,7 +19,7 @@
 		<form method="post" name="goodsFrm">
 			<input type="hidden" name="gseq" value="${goodsVO.GSEQ}">
 			<div class="goodsDetail_img1">
-				<img src="/goods_images/${goodsVO.IMAGE}" width="320">
+				<img src="/goods_images/${goodsVO.IMAGE}" width="100%">
 			</div>
 			<div class="goodsDetail">
 				<c:if test="${goodsVO.NUM_INVENTORY>0}">

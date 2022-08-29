@@ -133,9 +133,9 @@ article.underHeader{
 }
 
 .goods {
-	width: 160px;
-	margin-left: 10px;
-	margin-right: 10px;
+	width: 50%;
+	/* margin-left: 10px;
+	margin-right: 10px; */
 	padding-bottom: 30px;
 	float: left;
 	text-align: left;
@@ -143,10 +143,12 @@ article.underHeader{
 }
 
 .goods img {
-	width: 160px;
-	height: 160px;
+	width: 170px;
+	height: 170px;
 	border-radius: 5px;
 	overflow: hidden;
+	display: block;
+	margin: 0px auto;
 }
 
 .goodsBox a {
@@ -170,12 +172,11 @@ article.underHeader{
 	background-color: gray;
 }
 
-.goodsDetail_img1 {
-	margin: 0px 20px; 
- 	width: 320px; 
- 	height: 320px;
-	border-radius: 5px;
+.goodsDetail_img1 { 
+ 	width: 100%;
 	overflow: hidden;
+	display: block;
+	margin: 0px auto;
 }
 
 .goodsDetail_img2 {
@@ -185,18 +186,17 @@ article.underHeader{
 
 .goodsDetail {
 	position: relative;
-	width: 320px;
-	height: 500px;
-	right: 0px;
-	margin: 20px 20px 20px 20px;
+	width: 100%;
+	height: 450px;
 	background-color: white;
-	float: left;
-	border-radius: 5px;
 	text-align: left;
+	display: block;
+	margin: 0px auto;
+	padding-top: 10px;
 }
 
 .goodsDetail h2 {
-	margin: 50px;
+	margin: 20px;
 }
 
 .goodsDetail hr {
@@ -225,11 +225,6 @@ article.underHeader{
 	line-height: 20px;
 	color: white;
 	cursor: pointer;
-}
-
-.goodsButton {
-	text-align: left;
-	margin-left: 40px;
 }
 
 .goodsButton1 {
@@ -348,8 +343,8 @@ article.underHeader{
 
 .goodsCartButton {
 	position: relative;
-	width: 300px;
-	left: 20px;
+	width: 250px;
+	/* left: 20px; */
 	margin: 20px auto;
 }
 
@@ -423,6 +418,7 @@ article.underHeader{
 
 .goodsCart .goodsButton3 {
 	float: right;
+	margin-right: 10px;
 	margin-bottom: 20px;
 }
 
@@ -437,12 +433,10 @@ article.underHeader{
 }
 
 #find_zip_num {
-	position: relative;
-	left: -98px;
-	float: center;
-	height: 25px;
-	margin-top: 5px;
-	margin-bottom: 5px;
+	text-align:center;
+	display:inline-block;
+	margin: 0px auto;
+	height:20px;
 }
 
 .toggle input[type=radio]{

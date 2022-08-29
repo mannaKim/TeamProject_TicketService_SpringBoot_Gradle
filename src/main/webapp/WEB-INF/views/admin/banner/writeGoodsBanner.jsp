@@ -22,6 +22,13 @@
 				</td>
 			</tr>
 			<tr>
+				<th>배너 위치</th>
+				<td>
+					<input type="radio" name="mobile" value="n" checked="checked">pc 배너
+              		<input type="radio" name="mobile" value="y">mobile 배너
+				</td>
+			</tr>
+			<tr>
 				<th>배너 링크</th>
 				<td><input type="text" name="link" value="${goodsBanner.link}" size="50"></td>
 			</tr>

@@ -27,5 +27,7 @@ public interface IGoodsDao {
 
 	void deleteGoodsCart(int gcseq);
 
-	void getGoodsBanner(HashMap<String, Object> paramMap);
+	void getPcGoodsBanner(HashMap<String, Object> paramMap);
+	
+	void getMobileGoodsBanner(HashMap<String, Object> paramMap);
 }

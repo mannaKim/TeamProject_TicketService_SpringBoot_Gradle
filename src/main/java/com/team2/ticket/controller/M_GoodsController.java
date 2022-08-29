@@ -36,7 +36,7 @@ public class M_GoodsController {
 		model.addAttribute("newGoodsList", list2);
 		
 		paramMap.put("ref_cursor", null);
-		gs.getGoodsBanner(paramMap);
+		gs.getMobileGoodsBanner(paramMap);
 		ArrayList<HashMap<String, Object>> list3
 			= (ArrayList<HashMap<String, Object>>)paramMap.get("ref_cursor");
 		model.addAttribute("goodsBannerList", list3);

@@ -11,6 +11,7 @@ public class GoodsBannerVO {
 	private Integer order_seq;
 	private String image;
 	private String link;
+	private String mobile;
 	private String useyn;
 	private Timestamp indate;
 }

@@ -3,12 +3,15 @@ package com.team2.ticket.service;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.team2.ticket.dao.IAdminGoodsDao;
 import com.team2.ticket.dao.IGoodsOrderDao;
 import com.team2.ticket.dto.GoodsBannerVO;
+import com.team2.ticket.dto.GoodsVO;
 import com.team2.ticket.dto.Paging;
 
 @Service
@@ -59,8 +62,8 @@ public class AdminGoodsService {
 		adao.deleteGoods(gseq);
 	}
 
-	public void updateGoods(HashMap<String, Object> paramMap) {
-		adao.updateGoods(paramMap);
+	public void updateGoods(GoodsVO goodsvo) {
+		adao.updateGoods(goodsvo);
 	}
 
 	public void listAdminGoodsOrder(HashMap<String, Object> paramMap, int page) {

@@ -122,4 +122,5 @@
 		</div>
 	</div>
 </article>
+<div class="clear"></div>
 <%@ include file="../include/footer.jsp"%>

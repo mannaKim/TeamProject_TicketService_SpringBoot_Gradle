@@ -103,13 +103,25 @@ BEGIN
 END;
 
 
-create or replace PROCEDURE getGoodsBanner(
+create or replace PROCEDURE getPcGoodsBanner(
     p_curvar OUT SYS_REFCURSOR
 )
 IS
 BEGIN
     OPEN p_curvar FOR 
         SELECT * FROM goods_banner 
-        WHERE useyn='y'
+        WHERE useyn='y' AND mobile='n'
+        ORDER BY order_seq;
+END;
+
+
+create or replace PROCEDURE getMobileGoodsBanner(
+    p_curvar OUT SYS_REFCURSOR
+)
+IS
+BEGIN
+    OPEN p_curvar FOR 
+        SELECT * FROM goods_banner 
+        WHERE useyn='y' AND mobile='y'
         ORDER BY order_seq;
 END;

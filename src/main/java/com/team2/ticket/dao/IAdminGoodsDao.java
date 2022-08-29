@@ -5,6 +5,7 @@ import java.util.HashMap;
 import org.apache.ibatis.annotations.Mapper;
 
 import com.team2.ticket.dto.GoodsBannerVO;
+import com.team2.ticket.dto.GoodsVO;
 
 @Mapper
 public interface IAdminGoodsDao {
@@ -21,7 +22,7 @@ public interface IAdminGoodsDao {
 
 	void deleteGoods(int gseq);
 
-	void updateGoods(HashMap<String, Object> paramMap);
+	void updateGoods(GoodsVO goodsvo);
 
 	void getAdminGoodsOrderCount(HashMap<String, Object> paramMap);
 

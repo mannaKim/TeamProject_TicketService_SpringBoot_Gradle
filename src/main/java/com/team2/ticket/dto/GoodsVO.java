@@ -19,7 +19,6 @@ public class GoodsVO {
 	@NotNull(message="상품 분류를 입력하세요.")
 	private String kind;
 	@NotNull(message="재고를 입력하세요.")
-	@Min(1)
 	private Integer num_inventory;
 	@NotNull(message="원가를 입력하세요.")
 	@Min(1)

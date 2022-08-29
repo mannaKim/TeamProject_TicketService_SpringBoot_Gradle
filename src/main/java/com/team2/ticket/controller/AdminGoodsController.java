@@ -303,34 +303,13 @@ public class AdminGoodsController {
 			else if(result.getFieldError("price2")!=null) 
 				model.addAttribute("message", result.getFieldError("price2").getDefaultMessage());
 			else {
-				HashMap<String,Object> paramMap = new HashMap<String,Object>();
-				paramMap.put("name", goodsvo.getName());
-				paramMap.put("kind", goodsvo.getKind());
-				paramMap.put("num_inventory", goodsvo.getNum_inventory());
-				paramMap.put("price1", goodsvo.getPrice1());
-				paramMap.put("price2", goodsvo.getPrice2());
-				paramMap.put("price3", goodsvo.getPrice3());
-				paramMap.put("useyn", goodsvo.getUseyn());
-				paramMap.put("bestyn", goodsvo.getBestyn());
-				paramMap.put("content", goodsvo.getContent());
-				paramMap.put("gseq", goodsvo.getGseq());
-				if(goodsvo.getImage()==null) {
-					paramMap.put("image", request.getParameter("oldImage"));
-				} else {
-					paramMap.put("image", goodsvo.getImage());
-				}	
-				if(goodsvo.getDetail_img()==null) {
-					paramMap.put("detail_img", request.getParameter("oldDetail_img"));
-				} else {
-					paramMap.put("detail_img", goodsvo.getDetail_img());
-				}
-//				System.out.println("갱신이미지 "+goodsvo.getImage());
-//				System.out.println("갱신상세이미지 "+goodsvo.getDetail_img());
-//				System.out.println("옛날이미지 "+request.getParameter("oldImage"));
-//				System.out.println("옛날상세이미지 "+request.getParameter("oldDetail_img"));
-//				System.out.println("바꾼이미지 "+paramMap.get("image").toString());
-//				System.out.println("바꾼상세이미지 "+paramMap.get("detail_img").toString());
-				as.updateGoods(paramMap);
+				if(goodsvo.getImage()==null || goodsvo.getImage().equals("")) {
+					goodsvo.setImage(request.getParameter("oldImage"));
+				} 
+				if(goodsvo.getDetail_img()==null || goodsvo.getDetail_img().equals("")) {
+					goodsvo.setDetail_img(request.getParameter("oldDetail_img"));
+				} 
+				as.updateGoods(goodsvo);
 				url = "redirect:/adminGoodsDetail?gseq="+goodsvo.getGseq();
 			}
 			return url;

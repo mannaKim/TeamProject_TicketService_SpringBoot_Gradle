@@ -10,17 +10,18 @@
 	<table id="goods_orderTable">
 		<tr>
 			<th>번호</th>
-			<th colspan="2" width="300">배너 이름</th>
+			<th colspan="2" width="250">배너 이름</th>
 			<th>순서</th>
 			<th>사용유무</th>
 			<th>등록일</th>
+			<th>배너위치</th>
 			<th>링크</th>
 			<th>수정 / 삭제</th>
 		</tr>
 		<c:choose>
 			<c:when test="${empty goodsBannerList}">
 				<tr>
-					<td colspan="8">등록된 배너 이미지가 없습니다.</td>
+					<td colspan="9">등록된 배너 이미지가 없습니다.</td>
 				</tr>
 			</c:when>
 			<c:otherwise>
@@ -31,13 +32,23 @@
 							${goodsBanner.NAME}
 						</td>
 						<td>
-							<img src="/goods_images/sub_images/${goodsBanner.IMAGE}" width="280px">
+							<img src="/goods_images/sub_images/${goodsBanner.IMAGE}" width="220px">
 						</td>
 						<td>
 							${goodsBanner.ORDER_SEQ}
 						</td>
 						<td>${goodsBanner.USEYN}</td>
 						<td><fmt:formatDate value="${goodsBanner.INDATE}" /></td>
+						<td>
+							<c:choose>
+								<c:when test="${goodsBanner.MOBILE == 'n'}">
+									pc 배너
+								</c:when>
+								<c:otherwise>
+									mobile 배너
+								</c:otherwise>
+							</c:choose>
+						</td>
 						<td><a href="${goodsBanner.LINK}">${goodsBanner.LINK}</a></td>
 						<td>
 							<input type="button" value="수정"

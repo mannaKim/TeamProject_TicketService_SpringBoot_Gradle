@@ -56,7 +56,8 @@
 		UPDATE tp_goods
 		SET name=#{name}, kind=#{kind}, num_inventory=#{num_inventory},
 			price1=#{price1}, price2=#{price2}, price3=#{price3},
-			content=#{content}, image=#{image}, detail_img=#{detail_img}
+			content=#{content}, image=#{image}, detail_img=#{detail_img},
+			useyn=#{useyn}, bestyn=#{bestyn}
 		WHERE gseq=#{gseq}
 	</update>
 	
@@ -98,8 +99,8 @@
 	</select>
 	
 	<insert id="insertGoodsBanner" parameterType="com.team2.ticket.dto.GoodsBannerVO">
-		INSERT INTO goods_banner(gbseq, name, order_seq, image, link, useyn)
-		VALUES(goods_banner_seq.nextVal,#{name},#{order_seq},#{image},#{link},#{useyn})
+		INSERT INTO goods_banner(gbseq, name, order_seq, image, link, mobile, useyn)
+		VALUES(goods_banner_seq.nextVal,#{name},#{order_seq},#{image},#{link},#{mobile},#{useyn})
 	</insert>
 	
 	<delete id="deleteGoodsBanner">
@@ -113,7 +114,7 @@
 	<update id="updateGoodsBanner" parameterType="com.team2.ticket.dto.GoodsBannerVO">
 		UPDATE goods_banner
 		SET name=#{name}, order_seq=#{order_seq}, image=#{image},
-			link=#{link}, useyn=#{useyn}
+			link=#{link}, mobile=#{mobile}, useyn=#{useyn}
 		WHERE gbseq=#{gbseq}
 	</update>
 	

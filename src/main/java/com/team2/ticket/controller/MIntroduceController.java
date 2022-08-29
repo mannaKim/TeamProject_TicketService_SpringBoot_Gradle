@@ -31,7 +31,7 @@ public class MIntroduceController {
 		model.addAttribute("ticketList", list);
 		
 		paramMap.put("ref_cursor", null);
-		gs.getGoodsBanner(paramMap);
+		gs.getMobileGoodsBanner(paramMap);
 		ArrayList<HashMap<String, Object>> list2
 			= (ArrayList<HashMap<String, Object>>)paramMap.get("ref_cursor");
 		model.addAttribute("goodsBannerList", list2);

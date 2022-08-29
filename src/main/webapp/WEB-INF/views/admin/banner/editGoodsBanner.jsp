@@ -32,6 +32,21 @@
 				</td>
 			</tr>
 			<tr>
+				<th>배너 위치</th>
+				<td>
+					<c:choose>
+						<c:when test="${goodsBanner.mobile=='n'}">
+							<input type="radio" name="mobile" value="n" checked="checked">pc 배너
+              				<input type="radio" name="mobile" value="y">mobile 배너
+						</c:when>
+						<c:otherwise>
+							<input type="radio" name="mobile" value="n">pc 배너
+              				<input type="radio" name="mobile" value="y" checked="checked">mobile 배너
+						</c:otherwise>
+					</c:choose>
+				</td>
+			</tr>
+			<tr>
 				<th>배너 링크</th>
 				<td><input type="text" name="link" value="${goodsBanner.link}" size="50"></td>
 			</tr>

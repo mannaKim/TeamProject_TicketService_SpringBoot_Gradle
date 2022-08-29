@@ -82,7 +82,11 @@ public class GoodsService {
 		}
 	}
 
-	public void getGoodsBanner(HashMap<String, Object> paramMap) {
-		gdao.getGoodsBanner(paramMap);
+	public void getPcGoodsBanner(HashMap<String, Object> paramMap) {
+		gdao.getPcGoodsBanner(paramMap);
+	}
+	
+	public void getMobileGoodsBanner(HashMap<String, Object> paramMap) {
+		gdao.getMobileGoodsBanner(paramMap);
 	}
 }
