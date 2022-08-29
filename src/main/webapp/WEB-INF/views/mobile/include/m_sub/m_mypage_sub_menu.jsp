@@ -51,7 +51,7 @@
 		<nav id="mp_sub_menu">
 		  <ul class="mp_ul">
 		    <li><a href="m_goodsCartList">장바구니</a></li>
-		    <li><a href="ticketCartList?page=1">나의 관람 정보</a></li>
+		    <li><a href="m_ticketCartList?page=1">나의 관람 정보</a></li>
 		    <li><a href="m_allGoodsOrderList?page=1">나의 주문 정보</a></li>
 		  </ul>
 		   <ul class="mp_ul">

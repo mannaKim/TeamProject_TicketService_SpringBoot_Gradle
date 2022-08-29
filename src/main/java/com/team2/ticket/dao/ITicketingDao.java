@@ -12,6 +12,7 @@ public interface ITicketingDao {
 	public void getchoisDay(HashMap<String, Object> paramMap);
 	public void insertOrder(HashMap<String, Object> paramMap);
 	public void tclistTicket(HashMap<String, Object> paramMap1);
+	public void getTProduct2(HashMap<String, Object> paramMap);
 
 	
 }

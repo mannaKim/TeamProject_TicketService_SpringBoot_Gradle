@@ -14,7 +14,7 @@
 			</div>
 			<div class="goodsCartButton">
 				<input type="button" value="예매하러 가기" class="goodsButton1"
-					onClick="location.href='ticketingList'">
+					onClick="location.href='m_ticketingList'">
 			</div>
 		</c:when>
 		<%-- tclist 가 비어있지 않다면 아래코드로 실행. --%>
@@ -22,7 +22,7 @@
 			<div class="goodsCart">
 				<table>
 					<tr>
-						<th>예매일</th><th>예매번호</th><th>주문자</th><th>공연명</th><th>관람일시</th><th>매수</th><th>예매상태</th>
+						<th>공연명</th><th>관람일시</th><th>매수</th><th>예매상태</th>
 					</tr>
 					<c:forEach items="${ tclist }" var="tcvo">
 						<jsp:useBean id="now" class="java.util.Date" />
@@ -31,16 +31,13 @@
 						<%-- 선택날짜 --%>
 						<fmt:formatDate pattern="yyyy.MM.dd" value="${tcvo.CHOISDATE}" type="date" var="choisdate" />
 						<tr>
-							<td><fmt:formatDate pattern="yyyy.MM.dd" value="${tcvo.INDATE}" type="date" /></td>
-							<td>${ tcvo.CSEQ }</td>
-							<td>${ tcvo.MNAME }</td>
-							<td><a href="ticketShowMypage?tpseq=${tcvo.TPSEQ}">${ tcvo.PNAME } </a></td>
+							<td><a href="m_ticketShowMypage?tpseq=${tcvo.TPSEQ}">${ tcvo.PNAME } </a></td>
 							<td>${ choisdate } - ${ tcvo.DAYTIME }</td>
 							<td>${ tcvo.QUANTITY1 + tcvo.QUANTITY2 }매<br>
 								(일반:${ tcvo.QUANTITY1 } 어린이:${ tcvo.QUANTITY2 })
 							</td>
 							<td><c:if test="${ choisdate > today }">
-									<a href="ticketShowMypage?tpseq=${tcvo.TPSEQ}">예매완료</a>
+									<a href="m_ticketShowMypage?tpseq=${tcvo.TPSEQ}">예매완료</a>
 								</c:if> 
 								<c:if test="${ choisdate <= today }">관람기간 종료</c:if>
 							</td>
@@ -48,7 +45,7 @@
 					</c:forEach>
 				</table><br>
 				<jsp:include page="../include/paging/paging.jsp">
-					<jsp:param name="command" value="ticketCartList"/>
+					<jsp:param name="command" value="m_ticketCartList"/>
 				</jsp:include><br>
 			</div>
 		</c:otherwise>

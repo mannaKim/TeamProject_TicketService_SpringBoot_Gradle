@@ -13,12 +13,15 @@
 	<link href="/css/mobile/mobilemember.css" rel="stylesheet">
 	<link href="/css/mobile/Mobileintro.css" rel="stylesheet">
 	<link href="/css/mobile/m_goods.css" rel="stylesheet">
+	<link href="/css/mobile/m_ticket.css" rel="stylesheet">
+	<link href="/css/mobile/m_ticketingbtn.css" rel="stylesheet">
 	<script src="/script/mobile/jquery-3.6.0.js"></script>
 	<script src="/script/mobile/mobilemain.js"></script>
 	<script src="/script/mobile/mobileintro.js"></script>
 	<script src="/script/mobile/mobilemember.js"></script>
 	<script src="/script/mobile/m_qna.js"></script>
 	<script src="/script/mobile/m_goods.js"></script>
+	<script src="/script/mobile/m_ticketing.js"></script>
 </head>
 <body>
 	<div id="wrap">
@@ -70,7 +73,7 @@
                                 <div class="contentBx">
                                     <div class="label">전시/공연 예약</div>
                                     <div id="content02" class="content">
-                                    <p><a href="ticketingList">전시 둘러보기</a></p>   
+                                    <p><a href="m_ticketingList">전시 둘러보기</a></p>   
                                     </div>
                                 </div>
                                 <div class="contentBx">

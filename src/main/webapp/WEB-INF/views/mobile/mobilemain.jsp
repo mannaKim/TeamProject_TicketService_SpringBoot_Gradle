@@ -23,7 +23,7 @@
 			<div id="page02" class="page">
 				<div id="tickettitle">
                         <div id="ticketname">
-                           <a href="ticketingList">예매하러가기</a>
+                           <a href="m_ticketingList">예매하러가기</a>
                         </div>
                   </div>
 			</div>

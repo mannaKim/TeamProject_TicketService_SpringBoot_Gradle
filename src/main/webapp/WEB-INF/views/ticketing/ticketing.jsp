@@ -23,9 +23,9 @@
 				<table>
 					<tr><th>${choisDay}<input type="hidden" name="choisDay" value="${choisDay}"></th></tr>
 					<tr><td>일　반</td><td>${tpvo.PRICE1} 원</td></tr>
-					<tr><td></td><td>${select1} 매</td></tr>
+					<tr><td></td><td>${quantity1} 매</td></tr>
 					<tr><td>어린이</td><td>${tpvo.PRICE2} 원</td></tr>
-					<tr><td></td><td>${select2} 매</td></tr>
+					<tr><td></td><td>${quantity2} 매</td></tr>
 				</table>
 			</div>
 			<div id="t_bottom">
@@ -45,7 +45,7 @@
 		<div id="t_menubox">
 			<div id="t_menumini_box">
 			<div id="t_img"><img src="/ticket_image/${tpvo.IMAGE}" height="240" style="margin-top: 12px;"/></div>
-			<div id="t_menuboxx">
+			<div id="t_menuboxx_x">
 				<table class="t_tablemenubox">
 					<tr><th colspan="2">선택된 내용</th></tr>
 					<tr><th>날　짜</th><td>${choisDay}</td></tr>
@@ -55,7 +55,7 @@
 					<tr><th>어린이</th><td>${quantity2} 매</td></tr>
 				</table>
 			</div>
-			<div id="t_menuboxx1">
+			<div id="t_menuboxx1_x" align="center">
 				<table class="t_tablemenubox">
 				<tr><th colspan="3">결제내역</th></tr>
 				<tr><th>일　반</th><td colspan="2">${totalPrice1} 원</td></tr>
@@ -68,11 +68,15 @@
 					</c:choose>
 					</td>
 				</tr>
+				<tr><th>사용된 포인트</th><td colspan="2">
+					<fmt:formatNumber value="${dpoint}" pattern="#######" /> p&nbsp;</td></tr>
 			</table>
 			</div>
 			</div>
-			<div id="t_menuboxx2"><table class="t_tablemenubox"><tr><th>최종 결제금액</th><td>${setotal} 원</td></tr></table></div>
-			<div id="t_button">
+			<div id="t_menuboxx2_x"align="center"><table class="t_tablemenubox"><tr><th>최종 결제금액</th><td>${totalPrice_result} 원</td></tr>
+			<tr><th>적립 예정 포인트</th>
+					<td><fmt:formatNumber value="${Mpoint}" pattern="#######" /> p&nbsp;</td></tr></table></div>
+			<div id="t_button_x" align="center">
 				<input type="submit" value="완료" id="btn_ticket">
 				<input type="hidden" name="tpseq" value="${tpvo.TPSEQ}">
 			</div>

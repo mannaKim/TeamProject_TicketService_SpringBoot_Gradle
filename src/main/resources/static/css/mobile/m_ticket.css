@@ -1,0 +1,439 @@
+@charset "UTF-8";
+
+.article {
+	margin-top: 130px;
+}
+
+/* calendar  */
+#calendar {
+   margin-bottom:50px; 
+   padding: 10px; 
+   width:250px; 
+   color: black; 
+   border: 1px solid #dcdcdc;
+   cursor:pointer   
+}
+#calendar td { padding:10px; }
+
+#selectedDate{
+   width: 300px;
+   height: 25px;
+   padding: 10px;
+   color: black;
+   font-size:18px;
+   background-color: #fff;
+   cursor:pointer;
+}
+#reservation_time td.top{
+   padding-bottom: 10px;
+   font-weight:700; font-size:25px;
+}
+#btn_submit{
+   margin: 0;
+   padding: 20px;
+   text-align: center;
+   text-decoration: none;
+   font-size: 25px; color:white;
+   background-color: black;
+   font-weight:700;
+   border: 1px solid black;
+   display: inline-block;
+   width: 300px;
+}
+#btn_submit:active{
+   margin: 0;
+   padding: 20px;
+   text-align: center;
+   text-decoration: none;
+   font-size: 25px; color:black;
+   background-color: white;
+   font-weight:700;
+   border: 1px solid black;
+   display: inline-block;
+   width: 300px;
+}
+
+
+/* ticketingList */
+div#m_t_listBox {
+	width:90%;
+	margin:0 auto;
+}
+
+div#m_t_listBox h2, div#t_listBox hr{
+	width: 90%;
+	margin:0 auto;
+}
+
+table#m_t_list {
+	margin-top: 30px;
+	margin:0 auto;
+	width: 100%;
+	height: 70%;
+	border-collapse: collapse;
+	line-height: 2;
+	box-shadow: 3px 3px 5px 0px gray;
+}
+
+table#m_t_list th {
+	position: relative;
+	padding: 0px;
+	width: 30%;
+	top: 12px;
+	font-weight: bold;
+}
+
+table#m_t_list td {
+	font-size: 15px;
+}
+
+table#m_t_list td table {
+	width: 100%;
+}
+
+/* ticketShow */
+div#m_t_showBox_img{
+	top:15px;
+	margin: 0 auto;
+}
+div#m_t_showBox_btn{
+	margin: 0 auto;
+}
+
+div#m_t_showBox {
+	width: 100%;
+	margin: 0 auto;
+}
+
+div#m_t_showBox1{
+	border:1px solid red;
+}
+
+table#m_t_showBox{
+	color: black;
+	width : 80%;
+}
+table#m_t_showBox th {
+	width: 30%;
+	padding: 5px;
+	vertical-align: top;
+	font-size: 12px;
+	text-align: left;
+}
+
+table#m_t_showBox th#t-boxline {
+	border-top: 1px solid black;
+	border-bottom: 1px solid black;
+}
+
+table#m_t_showBox td#img {
+	text-align: right;
+}
+
+table#m_t_showBox th#title {
+	font-size: 150%;
+	font-weight: bold;
+	color: black;
+}
+
+div#title1 {
+	width: 90%;
+	margin: 0 auto;
+}
+
+/*ticketingForm*/
+div#t_body {
+	width: 100%;
+	height: 100%;
+	margin: 0 auto;
+	background-color: white;
+}
+
+div#t_mainbox {
+	width: 90%;
+	height: 100%;
+	margin: 0 auto;
+}
+
+div#t_title {
+	width: 100%;
+	height: 10%;
+	top: 0px;
+}
+
+div#t_title1 {
+	width: 100%;
+	height: 10%;
+	top: 12px;
+	text-align: left;
+	font-weight:bold;
+	font-size: 25px;
+}
+
+div#t_title2 {
+	width: 100%;
+	height: 5%;
+	top: 0px;
+	text-align: left;
+	line-height: 30px;
+	border-bottom: 2px solid black;
+}
+
+div#t_bodyleft {
+	width: 100%;
+}
+
+div#t_bodycenter {
+	margin:0 auto;
+	width: 100%;
+	margin-top:5%;
+}
+
+div#t_bodyright {
+	width: 100%;
+	height: 100%;
+	margin-top:5%;
+	margin:0 auto;
+}
+
+div#t_bottom {
+	position: relative;
+	width: 100%;
+	height: 200px;
+}
+
+div#t_bodyleft_i {
+	width: 85%;
+	margin: 0 auto;
+	margin-top: 10px;
+	
+}
+
+div#t_bodycenter_m {
+	width: 80%;
+	height: 100%;
+	margin-top: 3%;
+	
+}
+
+div#t_bodycenter_m1 {
+	width: 100%;
+	
+}
+
+div#t_bodyright_c {
+	margin:0 auto;
+}
+
+div#map {
+	position: relative;
+	left: 0px
+	
+}
+
+table#centerbax {
+	margin-top:5%;
+	width: 100%;
+	font-size: 105%;
+	margin:0 auto;
+	margin: 0; padding: 0;
+}
+
+table#centerbax th {
+	vertical-align: top;
+	width: 80px;
+	text-align: left;
+	
+}
+
+table#centerbax th#t_line {
+	border-bottom: 1px solid black;
+	border-top: 1px solid black;
+	
+}
+
+table#centerbax td {
+	vertical-align: top;
+	text-align: left;
+	padding: 0px 20px;
+	
+}
+
+/* ticketingCart */
+div#m_ticketingCart {
+	width: 100%;
+}
+
+div#m_ticketingCartheader {
+	width: 90%;
+	height: 83px;
+	float: left;
+	/* background-color: #3b3b3b; */
+	top: 3px;
+}
+
+div#m_ticketingCartheader div#m_t_top {
+	position: relative;
+	width: 30%;
+	height: 70px;
+	/* left: 30%; */
+	float: left;
+	margin-right: 0px;
+	top: 13px;
+}
+
+div#m_ticketingCartbody {
+	width: 100%;
+	height: 100%;
+	margin-left: 0px;
+	float: left;
+	margin-right: 0px;
+	background-color: white;
+}
+
+div#m_ticketingCartbody div#m_t_title {
+	width: 100%;
+	height: 100%;
+	font-size: 23px;
+	font-weight: bold;
+	
+}
+
+div#m_t_menu {
+	margin-top:10%;
+	width: 80%;
+	margin: 0 auto;
+	height: 100%;
+}
+
+div#m_ticketingCartbody div#t_menu1 {
+	width:90%;
+	font-size: 16px;
+	padding: 5px 0px 5px 0px;
+	font-weight: bold;
+}
+
+div#m_ticketingCartbody div#t_bottom {
+	width: 100%;
+	height: 250px;
+	margin-left: 0px;
+	float: left;
+	margin-right: 0px;
+	margin-top: 30px;
+	font-size: 14px;
+}
+
+div#m_t_menubox {
+	margin-top:5%;
+	width: 100%;
+	height: 100%;
+	/* background-color: #3b3b3b; */
+}
+
+div#m_t_menubox div#m_t_menuboxx {
+	width: 80%;
+	height: 100%;
+	margin-top: 0px;
+}
+
+
+div#m_t_menubox div#m_t_button {
+	width: 250px;
+	height: 80px;
+	/* margin-top: 65px; */
+}
+
+
+div#m_t_menu table {
+	position: relative;
+	width: 90%;
+	height: 100%;
+	background-color: #E2E2E2;
+}
+
+
+div#m_t_menu table th {
+	text-align: left;
+	vertical-align: top;
+	padding: 0px 5px 0px 5px;
+}
+
+
+div#m_t_menu table td {
+	text-align: right;
+	vertical-align: top;
+	padding: 0px 5px 0px 5px;
+}
+
+
+div#m_t_menubox div#m_t_menuboxx table {
+	
+}
+
+
+div#m_t_menubox div#m_t_menuboxx2 table {
+	
+}
+
+table.m_t_tablemenubox {
+	width: 90%;
+	border-collapse: collapse;
+	board:1px solid #4d6375;
+}
+
+table.m_t_tablemenubox th {
+	text-align: left;
+	padding: 0px 5px 0px 5px;
+	vertical-align: top;
+	color: black;
+	font-size: 17px;
+	padding: 1px 0 1px 0 1px;
+}
+
+
+table.m_t_tablemenubox td {
+	text-align: right;
+	padding: 0px 5px 0px 5px;
+	vertical-align: top;
+	color: black;
+	font-size: 17px;
+	padding: 1px 0 1px 0 1px;
+}
+
+div#m_t_bottom {
+	margin-top: 5%;
+}
+div#m_t_bottom table {
+	position: relative;
+	border: 2px solid #4d6375;
+	border-collapse: collapse;
+	top: 10%;
+	width: 95%;
+}
+
+
+div#m_t_bottom table th {
+	text-align: left;
+	padding: 0px 10px;
+	font-size: 15px;
+	background-color: #4d6375
+}
+
+
+div#m_t_bottom table td {
+	padding: 0px 5px;
+	font-size: 12px;
+}
+
+
+div#m_t_step3font {
+	font-size: 15px;
+	font-weight: bold;
+	color: red;
+	margin: 0 auto;
+	margin-top: 5%;
+}
+
+div#m_t_point{
+	
+}

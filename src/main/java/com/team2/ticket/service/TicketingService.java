@@ -30,5 +30,7 @@ public class TicketingService {
 	public void tclistTicket(HashMap<String, Object> paramMap1) {
 		tdao.tclistTicket(paramMap1);	
 	}
-	
+	public void getTProduct2(HashMap<String, Object> paramMap) {
+		tdao.getTProduct2(paramMap);
+	}
 }

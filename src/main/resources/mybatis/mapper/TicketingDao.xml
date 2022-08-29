@@ -7,6 +7,7 @@
 <mapper namespace="com.team2.ticket.dao.ITicketingDao">
 
 	<resultMap id="ticketingMap" type="java.util.HashMap"></resultMap>
+	<resultMap id="ticketingMap2" type="java.util.HashMap"></resultMap>
 	
 	<select id="ticketingList" statementType="CALLABLE" parameterType="java.util.HashMap">
 	 	{
@@ -24,6 +25,17 @@
 			)
 		}
 	</select>
+	
+	<select id="getTProduct2" statementType="CALLABLE" parameterType="java.util.HashMap">
+	 	{
+			CALL getTProduct2( 
+				#{tpseq}, #{id},
+				#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=ticketingMap}, 
+				#{ref_cursor2, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=ticketingMap2}
+			)
+		}
+	</select>
+	
 	<select id="getchoisDay" statementType="CALLABLE" parameterType="java.util.HashMap">
 	 	{
 			CALL getchoisDay( 
@@ -49,7 +61,5 @@
 			)
 		}
 	</select>
-	
-	
 	
 </mapper>

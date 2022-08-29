@@ -8,18 +8,20 @@
 			<br><br>
 			<h1>상세 정보</h1>	
 			<input type="button" value="목록으로" class="goodsButton3"
-				onClick="location.href='ticketCartList'">
+				onClick="location.href='m_ticketCartList'">
 			<table>
+				<tr><th>${tpvo.NAME}</th></tr>
 				<tr>
-					<th></th>
-					<th colspan="4">${tpvo.NAME}</th>
+					<td>
+						<img src="ticket_image/${tpvo.IMAGE}" style="height: 400px; width: 300px;">
+					</td>
 				</tr>
+			</table>
+			<table>
 				<tr>
 					<th>기간</th>
 					<td><fmt:formatDate value="${tpvo.SDATE}" pattern="YYYY/MM/dd" /> ~
 						<fmt:formatDate value="${tpvo.EDATE}" pattern="YYYY/MM/dd" /></td>
-					<td rowspan="7" width="300"><img src="ticket_image/${tpvo.IMAGE}"
-						style="height: 400px; width: 300px;"></td>
 				</tr>
 				<tr>
 					<th>시작시간</th><td>${tpvo.DAYTIME}</td>
