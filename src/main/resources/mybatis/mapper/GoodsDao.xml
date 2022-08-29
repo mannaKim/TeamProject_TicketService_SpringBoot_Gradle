@@ -102,4 +102,15 @@
 		}
 	</select>
 	
+	<select id="getGoodsAndPoint" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			CALL getGoodsAndPoint(
+				#{gseq},
+				#{id},
+				#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=goodsMap},
+				#{ref_cursor2, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=goodsMap2}
+			)
+		}
+	</select>
+	
 </mapper>

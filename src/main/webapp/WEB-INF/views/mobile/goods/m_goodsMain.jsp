@@ -100,8 +100,8 @@
 				<h2>MD's Pick</h2>
 				<c:forEach items="${newGoodsList}" var="gvo">
 					<div class="goods">
-						<a href="m_goodsDetail?gseq=${gvo.GSEQ}"> <img
-							src="/goods_images/${gvo.IMAGE}">
+						<a href="m_goodsDetail?gseq=${gvo.GSEQ}">
+							<img src="/goods_images/${gvo.IMAGE}">
 							<c:choose>
 								<c:when test="${gvo.NUM_INVENTORY==0}">
 									<del>

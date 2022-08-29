@@ -36,8 +36,14 @@ public class GoodsOrderController {
 	
 	@RequestMapping("/goodsOrderCheck")
 	public ModelAndView goods_order_check(HttpServletRequest request,
-			@RequestParam("gcseq") int [] gcseqArr, @RequestParam("point") double Mpoint,
-			@RequestParam("totalPrice2") String totalprice2, @RequestParam("dpoint") int dpoint) {
+			@RequestParam("gcseq") int [] gcseqArr, 
+			@RequestParam("use_pnt") int dpoint, // goodsCartList.jsp 에서  사용한 포인트.
+			@RequestParam("totalPrice1") int totalPrice1){ // goodsCartList.jsp 에서 결제해야할 상품 금액
+		
+		// goodsCartList.jsp 에서 넘겨준 포인트(use_pnt)를가지고 계산되는 계산식. 
+		int totalprice2 = totalPrice1 - dpoint; // 최종 결제금액 = 결제금액 - 사용할 포인트
+		double Mpoint = ( totalPrice1 * 0.05 ) - ( dpoint * 0.05 ); // 최종 포인트 = 적립 총 포인트 - 사용할 포인트
+		
 		ModelAndView mav =  new ModelAndView();
 		HttpSession session = request.getSession();
 		MemberVO loginUser
@@ -46,7 +52,7 @@ public class GoodsOrderController {
 			mav.setViewName("member/loginForm");
 		else {
 			HashMap<String, Object> paramMap = new HashMap<String, Object>();
-			// 추가내용3줄
+			
 			paramMap.put("id", loginUser.getId());
 			paramMap.put("Mpoint", (int)Mpoint);
 			paramMap.put("dpoint", dpoint);
@@ -171,12 +177,16 @@ public class GoodsOrderController {
 		else {
 			HashMap<String, Object> paramMap = new HashMap<String, Object>();
 			paramMap.put("gseq", gseq);
+			paramMap.put("id", loginUser.getId());
 			paramMap.put("ref_cursor", null);
 			paramMap.put("ref_cursor2", null);
-			gs.getGoods(paramMap);
+			gs.getGoodsAndPoint(paramMap);
+			
 			ArrayList<HashMap<String, Object>> list
 				= (ArrayList<HashMap<String, Object>>)paramMap.get("ref_cursor");
 			HashMap<String, Object> resultMap = list.get(0);
+			ArrayList<HashMap<String, Object>> pointList 
+				= (ArrayList<HashMap<String, Object>>)paramMap.get("ref_cursor2");
 			
 			int totalPrice = quantity * Integer.parseInt(resultMap.get("PRICE2").toString());
 			double MPoint = 0;
@@ -184,6 +194,7 @@ public class GoodsOrderController {
 			mav.addObject("quantity", quantity);
 			mav.addObject("totalPrice", totalPrice);
 			mav.addObject("Mpoint", MPoint);
+			mav.addObject("userPoint", pointList.get(0));
 			mav.addObject("goodsVO", resultMap);
 			session.setAttribute("totalPrice", totalPrice);
 			session.setAttribute("goodsVO", resultMap);
@@ -195,11 +206,17 @@ public class GoodsOrderController {
 	@RequestMapping("/goodsOrderInsertOne")
 	public String goods_order_insert_one(HttpServletRequest request, Model model,
 			@RequestParam("gseq") int gseq,
-			@RequestParam("quantity") int quantity, @RequestParam(value="totalPrice2", required=false) String totalprice2,
-			@RequestParam("Mpoint") double Mpoint, @RequestParam("dpoint") int dpoint,
+			@RequestParam("quantity") int quantity, 
+			@RequestParam("use_pnt") int dpoint, // goodsCartList.jsp 에서  사용한 포인트.
+			@RequestParam("totalPrice1") int totalPrice1, // goodsCartList.jsp 에서 결제해야할 상품 금액
 			@Valid GoodsOrderVO goodsordervo,
 			BindingResult result) {
 		String url = "mypage/goodsOrderCheckOne";
+		
+		// goodsCartList.jsp 에서 넘겨준 포인트(use_pnt)를가지고 계산되는 계산식. 
+		int totalprice2 = totalPrice1 - dpoint; // 최종 결제금액 = 결제금액 - 사용할 포인트
+		double Mpoint = ( totalPrice1 * 0.05 ) - ( dpoint * 0.05 ); // 최종 포인트 = 적립 총 포인트 - 사용할 포인트
+				
 		HttpSession session = request.getSession();
 		MemberVO loginUser
 			= (MemberVO)session.getAttribute("loginUser");
@@ -217,7 +234,7 @@ public class GoodsOrderController {
 			else {
 				session.removeAttribute("goodsVO");
 				HashMap<String,Object> paramMap = new HashMap<String,Object>();
-				paramMap.put("totalprice2", (Integer.parseInt(totalprice2.toString())));
+				paramMap.put("totalprice2", totalprice2);
 				paramMap.put("Mpoint", (int)Mpoint);
 				paramMap.put("dpoint", dpoint);
 				paramMap.put("id", loginUser.getId());

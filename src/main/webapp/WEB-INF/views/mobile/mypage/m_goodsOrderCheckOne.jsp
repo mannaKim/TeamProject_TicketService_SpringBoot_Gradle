@@ -112,7 +112,7 @@
 						<img src="/goods_images/${goodsVO.IMAGE}">
 					</a>
 					<br>
-					<a href="m_goodsDetail?gseq=${goodsVO.GSEQ}">${goodsVO.GNAME}</a>
+					<a href="m_goodsDetail?gseq=${goodsVO.GSEQ}">${goodsVO.NAME}</a>
 					<br><br>
 					${quantity} 개<br>
 					<fmt:formatNumber value="${totalPrice}" type="currency" />
@@ -143,30 +143,38 @@
 				<br>
 				<table id="orderCheck">
 					<tr>
-						<th colspan="3">결제 금액</th>
+						<th colspan="3">총 금액</th>
 						<th colspan="2">
 							<fmt:formatNumber value="${totalPrice}" type="currency" />
-							<input type="hidden" name="totalPrice1" value="${totalPrice}" onKeyup="cal2()"><br>
+							<input type="hidden" name="totalPrice1" value="${totalPrice}" onKeyup="cal()"><br>
 						</th>
 					</tr>
 					<tr>
-						<th colspan="3">적립금 사용(보유 적립금) : ${loginUser.mpoint}</th>
+						<th colspan="3">포인트 사용 
+						<br><font style="color:gray;">최소 적립금 500원 이상일 때 사용 가능합니다.</font></th>
 						<th colspan="2">
-							<input type="text" name="dpoint" placeholder="0" onKeyup="cal2();">
-							<input type="button" value="사용" onClick="pointCheck2('${loginUser.mpoint}');">
+							<input type="checkbox" id="chk_point" 
+								onclick="chkPoint('${totalPrice}','${userPoint.MPOINT}',500,10)">포인트 전부 사용하기 (10p단위)
+							<!-- 사용을 눌렀을대 500p이하 사용 불가./10p단위 조건문 필요 -->
+							<div style="display:inline;">
+							<input type="number" name="use_pnt" id="use_pnt" min="500" max="${totalPrice}" 
+								onchange="changePoint('${totalPrice}','${userPoint.MPOINT}',500,10)"></div> p <br>
+							( 남은포인트 : <div name="left_pnt" id="left_pnt" style="display:inline;">${userPoint.MPOINT}</div>p )
 						</th>
 					</tr>
 					<tr>
 						<th colspan="3">결제 금액</th>
 						<th colspan="2">
-							<input type="text" name="totalPrice2">
+							<!-- onchange 를 이용해서 변경된값을 적용하는 내용. -->
+							<div id="result_pnt" style="display:inline;">${totalPrice}</div>원 
 						</th>
 					</tr>
 					<tr>
 						<th colspan="3">적립 예정 포인트</th>
 						<th colspan="2">
-							<fmt:formatNumber value="${Mpoint}" type="currency"></fmt:formatNumber>
-							<input type="hidden" value="${Mpoint}" name="Mpoint">
+							<!-- onchange 를 이용해서 변경된값을 적용하는 내용.( 결제금액에서 포인트 사용한만큼 제외후 적용 ) -->
+							<div id="result_point" style="display:inline;">
+							<fmt:formatNumber type="number" maxFractionDigits="0" value="${Mpoint}" /></div>p
 						</th>
 					</tr>
 				</table>

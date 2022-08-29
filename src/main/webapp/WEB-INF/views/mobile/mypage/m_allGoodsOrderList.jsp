@@ -21,16 +21,20 @@
 						<tr>
 							<th colspan="2">상품명</th>
 							<th>결제금액</th>
-							<th>주문상세</th>
 						</tr>
 						<c:forEach items="${allGoodsOrderList}" var="govo">
 							<tr>
-								<td><img src="/goods_images/${govo.IMAGE}"></td>
-								<td>${govo.GNAME}</td>
-								<td><fmt:formatNumber value="${govo.TOTALPRICE2}" type="currency" />
+								<td>
+									<a href="m_goodsOrderDetail?goseq=${govo.GOSEQ}">
+										<img src="/goods_images/${govo.IMAGE}">
+									</a>		
 								</td>
 								<td>
-									<a href="m_goodsOrderDetail?goseq=${govo.GOSEQ}">조회</a>
+									<a href="m_goodsOrderDetail?goseq=${govo.GOSEQ}">
+										${govo.GNAME}
+									</a>
+								</td>
+								<td><fmt:formatNumber value="${govo.TOTALPRICE2}" type="currency" />
 								</td>
 							</tr>
 						</c:forEach>

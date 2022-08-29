@@ -30,4 +30,6 @@ public interface IGoodsDao {
 	void getPcGoodsBanner(HashMap<String, Object> paramMap);
 	
 	void getMobileGoodsBanner(HashMap<String, Object> paramMap);
+
+	void getGoodsAndPoint(HashMap<String, Object> paramMap);
 }

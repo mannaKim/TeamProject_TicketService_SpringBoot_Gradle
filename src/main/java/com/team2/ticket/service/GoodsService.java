@@ -89,4 +89,8 @@ public class GoodsService {
 	public void getMobileGoodsBanner(HashMap<String, Object> paramMap) {
 		gdao.getMobileGoodsBanner(paramMap);
 	}
+
+	public void getGoodsAndPoint(HashMap<String, Object> paramMap) {
+		gdao.getGoodsAndPoint(paramMap);
+	}
 }
