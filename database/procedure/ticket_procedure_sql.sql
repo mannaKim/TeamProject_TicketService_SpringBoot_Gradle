@@ -231,3 +231,18 @@ begin
     delete from tp_ticket_cart where cseq=p_cseq;
     commit;
 end;
+
+
+create or replace procedure getTProduct2(
+    p_tpseq in tp_ticket_product.tpseq%type,
+    p_id IN tp_member.id%TYPE,
+    p_cur OUT SYS_REFCURSOR,
+    p_cur2 OUT SYS_REFCURSOR
+)
+IS
+BEGIN
+    OPEN p_cur FOR  
+        select * from tp_ticket_product where tpseq=p_tpseq;
+    OPEN p_cur2 FOR
+        select * from tp_member where id=p_id;
+END;
