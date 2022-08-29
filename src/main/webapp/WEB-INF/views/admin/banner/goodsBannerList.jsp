@@ -42,10 +42,10 @@
 						<td>
 							<c:choose>
 								<c:when test="${goodsBanner.MOBILE == 'n'}">
-									pc 배너
+									pc
 								</c:when>
 								<c:otherwise>
-									mobile 배너
+									mobile
 								</c:otherwise>
 							</c:choose>
 						</td>
