@@ -151,9 +151,7 @@ select {
 				<tr>
 					<th>답변</th>
 					<td>
-						<input class="qna_tt" type="text" name="content" size="47" maxlength="100" value="${faqVO.con_a}" style="border:none;">
-<!-- 					<textarea name="content" rows="10" cols="30" class="qna_tt" style="background-color:transparent" value="${faqVO.con_a}"></textarea>
-		-->				
+						<textarea name="content" rows="10" cols="30" class="qna_tt" style="background-color:transparent; border:none;">${faqVO.con_a}</textarea>				
 					</td>
 				</tr>
 			</table>
