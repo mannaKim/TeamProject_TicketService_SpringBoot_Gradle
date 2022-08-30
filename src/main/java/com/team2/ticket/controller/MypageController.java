@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.team2.ticket.dto.MemberVO;
 import com.team2.ticket.dto.Paging;
+import com.team2.ticket.service.MemberService;
 import com.team2.ticket.service.MypageService;
 import com.team2.ticket.service.TicketingService;
 
@@ -25,6 +26,9 @@ public class MypageController {
 	
 	@Autowired
 	TicketingService ts;
+	
+	@Autowired
+	MemberService mem;
 	
 	@RequestMapping("/mypage")
 	public String mypage(HttpServletRequest request, Model model) {
@@ -61,6 +65,9 @@ public class MypageController {
 			
 			model.addAttribute("tclist", list);
 			model.addAttribute("paging",(Paging)paramMap.get("paging"));
+			
+			MemberVO member = mem.getMember(mvo.getId());
+			session.setAttribute("loginUser", member);
 			
 			return "mypage/ticketCartList";
 		}

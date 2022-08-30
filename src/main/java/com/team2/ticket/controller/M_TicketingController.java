@@ -19,6 +19,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.team2.ticket.dto.MemberVO;
 import com.team2.ticket.dto.Paging;
 import com.team2.ticket.service.GoodsOrderService;
+import com.team2.ticket.service.MemberService;
 import com.team2.ticket.service.MypageService;
 import com.team2.ticket.service.TicketingService;
 
@@ -34,6 +35,8 @@ public class M_TicketingController {
 	@Autowired
 	MypageService ms;
 	
+	@Autowired
+	MemberService mem;
 	
 	@RequestMapping("/m_ticketingList")
 	public String m_ticketingList( HttpServletRequest request, Model model ) {
@@ -332,6 +335,9 @@ public class M_TicketingController {
 			
 			model.addAttribute("tclist", list);
 			model.addAttribute("paging",(Paging)paramMap.get("paging"));
+			
+			MemberVO member = mem.getMember(mvo.getId());
+			session.setAttribute("loginUser", member);
 			
 			return "mobile/mypage/m_ticketCartList";
 		}

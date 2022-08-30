@@ -55,15 +55,40 @@
 			</div>
 			<div id="m_t_menubox" align="center">
 			<div id="m_t_point">
-				사용가능한 포인트 : ${userPoint.MPOINT}p<br>
-				<div style="display:inline;">
-				<input type="number" name="use_pnt" id="use_pnt" min="1000" max="${totalPrice3}" 
-					onchange="ticket_changePoint('${totalPrice3}','${userPoint.MPOINT}',1000,100)"></div> p 
-				<input type="checkbox" id="chk_point" 
-					onclick="ticket_chkPoint('${totalPrice3}','${userPoint.MPOINT}',1000,100)"> 전부 사용 (100p단위) <br> 
-				( 남은포인트 : <div name="left_pnt" id="left_pnt" style="display:inline;">${userPoint.MPOINT}</div>p )<br>
-				<font style="color:gray;">최소 적립금 1000원 이상일 때 사용 가능합니다.</font><br>
-			</div><br>
+				<div id="t_ticket_point">
+					<c:choose>
+						<c:when test="${tpvo.PRICE3 == null}">
+					&nbsp;사용가능한 포인트 : ${userPoint.MPOINT} p<br>
+									<div style="display: inline;">
+										&nbsp;<input type="number" name="use_pnt" id="use_pnt" value="0"
+											min="0" max="${totalPrice3}"
+											onchange="ticket_changePoint_PRICE3_null('${totalPrice3}','${userPoint.MPOINT}',1000,100)">
+									</div> p  
+					&nbsp;<input type="checkbox" id="chk_point"
+										onclick="ticket_chkPoint_PRICE3_null('${totalPrice3}','${userPoint.MPOINT}',1000,100)"> 전부 사용 (100p단위) <br> 
+					&nbsp;( 남은포인트 : <div name="left_pnt" id="left_pnt"
+										style="display: inline;">${userPoint.MPOINT}</div>p )<br>
+									&nbsp;<font style="color: gray;">최소 적립금 1000원 이상일 때 사용 가능합니다.</font>
+									<br>
+								</c:when>
+								<c:when test="${tpvo.PRICE3 > 0}">
+					&nbsp;사용가능한 포인트 : ${userPoint.MPOINT}p<br>
+									<div style="display: inline;">
+										&nbsp;<input type="number" name="use_pnt" id="use_pnt" value="0"
+											min="0" max="${totalPrice3}"
+											onchange="ticket_changePoint('${totalPrice3}','${userPoint.MPOINT}',1000,100)">
+									</div> p 
+					&nbsp;<input type="checkbox" id="chk_point"
+										onclick="ticket_chkPoint('${totalPrice3}','${userPoint.MPOINT}',1000,100)"> 전부 사용 (100p단위) <br> 
+					&nbsp;( 남은포인트 : <div name="left_pnt" id="left_pnt"
+										style="display: inline;">${userPoint.MPOINT}</div>p )<br>
+									&nbsp;<font style="color: gray;">최소 적립금 1000원 이상일 때 사용 가능합니다.</font>
+									<br>
+								</c:when>
+							</c:choose>
+						</div>
+					</div><br>
+			
 				<div id="m_t_menuboxx">
 					<table class="m_t_tablemenubox">
 						<tr><th colspan="2" style="background-color: #4d6375">선택된 내용</th></tr>

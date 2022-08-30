@@ -105,9 +105,6 @@ div#m_t_showBox {
 	margin: 0 auto;
 }
 
-div#m_t_showBox1{
-	border:1px solid red;
-}
 
 table#m_t_showBox{
 	color: black;
@@ -434,6 +431,6 @@ div#m_t_step3font {
 	margin-top: 5%;
 }
 
-div#m_t_point{
+/* div#m_t_point{
 	
-}
+} */
