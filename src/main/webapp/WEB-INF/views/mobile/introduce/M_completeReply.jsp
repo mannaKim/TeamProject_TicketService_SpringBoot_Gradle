@@ -16,7 +16,7 @@
 	    <table>
 	      	<tr>
 	        	<td>
-	          		<h3>비밀번호 재설정이 완료되었습니다.</h3>
+	          		<h3>댓글 수정이 완료되었습니다.</h3>
 	          		<div id="completpwd_btn">
 	          			<input type="button" value="돌아가기" onClick="go_MeventDetail('${reply.evnum}');" style="width:130px; height:30px;">
 	          		</div>

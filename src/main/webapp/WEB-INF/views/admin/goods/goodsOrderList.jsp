@@ -30,7 +30,7 @@
 			   		${govo.GNAME}
 			   	</td>
 			   	<td>
-			   		<fmt:formatNumber value="${govo.PRICE}" type="currency"/>
+			   		<fmt:formatNumber value="${govo.TOTALPRICE2}" type="currency"/>
 			   	</td>
 			   	<td>
 			   		<c:if test="${govo.RESULT=='1'}">처리중</c:if>

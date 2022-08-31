@@ -157,7 +157,7 @@ select {
 			</table>
 			<div class="qna_bt_box">
 			<div class="qna_bts">
-				<input  type="button" value="작성" class="qna_bu" onclick="go_write_faq();">
+				<input  type="submit" value="작성" class="qna_bu">
 				<input type="button" value="취소" class="qna_bu"
 					onClick="location.href='faqList'">
 			</div>

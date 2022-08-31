@@ -1,3 +1,4 @@
+drop table tp_ticket_cart CASCADE CONSTRAINTS;
 CREATE TABLE tp_ticket_cart
 (
 	cseq number(7) NOT NULL,
@@ -11,6 +12,7 @@ CREATE TABLE tp_ticket_cart
 	PRIMARY KEY (cseq)
 );
 
+drop table tp_ticket_product CASCADE CONSTRAINTS;
 CREATE TABLE tp_ticket_product
 (
 	tpseq number(7) NOT NULL,

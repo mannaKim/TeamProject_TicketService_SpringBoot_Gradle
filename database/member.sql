@@ -1,3 +1,5 @@
+drop table tp_member CASCADE CONSTRAINTS;
+
 create table tp_member
 (
 	id varchar2(20) not null,

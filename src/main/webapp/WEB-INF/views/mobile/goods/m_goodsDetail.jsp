@@ -4,7 +4,7 @@
 	<!-- 굿즈 검색창 -->
 	<br><br>
 	<div class="goods_subMenu">
-		<form class="goods_searchBox" method="post" name="frm" action="goodsSearch?page=1">
+		<form class="goods_searchBox" method="post" name="frm" action="m_goodsSearch?page=1">
 			<div class="goods_search">
 				<input type="text" name="key" value="${key}" size="45">
 			</div>

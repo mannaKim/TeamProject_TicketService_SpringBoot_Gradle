@@ -88,15 +88,15 @@
 					<a href="${action}?page=${paging.endPage+1}">▶</a>&nbsp;
 		    </c:if>
 			</div>
-
 			<br>
+			<!-- <br>
 			<div class="clear"></div>
 			<div class="qna_bts_1">
 				<input type="button" value="1:1 문의하기"  class="qna_bu" onClick="location.href='mqnaWriteForm'"> 
-				<!-- 문의하기 버튼을 누르면 QnaWirteFormAction 으로 이동합니다.  -->
+				문의하기 버튼을 누르면 QnaWirteFormAction 으로 이동합니다. 
 			</div>
 			<div class="clear"></div>
-			<br>
+			<br> -->
 		</form>
 	</div>
 </article>

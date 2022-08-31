@@ -285,7 +285,7 @@ public class M_MypageController {
 			MPoint = (int)totalPrice * 0.05;
 			mav.addObject("quantity", quantity);
 			mav.addObject("totalPrice", totalPrice);
-			mav.addObject("Mpoint", MPoint);
+			mav.addObject("Mpoint", (int)MPoint);
 			mav.addObject("userPoint", pointList.get(0));
 			mav.addObject("goodsVO", resultMap);
 			session.setAttribute("totalPrice", totalPrice);

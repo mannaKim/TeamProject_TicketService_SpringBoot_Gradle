@@ -1,4 +1,4 @@
-drop table tp_event
+drop table tp_event CASCADE CONSTRAINTS;
 -- 이벤트
 CREATE TABLE tp_event
 (
@@ -26,7 +26,7 @@ create sequence evnum_seq start with 1;
 select * from tp_event;
 
 
-drop table tp_introduce
+drop table tp_introduce CASCADE CONSTRAINTS;
 -- 소개
 CREATE TABLE tp_introduce
 (
@@ -48,7 +48,7 @@ create sequence itnum_seq start with 1;
 select * from tp_introduce;
 
 
-drop table tp_notice
+drop table tp_notice CASCADE CONSTRAINTS;
 -- 공지사항
 CREATE TABLE tp_notice
 (
@@ -71,6 +71,7 @@ create sequence ntnum_seq start with 1;
 select * from tp_notice;
 
 
+drop table tp_reply CASCADE CONSTRAINTS;
 -- 이벤트 댓글
 CREATE TABLE tp_reply
 (

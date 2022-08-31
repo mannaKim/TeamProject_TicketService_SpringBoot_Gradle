@@ -64,7 +64,7 @@
 		
 	<div id="paging" align="center" class="qna_pag"
 		style="font-size: 110%; font-weight: bold;">
-		<c:url var="action" value="qnaList" />
+		<c:url var="action" value="mqnaList" />
 		<c:if test="${paging.prev}">
 			<a href="${action}?page=${paging.beginPage-1}">◀</a>&nbsp;
     </c:if>

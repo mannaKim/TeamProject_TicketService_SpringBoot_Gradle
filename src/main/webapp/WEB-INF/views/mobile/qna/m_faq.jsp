@@ -8,7 +8,7 @@
 
 <article>
 	<div class="clear"></div>
-	<div class="qna_px" style="min-hight: 1000px;">
+	<div class="qna_px" style="height:auto; overflow:hidden;">
 	<div class="box_content" style="margin-top: 50px;">
 	<c:forEach items="${faqList}" var="faqVO">
 	 <div class="faq-content">

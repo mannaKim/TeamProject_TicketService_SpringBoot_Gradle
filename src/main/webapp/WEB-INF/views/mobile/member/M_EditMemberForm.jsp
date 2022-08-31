@@ -91,11 +91,13 @@
 		</script><br>
 		</div>
 		<div id="msgbox" class="join"><h4>${message}</h4></div>
-      		<div id="join_buttons">
-      			<input type="reset" class="goodsButton2" value="다시작성">
-    			<input type="submit" class="goodsButton1" value="수정">
-    		</div>
-    	</fieldset>
+		<div class="goodsCartButton">
+			<input type="reset" class="goodsButton2" value="다시작성">
+		</div>
+		<div class="goodsCartButton">
+			<input type="submit" class="goodsButton1" value="수정">
+		</div>
+		</fieldset>
   	</form>
 </article>
 
